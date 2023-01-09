@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name[es]=Instalar SnowflakeOS
+Name=Install SnowflakeOS
+Comment[es]=Instalar
+Comment=Install
+Type=Application
+Exec=icicle
+Terminal=false
+Categories=Settings;System;Utility;
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords[es]=Instalador;Icicle;
+Keywords=Installer;Icicle;
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+Icon=org.snowflakeos.Icicle
+StartupNotify=true

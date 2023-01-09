@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+  <schema path="/org/snowflakeos/Icicle/" id="org.snowflakeos.Icicle" gettext-domain="icicle">
+  </schema>
+</schemalist>

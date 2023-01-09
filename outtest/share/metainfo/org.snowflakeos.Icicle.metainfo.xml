@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.snowflakeos.Icicle</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <name>Icicle Installer</name>
+  <name xml:lang="es">Instalador de Icicle</name>
+  <summary>A graphical installer for NixOS based distributions.</summary>
+  <summary xml:lang="es">Un instalador gráfico para distribuciones basadas en NixOS.</summary>
+  <description>
+    <p>A graphical installer for NixOS based distributions.</p>
+    <p xml:lang="es">Un instalador gráfico para distribuciones basadas en NixOS.</p>
+  </description>
+  <url type="homepage">https://github.com/snowflakelinux/icicle</url>
+  <url type="bugtracker">https://github.com/snowflakelinux/icicle/issues</url>
+  <developer_name>Victor Fuentes</developer_name>
+  <update_contact>vmfuentes64@gmail.com</update_contact>
+  <translation type="gettext">icicle</translation>
+  <launchable type="desktop-id">org.snowflakeos.Icicle.desktop</launchable>
+</component>

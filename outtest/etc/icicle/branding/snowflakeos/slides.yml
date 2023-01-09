@@ -1,0 +1,11 @@
+---
+slides:
+- title: Configurable and Customizable
+  subtitle: Easily modify and manage your system configuration with the power of NixOS
+  image: configuration.svg
+- title: Nix Package Manager
+  subtitle: Keep your system stable with Nix's reliable and reproducible packages
+  image: nix.svg
+- title: Over 80,000 packages available
+  subtitle: Easily find and install all the packages you need on your SnowflakeOS system
+  image: apps.svg

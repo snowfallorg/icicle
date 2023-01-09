@@ -1,0 +1,12 @@
+---
+distribution_name: SnowflakeOS
+distribution_logo: branding/snowflakeos/snowflakeos.svg
+branding: snowflakeos
+internet_check_url: http://nmcheck.gnome.org/check_network_status.txt
+default_hostname: snowflakeos
+choices:
+- !configuration
+  file: basic.yml
+- !configuration
+  file: advanced.yml
+- live

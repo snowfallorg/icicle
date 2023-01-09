@@ -1,0 +1,53 @@
+---
+config_name: Advanced Installation
+config_logo: preferences-system-symbolic
+config_id: advanced
+steps:
+- welcome
+- location
+- keyboard
+- !user
+  root: true
+  hostname: true
+- !list
+  multiple: true
+  required: false
+  title: Extra Package Managers
+  id: PACKAGEMANAGERS
+  choices:
+    - Flatpak:
+        description: Enable Flatpak support
+        config: |-
+          # Enable flatpak support
+          services.flatpak.enable = true;
+    - AppImage:
+        description: Enable AppImage support by installing the \"appimage-run\" package.
+          For appimages to work, you must run them with the \"appimage-run\" command.
+        packages:
+        - appimage-run
+- !list
+  multiple: false
+  required: true
+  title: Kernel
+  id: KERNEL
+  choices:
+    - LTS:
+        description: Install the latest LTS kernel
+    - Latest:
+        description: Install the latest kernel
+        config: |-
+          # Install the latest kernel
+          boot.kernelPackages = pkgs.linuxPackages_latest;
+    - Libre:
+        description: Install the libre kernel
+        config: |-
+          # Install the libre kernel
+          boot.kernelPackages = pkgs.linuxPackages_libre;
+    - Zen:
+        description: Install the zen kernel
+        config: |-
+          # Install the zen kernel
+          boot.kernelPackages = pkgs.linuxPackages_zen;
+- partitioning
+- manual
+- summary

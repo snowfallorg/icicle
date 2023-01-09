@@ -1,0 +1,23 @@
+data/org.snowflakeos.Icicle.desktop.in.in
+data/org.snowflakeos.Icicle.gschema.xml.in
+data/org.snowflakeos.Icicle.metainfo.xml.in.in
+data/org.snowflakeos.Icicle.policy.in.in
+
+# Rust files
+src/main.rs
+src/ui/pages/base.rs
+src/ui/pages/error.rs
+src/ui/pages/install.rs
+src/ui/pages/keyboard.rs
+src/ui/pages/list.rs
+src/ui/pages/partitions.rs
+src/ui/pages/summary.rs
+src/ui/pages/timezone.rs
+src/ui/pages/user.rs
+src/ui/pages/welcome.rs
+src/ui/window.rs
+
+# YAML files
+config/icicle/advanced.yml.in
+config/icicle/basic.yml.in
+config/icicle/branding/snowflakeos/slides.yml.in

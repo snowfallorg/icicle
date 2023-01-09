@@ -1,0 +1,11 @@
+---
+config_name: _("Basic Installation")
+config_logo: emoji-symbols-symbolic
+config_id: basic
+steps:
+- welcome
+- keyboard
+- location
+- !user
+- partitioning
+- summary

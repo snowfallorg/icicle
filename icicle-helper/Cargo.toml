@@ -1,0 +1,19 @@
+[package]
+name = "icicle-helper"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.0", features = ["derive"] }
+users = "0.11"
+libparted = "0.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+distinst-disks = { git = "https://github.com/pop-os/distinst/" }
+distinst-disk-ops = { git = "https://github.com/pop-os/distinst/" }
+disk-types = { git = "https://github.com/pop-os/distinst/" }
+
+[[bin]]
+name = "icicle-helper"
+path = "src/main.rs"

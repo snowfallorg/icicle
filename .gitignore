@@ -1,0 +1,8 @@
+/.direnv
+/build
+/builddir
+/out
+/src/config.rs
+/target
+result
+TODO
