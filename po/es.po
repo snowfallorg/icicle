@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 15:23-0500\n"
+"POT-Creation-Date: 2023-01-09 20:26-0500\n"
 "PO-Revision-Date: 2023-01-10 00:35+0000\n"
 "Last-Translator: Victor Fuentes <vlinkz@snowflakeos.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/snowflakeos/"
@@ -32,7 +32,7 @@ msgstr "Instalar"
 msgid "Installer;Icicle;"
 msgstr ""
 
-#: data/org.snowflakeos.Icicle.metainfo.xml.in.in:6 src/main.rs:26
+#: data/org.snowflakeos.Icicle.metainfo.xml.in.in:6 src/main.rs:30
 msgid "Icicle Installer"
 msgstr ""
 
@@ -65,19 +65,19 @@ msgstr ""
 msgid "Open Report"
 msgstr ""
 
-#: src/ui/pages/keyboard.rs:54
+#: src/ui/pages/keyboard.rs:52
 msgid "Keyboard Layout"
 msgstr ""
 
-#: src/ui/pages/keyboard.rs:62
+#: src/ui/pages/keyboard.rs:60
 msgid "Test the Keyboard Layout"
 msgstr ""
 
-#: src/ui/pages/keyboard.rs:87 src/ui/pages/timezone.rs:78
+#: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 msgid "Show less"
 msgstr ""
 
-#: src/ui/pages/keyboard.rs:87 src/ui/pages/timezone.rs:78
+#: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 msgid "Show all"
 msgstr ""
 
@@ -85,203 +85,203 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-#: src/ui/pages/partitions.rs:81
+#: src/ui/pages/partitions.rs:80
 msgid "Select a disk"
 msgstr ""
 
-#: src/ui/pages/partitions.rs:86
+#: src/ui/pages/partitions.rs:85
 msgid "Disk will be formatted and all data will be lost"
 msgstr ""
 
-#: src/ui/pages/partitions.rs:103
+#: src/ui/pages/partitions.rs:102
 msgid "Advanced"
 msgstr ""
 
-#: src/ui/pages/partitions.rs:118 src/ui/pages/partitions.rs:231
+#: src/ui/pages/partitions.rs:117 src/ui/pages/partitions.rs:230
 msgid "Refresh"
 msgstr ""
 
-#: src/ui/pages/partitions.rs:128
+#: src/ui/pages/partitions.rs:127
 msgid "Select partitions"
 msgstr ""
 
-#: src/ui/pages/partitions.rs:173
+#: src/ui/pages/partitions.rs:172
 msgid "Ready to install!"
 msgstr ""
 
 #. Translators: Do NOT translate anything between the <tt> tags
-#: src/ui/pages/partitions.rs:175
+#: src/ui/pages/partitions.rs:174
 msgid "Missing <tt>/boot/efi</tt> partition"
 msgstr ""
 
 #. Translators: Do NOT translate anything between the <tt> tags
-#: src/ui/pages/partitions.rs:177
+#: src/ui/pages/partitions.rs:176
 msgid "Missing <tt>/</tt> partition"
 msgstr ""
 
 #. Translators: Do NOT translate anything between the <tt> tags
-#: src/ui/pages/partitions.rs:179 src/ui/pages/partitions.rs:183
+#: src/ui/pages/partitions.rs:178 src/ui/pages/partitions.rs:182
 msgid "Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions"
 msgstr ""
 
-#: src/ui/pages/partitions.rs:199
+#: src/ui/pages/partitions.rs:198
 msgid "Launch GParted"
 msgstr ""
 
-#: src/ui/pages/partitions.rs:216
+#: src/ui/pages/partitions.rs:215
 msgid "Basic"
 msgstr ""
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{/dev/sdX} (20 Gb minimum needed)" indicating that the given disk is not large enough
-#: src/ui/pages/partitions.rs:549
+#: src/ui/pages/partitions.rs:548
 msgid "{} (20 Gb minimum needed)"
 msgstr ""
 
-#: src/ui/pages/partitions.rs:613
+#: src/ui/pages/partitions.rs:612
 msgid "Format"
 msgstr ""
 
-#: src/ui/pages/partitions.rs:634 src/ui/pages/partitions.rs:653
+#: src/ui/pages/partitions.rs:633 src/ui/pages/partitions.rs:652
 msgid "Mount"
 msgstr ""
 
-#: src/ui/pages/partitions.rs:668 src/ui/pages/summary.rs:289
+#: src/ui/pages/partitions.rs:667 src/ui/pages/summary.rs:305
 msgid "Do not mount"
 msgstr ""
 
-#: src/ui/pages/partitions.rs:669
+#: src/ui/pages/partitions.rs:668
 msgid "Leave as is"
 msgstr ""
 
-#: src/ui/pages/summary.rs:55
+#: src/ui/pages/summary.rs:58
 msgid "Summary"
 msgstr ""
 
-#: src/ui/pages/summary.rs:60
+#: src/ui/pages/summary.rs:63
 msgid "Language"
 msgstr ""
 
-#: src/ui/pages/summary.rs:71
+#: src/ui/pages/summary.rs:74
 msgid "Keyboard"
 msgstr ""
 
-#: src/ui/pages/summary.rs:82 src/ui/pages/timezone.rs:53
+#: src/ui/pages/summary.rs:85 src/ui/pages/timezone.rs:52
 msgid "Timezone"
 msgstr ""
 
-#: src/ui/pages/summary.rs:94 src/ui/pages/summary.rs:112
-#: src/ui/pages/summary.rs:118
+#: src/ui/pages/summary.rs:97 src/ui/pages/summary.rs:115
+#: src/ui/pages/summary.rs:121
 msgid "Partitions"
 msgstr ""
 
-#: src/ui/pages/summary.rs:100
+#: src/ui/pages/summary.rs:103
 msgid "Full Disk"
 msgstr ""
 
-#: src/ui/pages/summary.rs:103
+#: src/ui/pages/summary.rs:106
 msgid "Entire disk will be formatted"
 msgstr ""
 
-#: src/ui/pages/summary.rs:128
+#: src/ui/pages/summary.rs:131
 msgid "User"
 msgstr ""
 
-#: src/ui/pages/summary.rs:132 src/ui/pages/user.rs:73
+#: src/ui/pages/summary.rs:135 src/ui/pages/user.rs:70
 msgid "Name"
 msgstr ""
 
-#: src/ui/pages/summary.rs:150 src/ui/pages/user.rs:81
+#: src/ui/pages/summary.rs:153 src/ui/pages/user.rs:78
 msgid "Username"
 msgstr ""
 
-#: src/ui/pages/summary.rs:168 src/ui/pages/user.rs:150
+#: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:147
 msgid "Hostname"
 msgstr ""
 
 #. Translators: Leave the ':' at the end of the string, it will read Mountpoint: {disk mount location}
-#: src/ui/pages/summary.rs:282
+#: src/ui/pages/summary.rs:298
 msgid "Mountpoint:"
 msgstr ""
 
 #. Translators: Leave the ':' at the end of the string, it will read Format: {disk format}
-#: src/ui/pages/summary.rs:302
+#: src/ui/pages/summary.rs:318
 msgid "Format:"
 msgstr ""
 
-#: src/ui/pages/summary.rs:309
+#: src/ui/pages/summary.rs:325
 msgid "Do not format"
 msgstr ""
 
-#: src/ui/pages/user.rs:65
+#: src/ui/pages/user.rs:62
 msgid "Create a new user"
 msgstr ""
 
-#: src/ui/pages/user.rs:113
+#: src/ui/pages/user.rs:110
 msgid "Password"
 msgstr ""
 
-#: src/ui/pages/user.rs:121
+#: src/ui/pages/user.rs:118
 msgid "Confirm Password"
 msgstr ""
 
-#: src/ui/pages/user.rs:128
+#: src/ui/pages/user.rs:125
 msgid "Login automatically"
 msgstr ""
 
-#: src/ui/pages/user.rs:175
+#: src/ui/pages/user.rs:172
 msgid "Root password"
 msgstr ""
 
-#: src/ui/pages/user.rs:183
+#: src/ui/pages/user.rs:180
 msgid "Confirm root password"
 msgstr ""
 
-#: src/ui/pages/welcome.rs:43
+#: src/ui/pages/welcome.rs:42
 msgid "Welcome!"
 msgstr ""
 
-#: src/ui/pages/welcome.rs:48
+#: src/ui/pages/welcome.rs:47
 msgid "Choose a language"
 msgstr ""
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{distribution name} Installer"
-#: src/ui/window.rs:161
+#: src/ui/window.rs:159
 msgid "{} Installer"
 msgstr ""
 
-#: src/ui/window.rs:173
+#: src/ui/window.rs:171
 msgid "Installing"
 msgstr ""
 
-#: src/ui/window.rs:178
+#: src/ui/window.rs:176
 msgid "Installation Finished"
 msgstr ""
 
-#: src/ui/window.rs:183
+#: src/ui/window.rs:181
 msgid "Installation Failed"
 msgstr ""
 
-#: src/ui/window.rs:293
+#: src/ui/window.rs:291
 msgid "Finished!"
 msgstr ""
 
-#: src/ui/window.rs:305
+#: src/ui/window.rs:303
 msgid "Reboot"
 msgstr ""
 
-#: src/ui/window.rs:321
+#: src/ui/window.rs:319
 msgid "No Internet"
 msgstr ""
 
-#: src/ui/window.rs:322
+#: src/ui/window.rs:320
 msgid "Please connect to the internet to continue"
 msgstr ""
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "Try {distribution name} live"
-#: src/ui/window.rs:487
+#: src/ui/window.rs:485
 msgid "Try {} live"
 msgstr ""
 
