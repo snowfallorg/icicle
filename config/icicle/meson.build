@@ -30,4 +30,7 @@ yaml_build = custom_target(
 
 install_data('config.yml', install_dir : sysconfdir / 'icicle')
 
+install_subdir('basic', install_dir : sysconfdir / 'icicle')
+install_subdir('advanced', install_dir : sysconfdir / 'icicle')
+
 subdir('branding/snowflakeos')
