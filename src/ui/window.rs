@@ -168,7 +168,7 @@ impl Component for AppModel {
                         },
                         StackPage::Install => {
                             gtk::Label {
-                                set_label: &gettext("Installing")
+                                set_label: &gettext("Installing…")
                             }
                         },
                         StackPage::Finished => {
@@ -317,7 +317,7 @@ impl Component for AppModel {
                         adw::StatusPage {
                             set_icon_name: Some("network-wireless-offline-symbolic"),
                             set_title: &gettext("No Internet"),
-                            set_description: Some(&gettext("Please connect to the internet to continue")),
+                            set_description: Some(&gettext("Please connect to the Internet to continue")),
                         }
                     }
                 }
@@ -371,7 +371,7 @@ impl Component for AppModel {
         };
 
         if startpage == StackPage::NoInternet {
-            debug!("Waiting for internet connection...");
+            debug!("Waiting for internet connection…");
             let configclone = config.clone();
             sender.oneshot_command(async move {
                 loop {
