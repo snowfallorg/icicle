@@ -10,14 +10,17 @@ use super::pages::{
     welcome::WelcomeMsg,
 };
 use crate::{
-    ui::pages::{
-        error::ErrorMsg,
-        install::INSTALL_BROKER,
-        list::{ListInit, ListMsg},
-        partitions::{PartitionModel, PARTITION_BROKER},
-        timezone::TimeZoneModel,
-        user::UserMsg,
-        welcome::WelcomeModel,
+    ui::{
+        pages::{
+            error::ErrorMsg,
+            install::INSTALL_BROKER,
+            list::{ListInit, ListMsg},
+            partitions::{PartitionModel, PARTITION_BROKER},
+            timezone::TimeZoneModel,
+            user::UserMsg,
+            welcome::WelcomeModel,
+        },
+        quitdialog::{QuitDialogModel, QuitDialogMsg},
     },
     utils::{
         i18n::i18n_f,
@@ -59,6 +62,8 @@ pub struct AppModel {
     listconfig: HashMap<String, HashMap<String, Choice>>,
     #[tracker::no_eq]
     error: Controller<ErrorModel>,
+    #[tracker::no_eq]
+    quitdialog: Controller<QuitDialogModel>,
 
     can_go_back: bool,
     can_go_forward: bool,
@@ -140,6 +145,15 @@ impl Component for AppModel {
         adw::ApplicationWindow {
             set_default_width: 900,
             set_default_height: 800,
+            connect_close_request[quitdialog = model.quitdialog.sender().clone(), page = model.page.clone()] => move |_| {
+                debug!("Caught close request");
+                if page == StackPage::Install {
+                    let _ = quitdialog.send(QuitDialogMsg::Show);
+                    gtk::Inhibit(true)
+                } else {
+                    gtk::Inhibit(false)
+                }
+            },
             gtk::Box {
                 set_hexpand: true,
                 set_vexpand: true,
@@ -358,6 +372,9 @@ impl Component for AppModel {
         let errorpage = ErrorModel::builder()
             .launch(())
             .forward(sender.input_sender(), identity);
+        let quitdialog = QuitDialogModel::builder()
+            .launch(root.clone().upcast())
+            .forward(sender.input_sender(), identity);
 
         let res = reqwest::blocking::get(&config.internet_check_url);
         let startpage = if let Ok(res) = res {
@@ -403,6 +420,7 @@ impl Component for AppModel {
             list: HashMap::new(),
             listconfig: HashMap::new(),
             error: errorpage,
+            quitdialog,
             can_go_back: true,
             can_go_forward: true,
             carousel: adw::Carousel::new(),
