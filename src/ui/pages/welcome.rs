@@ -73,7 +73,7 @@ impl SimpleComponent for WelcomeModel {
                         add_css_class: "pill",
                         set_halign: gtk::Align::Center,
                         #[watch]
-                        set_label: if model.showall { "Show less" } else { "Show all" },
+                        set_label: &if model.showall { gettext("Show less") } else { gettext("Show all") },
                         connect_clicked[sender] => move |_| {
                             sender.input(WelcomeMsg::ToggleShowall);
                             sender.input(WelcomeMsg::SetSelected(None));
