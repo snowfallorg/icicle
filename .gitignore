@@ -1,4 +1,5 @@
 /.direnv
+/.vscode
 /build
 /builddir
 /out
