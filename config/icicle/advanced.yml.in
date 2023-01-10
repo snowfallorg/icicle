@@ -21,8 +21,7 @@ steps:
           # Enable flatpak support
           services.flatpak.enable = true;
     - AppImage:
-        description: _("Enable AppImage support by installing the \"appimage-run\" package.")
-          _("For appimages to work, you must run them with the \"appimage-run\" command.")
+        description: _("Enable AppImage support by installing the \"appimage-run\" package. For appimages to work, you must run them with the \"appimage-run\" command.")
         packages:
         - appimage-run
 - !list

@@ -59,7 +59,7 @@ meson.add_dist_script(
   meson.project_source_root()
 )
 
-ymlconvert = find_program('build-aux/convertyml.sh', required : true)
+ymlconvert = find_program('convertyml', required : true)
 
 subdir('data')
 subdir('po')

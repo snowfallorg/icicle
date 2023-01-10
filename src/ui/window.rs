@@ -696,6 +696,9 @@ impl Component for AppModel {
             }
             AppMsg::SetLanguageConfig(language) => {
                 self.languageconfig = language;
+                for listpage in self.list.values() {
+                    listpage.emit(ListMsg::SetLocale(self.languageconfig.clone()));
+                }
             }
             AppMsg::SetKeyboardConfig(keyboard) => {
                 self.keyboardconfig = keyboard;

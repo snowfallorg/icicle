@@ -10,6 +10,7 @@
         pkgs = import nixpkgs {
           inherit system;
         };
+        convertyml = (import ./convertyml/default.nix { inherit pkgs; });
         name = "icicle";
       in
       rec
@@ -54,7 +55,7 @@
             rustPlatform.bindgenHook
             gettext
             appstream-glib
-            appstream
+            convertyml
           ];
           RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
         };

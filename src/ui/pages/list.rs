@@ -4,14 +4,18 @@ use gettextrs::gettext;
 use relm4::{factory::*, *};
 use std::collections::HashMap;
 
+#[tracker::track]
 pub struct ListModel {
     id: String,
     title: String,
+    #[tracker::no_eq]
     list: FactoryVecDeque<ListItem>,
+    #[tracker::no_eq]
     choices: Vec<(String, Choice)>,
     selected: Vec<String>,
     group: Option<gtk::CheckButton>,
     required: bool,
+    locale: Option<String>,
 }
 
 #[derive(Debug)]
@@ -19,6 +23,7 @@ pub enum ListMsg {
     CheckSelected,
     Select(String),
     Deselect(String),
+    SetLocale(Option<String>)
 }
 
 pub struct ListInit {
@@ -47,7 +52,8 @@ impl SimpleComponent for ListModel {
                     set_margin_all: 20,
                     gtk::Label {
                         add_css_class: "title-1",
-                        set_label: &model.title,
+                        #[track(model.changed(ListModel::locale()))]
+                        set_label: &gettext(&model.title),
                     },
                     #[local_ref]
                     group -> adw::PreferencesGroup {
@@ -56,7 +62,7 @@ impl SimpleComponent for ListModel {
                     gtk::Button {
                         add_css_class: "pill",
                         set_halign: gtk::Align::Center,
-                        #[watch]
+                        #[track(model.changed(ListModel::locale()))]
                         set_label: &gettext("Clear"),
                         #[watch]
                         set_visible: !model.required && model.group.is_some(),
@@ -96,6 +102,8 @@ impl SimpleComponent for ListModel {
             } else {
                 Some(gtk::CheckButton::new())
             },
+            locale: None,
+            tracker: 0
         };
 
         let mut list_guard = model.list.guard();
@@ -104,6 +112,8 @@ impl SimpleComponent for ListModel {
                 title: key.to_string(),
                 description: choice.description.clone().unwrap_or_default(),
                 group: model.group.clone(),
+                locale: model.locale.clone(),
+                tracker: 0,
             };
             list_guard.push_back(item);
         }
@@ -114,6 +124,7 @@ impl SimpleComponent for ListModel {
     }
 
     fn update(&mut self, msg: Self::Input, sender: ComponentSender<Self>) {
+        self.reset();
         match msg {
             ListMsg::CheckSelected => {
                 let cangoforward = if self.required {
@@ -137,14 +148,24 @@ impl SimpleComponent for ListModel {
                 selected.retain(|k, _| self.selected.contains(k));
                 let _ = sender.output(AppMsg::SetListConfig(self.id.to_string(), selected));
             }
+            ListMsg::SetLocale(locale) => {
+                self.set_locale(locale);
+                let mut list_guard = self.list.guard();
+                for item in list_guard.iter_mut() {
+                    item.set_locale(self.locale.clone());
+                }
+                list_guard.drop();
+            }
         }
     }
 }
 
+#[tracker::track]
 pub struct ListItem {
     title: String,
     description: String,
     group: Option<gtk::CheckButton>,
+    locale: Option<String>,
 }
 
 #[derive(Debug)]
@@ -164,8 +185,10 @@ impl FactoryComponent for ListItem {
 
     view! {
         adw::ActionRow {
-            set_title: &self.title,
-            set_subtitle: &self.description,
+            #[track(self.changed(ListItem::locale()))]
+            set_title: &gettext(&self.title),
+            #[track(self.changed(ListItem::locale()))]
+            set_subtitle: &gettext(&self.description),
             set_activatable: true,
             connect_activated[checkbtn] => move |_| {
                 checkbtn.activate();
@@ -193,5 +216,9 @@ impl FactoryComponent for ListItem {
             ListItemMsg::Select(key) => ListMsg::Select(key),
             ListItemMsg::Deselect(key) => ListMsg::Deselect(key),
         })
+    }
+
+    fn update(&mut self, _message: Self::Input, _sender: FactorySender<Self>) {
+        self.reset();
     }
 }

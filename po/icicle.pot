@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 20:48-0500\n"
+"POT-Creation-Date: 2023-01-10 02:22-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,14 +68,16 @@ msgid "Test the Keyboard Layout"
 msgstr ""
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
+#: src/ui/pages/welcome.rs:76
 msgid "Show less"
 msgstr ""
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
+#: src/ui/pages/welcome.rs:76
 msgid "Show all"
 msgstr ""
 
-#: src/ui/pages/list.rs:60
+#: src/ui/pages/list.rs:66
 msgid "Clear"
 msgstr ""
 
@@ -292,31 +294,28 @@ msgid "Enable Flatpak support"
 msgstr ""
 
 #: config/icicle/advanced.yml.in:24
-msgid "Enable AppImage support by installing the \"appimage-run\" package."
-msgstr ""
-
-#: config/icicle/advanced.yml.in:25
 msgid ""
-"For appimages to work, you must run them with the \"appimage-run\" command."
+"Enable AppImage support by installing the \"appimage-run\" package. For "
+"appimages to work, you must run them with the \"appimage-run\" command."
 msgstr ""
 
-#: config/icicle/advanced.yml.in:31
+#: config/icicle/advanced.yml.in:30
 msgid "Kernel"
 msgstr ""
 
-#: config/icicle/advanced.yml.in:35
+#: config/icicle/advanced.yml.in:34
 msgid "Install the latest LTS kernel"
 msgstr ""
 
-#: config/icicle/advanced.yml.in:37
+#: config/icicle/advanced.yml.in:36
 msgid "Install the latest kernel"
 msgstr ""
 
-#: config/icicle/advanced.yml.in:42
+#: config/icicle/advanced.yml.in:41
 msgid "Install the libre kernel"
 msgstr ""
 
-#: config/icicle/advanced.yml.in:47
+#: config/icicle/advanced.yml.in:46
 msgid "Install the zen kernel"
 msgstr ""
 

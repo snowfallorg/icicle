@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 20:48-0500\n"
+"POT-Creation-Date: 2023-01-10 02:22-0500\n"
 "PO-Revision-Date: 2023-01-10 02:28+0000\n"
 "Last-Translator: Victor Fuentes <vlinkz@snowflakeos.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/snowflakeos/"
@@ -70,14 +70,16 @@ msgid "Test the Keyboard Layout"
 msgstr "Prueba la distribución del teclado"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
+#: src/ui/pages/welcome.rs:76
 msgid "Show less"
 msgstr "Muestra menos"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
+#: src/ui/pages/welcome.rs:76
 msgid "Show all"
 msgstr "Mostrar todo"
 
-#: src/ui/pages/list.rs:60
+#: src/ui/pages/list.rs:66
 msgid "Clear"
 msgstr "Borrar"
 
@@ -294,35 +296,31 @@ msgid "Enable Flatpak support"
 msgstr "Habilitar soporte de Flatpak"
 
 #: config/icicle/advanced.yml.in:24
-msgid "Enable AppImage support by installing the \"appimage-run\" package."
-msgstr ""
-"Para que los appimages funcionen, necesitas ejecutarlos con el comando "
-"\"appimage-run\"."
-
-#: config/icicle/advanced.yml.in:25
 msgid ""
-"For appimages to work, you must run them with the \"appimage-run\" command."
+"Enable AppImage support by installing the \"appimage-run\" package. For "
+"appimages to work, you must run them with the \"appimage-run\" command."
 msgstr ""
-"Para que los appimages funcionen, necesitas ejecutarlos con el comando "
-"\"appimage-run\"."
+"Habilitar el soporte de AppImage mediante la instalación del paquete "
+"\"appimage-run\". Para que los appimages funcionen, necesitas ejecutarlos "
+"con el comando \"appimage-run\"."
 
-#: config/icicle/advanced.yml.in:31
+#: config/icicle/advanced.yml.in:30
 msgid "Kernel"
 msgstr "Kernel"
 
-#: config/icicle/advanced.yml.in:35
+#: config/icicle/advanced.yml.in:34
 msgid "Install the latest LTS kernel"
 msgstr "Instalar el kernel LTS más reciente"
 
-#: config/icicle/advanced.yml.in:37
+#: config/icicle/advanced.yml.in:36
 msgid "Install the latest kernel"
 msgstr "Instalar el kernel más reciente"
 
-#: config/icicle/advanced.yml.in:42
+#: config/icicle/advanced.yml.in:41
 msgid "Install the libre kernel"
 msgstr "Instalar el kernel libre"
 
-#: config/icicle/advanced.yml.in:47
+#: config/icicle/advanced.yml.in:46
 msgid "Install the zen kernel"
 msgstr "Instalar el kernel zen"
 
@@ -360,3 +358,8 @@ msgid ""
 msgstr ""
 "Fácilmente encuentra y instala todos los paquetes que necesitas en su "
 "sistema SnowflakeOS"
+
+#~ msgid "Enable AppImage support by installing the \"appimage-run\" package."
+#~ msgstr ""
+#~ "Para que los appimages funcionen, necesitas ejecutarlos con el comando "
+#~ "\"appimage-run\"."

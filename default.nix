@@ -1,7 +1,9 @@
 { pkgs ? import <nixpkgs> { }
 , lib ? import <nixpkgs/lib>
 }:
-
+let
+  convertyml = (import ./convertyml/default.nix { inherit pkgs; });
+in
 pkgs.stdenv.mkDerivation rec {
   pname = "icicle";
   version = "0.0.1";
@@ -16,6 +18,7 @@ pkgs.stdenv.mkDerivation rec {
 
   nativeBuildInputs = with pkgs; [
     appstream-glib
+    convertyml
     polkit
     gettext
     desktop-file-utils
