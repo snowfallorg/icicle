@@ -5,12 +5,19 @@
 Icicle
 ===
 
+
+
 [![Built with Nix][builtwithnix badge]][builtwithnix]
 [![License: GPLv3][GPLv3 badge]][GPLv3]
 [![Chat on Matrix][matrix badge]][matrix]
 [![Chat on Discord][discord badge]][discord]
+[![Translated with Weblate][weblate badge]][weblate]
 
 A graphical installer for NixOS based distributions.
+
+<a href="https://hosted.weblate.org/engage/snowflakeos/">
+<img src="https://hosted.weblate.org/widgets/snowflakeos/-/icicle/multi-auto.svg" alt="Translation status"/>
+</a>
 
 <img src="data/screenshots/installing-light.png#gh-light-mode-only"/>
 <img src="data/screenshots/installing-dark.png#gh-dark-mode-only"/> 
@@ -25,3 +32,5 @@ A graphical installer for NixOS based distributions.
 [matrix]: https://matrix.to/#/#snowflakeos:matrix.org
 [discord badge]: https://img.shields.io/discord/1021080090676842506?color=7289da&label=Discord&logo=discord&logoColor=ffffff&style=for-the-badge
 [discord]: https://discord.gg/6rWNMmdkgT
+[weblate badge]: https://img.shields.io/badge/Translated%20With-Weblate-2eccaa?style=for-the-badge&logo=weblate&logoColor=white
+[weblate]: https://hosted.weblate.org/engage/snowflakeos/
