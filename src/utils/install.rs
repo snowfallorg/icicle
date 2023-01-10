@@ -1,3 +1,4 @@
+use super::parse::Choice;
 use crate::{
     config::{LIBEXECDIR, SYSCONFDIR},
     ui::{
@@ -17,8 +18,6 @@ use std::{
     io::{BufRead, BufReader, Write},
     process::{Command, Stdio},
 };
-
-use super::parse::Choice;
 
 pub struct InstallAsyncModel {
     username: Option<String>,

@@ -503,9 +503,12 @@ zu_ZA/ISO-8859-1
     for locale in locale_codes {
         if let Some(l) = locale.split('/').next() {
             if all.contains(&GString::from(l)) {
-                if let Some(locallang) = gnome_desktop::functions::language_from_locale(l, Some(l)) {
-                    if let Some(norm) = gnome_desktop::functions::language_from_code(&get_lang(l.to_string()).unwrap(), Some(l)) {
-                        
+                if let Some(locallang) = gnome_desktop::functions::language_from_locale(l, Some(l))
+                {
+                    if let Some(norm) = gnome_desktop::functions::language_from_code(
+                        &get_lang(l.to_string()).unwrap(),
+                        Some(l),
+                    ) {
                         if !languages.contains_key(norm.as_str()) {
                             languages.insert(norm.to_string(), HashMap::new());
                         }

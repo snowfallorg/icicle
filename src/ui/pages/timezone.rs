@@ -1,5 +1,3 @@
-use std::{collections::HashMap, process::Command};
-
 use crate::ui::window::AppMsg;
 use adw::prelude::*;
 use gettextrs::gettext;
@@ -7,6 +5,7 @@ use glib::TimeZone;
 use gnome_desktop::{self, WallClockExt};
 use log::trace;
 use relm4::*;
+use std::{collections::HashMap, process::Command};
 
 #[tracker::track]
 #[derive(Debug)]

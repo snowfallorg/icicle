@@ -1,11 +1,8 @@
+use crate::ui::window::{AppMsg, UserConfig};
 use adw::prelude::*;
 use gettextrs::gettext;
-use log::{trace, debug};
+use log::{debug, trace};
 use relm4::*;
-
-use crate::{
-    ui::window::{AppMsg, UserConfig},
-};
 
 #[tracker::track]
 pub struct UserModel {
@@ -300,7 +297,7 @@ impl SimpleComponent for UserModel {
                 if let Some(current) = &self.hostname {
                     if &hostname == current {
                         debug!("Hostname changed to the same value, ignoring");
-                        return
+                        return;
                     }
                 }
 

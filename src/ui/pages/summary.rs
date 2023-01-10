@@ -1,12 +1,10 @@
+use super::partitions::{CustomPartition, PartitionSchema};
+use crate::ui::window::{AppMsg, UserConfig};
 use adw::prelude::*;
 use gettextrs::gettext;
+use gnome_desktop::{self, XkbInfo, XkbInfoExt};
 use log::debug;
 use relm4::{factory::*, *};
-
-use crate::{ui::window::{AppMsg, UserConfig}};
-use gnome_desktop::{self, XkbInfo, XkbInfoExt};
-
-use super::partitions::{PartitionSchema, CustomPartition};
 
 #[tracker::track]
 pub struct SummaryModel {
@@ -24,12 +22,17 @@ pub struct SummaryModel {
     partitions: FactoryVecDeque<Partition>,
 
     showhostname: bool,
-    
 }
 
 #[derive(Debug)]
 pub enum SummaryMsg {
-    SetConfig(Option<String>, Option<String>, Option<String>, Option<PartitionSchema>, Box<Option<UserConfig>>),
+    SetConfig(
+        Option<String>,
+        Option<String>,
+        Option<String>,
+        Option<PartitionSchema>,
+        Box<Option<UserConfig>>,
+    ),
     ShowHostname(bool),
 }
 
@@ -132,7 +135,7 @@ impl SimpleComponent for SummaryModel {
                             set_title: &gettext("Name"),
                             add_suffix = &gtk::Button {
                                 set_halign: gtk::Align::Start,
-                                set_valign: gtk::Align::Center, 
+                                set_valign: gtk::Align::Center,
                                 gtk::Label {
                                     #[watch]
                                     set_markup: &if let Some(userconf) = &model.userconfig {
@@ -150,7 +153,7 @@ impl SimpleComponent for SummaryModel {
                             set_title: &gettext("Username"),
                             add_suffix = &gtk::Button {
                                 set_halign: gtk::Align::Start,
-                                set_valign: gtk::Align::Center, 
+                                set_valign: gtk::Align::Center,
                                 gtk::Label {
                                     #[watch]
                                     set_markup: &if let Some(userconf) = &model.userconfig {
@@ -170,7 +173,7 @@ impl SimpleComponent for SummaryModel {
                             set_visible: model.showhostname,
                             add_suffix = &gtk::Button {
                                 set_halign: gtk::Align::Start,
-                                set_valign: gtk::Align::Center, 
+                                set_valign: gtk::Align::Center,
                                 gtk::Label {
                                     #[watch]
                                     set_markup: &if let Some(userconf) = &model.userconfig {
@@ -215,8 +218,17 @@ impl SimpleComponent for SummaryModel {
     fn update(&mut self, msg: Self::Input, _sender: ComponentSender<Self>) {
         self.reset();
         match msg {
-            SummaryMsg::SetConfig(languageconfig, keyboardconfig, timezoneconfig, partitionconfig, userconfig) => {
-                debug!("SetConfig: {:?}, {:?}, {:?}, {:?}, {:?}", languageconfig, keyboardconfig, timezoneconfig, partitionconfig, userconfig);
+            SummaryMsg::SetConfig(
+                languageconfig,
+                keyboardconfig,
+                timezoneconfig,
+                partitionconfig,
+                userconfig,
+            ) => {
+                debug!(
+                    "SetConfig: {:?}, {:?}, {:?}, {:?}, {:?}",
+                    languageconfig, keyboardconfig, timezoneconfig, partitionconfig, userconfig
+                );
                 self.languageconfig = languageconfig;
                 self.keyboardconfig = keyboardconfig;
                 self.timezoneconfig = timezoneconfig;
@@ -224,13 +236,17 @@ impl SimpleComponent for SummaryModel {
                 self.userconfig = *userconfig;
 
                 if let Some(lang) = self.languageconfig.as_ref() {
-                    let lang = gnome_desktop::language_from_locale(lang, self.languageconfig.as_deref());
+                    let lang =
+                        gnome_desktop::language_from_locale(lang, self.languageconfig.as_deref());
                     self.prettylanguage = lang.map(|l| l.to_string());
                 }
 
                 if let Some(keyboard) = self.keyboardconfig.as_ref() {
                     let xkb = XkbInfo::new();
-                    let layout = xkb.layout_info(keyboard).and_then(|x| x.0).map(|x| x.to_string());
+                    let layout = xkb
+                        .layout_info(keyboard)
+                        .and_then(|x| x.0)
+                        .map(|x| x.to_string());
                     self.prettykeyboard = layout;
                 }
 
@@ -315,7 +331,11 @@ impl FactoryComponent for Partition {
         }
     }
 
-    fn init_model((name, partition): Self::Init, _index: &DynamicIndex, _sender: FactorySender<Self>) -> Self {
+    fn init_model(
+        (name, partition): Self::Init,
+        _index: &DynamicIndex,
+        _sender: FactorySender<Self>,
+    ) -> Self {
         Partition {
             name,
             mountpoint: partition.mountpoint,

@@ -1,10 +1,8 @@
-use std::{collections::HashMap, fs};
-
-use log::debug;
-use serde::{Serialize, Deserialize};
-use anyhow::Result;
-
 use crate::config::SYSCONFDIR;
+use anyhow::Result;
+use log::debug;
+use serde::{Deserialize, Serialize};
+use std::{collections::HashMap, fs};
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct IcicleConfig {
@@ -12,7 +10,7 @@ pub struct IcicleConfig {
     pub branding: String,
     pub internet_check_url: String,
     pub default_hostname: String,
-    pub choices: Vec<ChoiceEnum>
+    pub choices: Vec<ChoiceEnum>,
 }
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
@@ -21,7 +19,7 @@ pub enum ChoiceEnum {
     Configuration {
         file: String,
         #[serde(skip)]
-        config: InstallationConfig
+        config: InstallationConfig,
     },
     Live,
 }
@@ -31,7 +29,7 @@ pub struct InstallationConfig {
     pub config_id: String,
     pub config_name: String,
     pub config_logo: String,
-    pub steps: Vec<StepType>
+    pub steps: Vec<StepType>,
 }
 
 #[derive(Deserialize, Serialize, Clone, Debug)]
@@ -40,8 +38,17 @@ pub enum StepType {
     Welcome,
     Location,
     Keyboard,
-    User { root: Option<bool>, hostname: Option<bool> },
-    List { id: String, multiple: bool, required: bool, title: String, choices: Vec<HashMap<String, Choice>> },
+    User {
+        root: Option<bool>,
+        hostname: Option<bool>,
+    },
+    List {
+        id: String,
+        multiple: bool,
+        required: bool,
+        title: String,
+        choices: Vec<HashMap<String, Choice>>,
+    },
     Partitioning,
     Manual,
     Summary,
@@ -70,7 +77,6 @@ pub fn parse_config() -> Result<IcicleConfig> {
     Ok(config)
 }
 
-
 #[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct BrandingConfig {
     pub slides: Vec<Slide>,
@@ -84,7 +90,10 @@ pub struct Slide {
 }
 
 pub fn parse_branding(brand: &str) -> Result<BrandingConfig> {
-    let f = fs::read_to_string(&format!("{}/icicle/branding/{}/slides.yml", SYSCONFDIR, brand))?;
+    let f = fs::read_to_string(&format!(
+        "{}/icicle/branding/{}/slides.yml",
+        SYSCONFDIR, brand
+    ))?;
     let config: BrandingConfig = serde_yaml::from_str(&f)?;
     Ok(config)
 }

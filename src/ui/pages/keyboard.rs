@@ -1,11 +1,10 @@
-use std::process::Command;
-
 use crate::ui::window::AppMsg;
 use adw::prelude::*;
 use gettextrs::gettext;
 use gnome_desktop::{self, XkbInfo, XkbInfoExt};
 use log::trace;
 use relm4::*;
+use std::process::Command;
 
 #[tracker::track]
 #[derive(Debug)]
@@ -307,9 +306,7 @@ impl SimpleComponent for KeyboardModel {
                             .arg(variant)
                             .spawn();
                     } else {
-                        let _ = Command::new("setxkbmap")
-                            .arg(selected)
-                            .spawn();
+                        let _ = Command::new("setxkbmap").arg(selected).spawn();
                     }
                 }
             }

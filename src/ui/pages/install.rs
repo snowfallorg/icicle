@@ -1,8 +1,8 @@
-use crate::{ui::window::AppMsg, utils::parse::parse_branding, config::SYSCONFDIR};
+use crate::{config::SYSCONFDIR, ui::window::AppMsg, utils::parse::parse_branding};
 use adw::prelude::*;
 use gtk::gio;
 use log::{debug, error, info};
-use relm4::{*, factory::*};
+use relm4::{factory::*, *};
 use std::fs::File;
 use vte::{self, TerminalExt, TerminalExtManual};
 
@@ -68,7 +68,7 @@ impl SimpleComponent for InstallModel {
                             set_carousel: Some(carousel)
                         }
                     }
-                    
+
                 },
                 gtk::Box {
                     set_orientation: gtk::Orientation::Horizontal,
@@ -106,14 +106,16 @@ impl SimpleComponent for InstallModel {
             slides: FactoryVecDeque::new(adw::Carousel::new(), sender.input_sender()),
         };
 
-
         if let Ok(brandingconfig) = parse_branding(&branding) {
             let mut slides_guard = model.slides.guard();
             for slide in brandingconfig.slides {
                 slides_guard.push_back(InstallSlide {
                     title: slide.title,
                     subtitle: slide.subtitle,
-                    image: format!("{}/icicle/branding/{}/{}", SYSCONFDIR, branding, slide.image)
+                    image: format!(
+                        "{}/icicle/branding/{}/{}",
+                        SYSCONFDIR, branding, slide.image
+                    ),
                 });
             }
             slides_guard.drop();
@@ -212,7 +214,6 @@ impl SimpleComponent for InstallModel {
         }
     }
 }
-
 
 #[derive(Debug)]
 pub struct InstallSlide {

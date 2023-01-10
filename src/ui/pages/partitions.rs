@@ -1,11 +1,10 @@
-use std::{collections::HashMap, process::Command};
-
 use crate::{config::LIBEXECDIR, ui::window::AppMsg, utils::i18n::i18n_f};
 use adw::prelude::*;
 use gettextrs::gettext;
 use log::{debug, error, info, trace};
 use relm4::{factory::*, *};
 use serde::{Deserialize, Serialize};
+use std::{collections::HashMap, process::Command};
 
 pub struct PartitionModel {
     disks: FactoryVecDeque<WholeDisk>,

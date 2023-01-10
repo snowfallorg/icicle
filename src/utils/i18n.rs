@@ -28,7 +28,6 @@ fn kreplace(input: String, kwargs: &[(&str, &str)]) -> String {
                 .to_string();
         }
     }
-
     s
 }
 

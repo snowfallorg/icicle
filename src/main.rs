@@ -1,11 +1,15 @@
 use adw::gio;
 use gettextrs::{gettext, LocaleCategory};
 use gtk::{glib, prelude::ApplicationExt};
-use icicle::{config::{RESOURCES_FILE, GETTEXT_PACKAGE, LOCALEDIR}, ui::window::AppModel};
+use icicle::{
+    config::{GETTEXT_PACKAGE, LOCALEDIR, RESOURCES_FILE},
+    ui::window::AppModel,
+};
 use log::{error, info};
 use relm4::*;
 use simplelog::*;
 use std::fs::File;
+
 fn main() {
     CombinedLogger::init(vec![
         TermLogger::new(
@@ -41,6 +45,7 @@ fn setup_gettext() {
     // Prepare i18n
     gettextrs::setlocale(LocaleCategory::LcAll, "");
     gettextrs::bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR).expect("Unable to bind the text domain");
-    gettextrs::bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8").expect("Unable to bind the text domain codeset to UTF-8");
+    gettextrs::bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8")
+        .expect("Unable to bind the text domain codeset to UTF-8");
     gettextrs::textdomain(GETTEXT_PACKAGE).expect("Unable to switch to the text domain");
 }

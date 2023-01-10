@@ -7,4 +7,3 @@ pub mod summary;
 pub mod timezone;
 pub mod user;
 pub mod welcome;
-

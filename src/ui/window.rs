@@ -1,27 +1,3 @@
-use std::{collections::HashMap, convert::identity, process::Command};
-
-use adw::prelude::*;
-use gettextrs::gettext;
-use log::{debug, error, info, trace, warn};
-use relm4::*;
-
-use crate::{
-    ui::pages::{
-        error::ErrorMsg,
-        install::INSTALL_BROKER,
-        list::{ListInit, ListMsg},
-        partitions::{PartitionModel, PARTITION_BROKER},
-        timezone::TimeZoneModel,
-        user::UserMsg,
-        welcome::WelcomeModel,
-    },
-    utils::{
-        install::{InstallAsyncModel, InstallAsyncMsg},
-        language::{get_country, get_lang},
-        parse::{parse_config, Choice, ChoiceEnum, IcicleConfig, InstallationConfig, StepType}, i18n::i18n_f,
-    },
-};
-
 use super::pages::{
     error::ErrorModel,
     install::InstallModel,
@@ -33,6 +9,28 @@ use super::pages::{
     user::UserModel,
     welcome::WelcomeMsg,
 };
+use crate::{
+    ui::pages::{
+        error::ErrorMsg,
+        install::INSTALL_BROKER,
+        list::{ListInit, ListMsg},
+        partitions::{PartitionModel, PARTITION_BROKER},
+        timezone::TimeZoneModel,
+        user::UserMsg,
+        welcome::WelcomeModel,
+    },
+    utils::{
+        i18n::i18n_f,
+        install::{InstallAsyncModel, InstallAsyncMsg},
+        language::{get_country, get_lang},
+        parse::{parse_config, Choice, ChoiceEnum, IcicleConfig, InstallationConfig, StepType},
+    },
+};
+use adw::prelude::*;
+use gettextrs::gettext;
+use log::{debug, error, info, trace, warn};
+use relm4::*;
+use std::{collections::HashMap, convert::identity, process::Command};
 
 #[tracker::track]
 pub struct AppModel {

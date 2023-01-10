@@ -1,9 +1,8 @@
+use crate::{ui::window::AppMsg, utils::language::get_languages};
 use adw::prelude::*;
 use gettextrs::gettext;
 use log::{info, trace};
 use relm4::*;
-
-use crate::{ui::window::AppMsg, utils::language::get_languages};
 
 #[tracker::track]
 pub struct WelcomeModel {
@@ -288,7 +287,15 @@ impl SimpleComponent for WelcomeModel {
                     let _ = sender.output(AppMsg::SetCanGoForward(false));
                 }
                 self.selected = x;
-                gettextrs::setlocale(gettextrs::LocaleCategory::LcAll, self.selected.as_deref().unwrap_or_default().split('.').next().unwrap_or_default());
+                gettextrs::setlocale(
+                    gettextrs::LocaleCategory::LcAll,
+                    self.selected
+                        .as_deref()
+                        .unwrap_or_default()
+                        .split('.')
+                        .next()
+                        .unwrap_or_default(),
+                );
             }
             WelcomeMsg::CheckSelected => {
                 trace!("WelcomeMsg::CheckSelected {}", self.selected.is_some());
