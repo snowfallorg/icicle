@@ -407,7 +407,7 @@ impl Component for AppModel {
         }
 
         let model = AppModel {
-            page: startpage,
+            page: StackPage::Install, //startpage,
             config,
             installconfig: None,
             welcome: welcomepage,
