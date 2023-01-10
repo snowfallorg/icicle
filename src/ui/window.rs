@@ -168,7 +168,7 @@ impl Component for AppModel {
                         },
                         StackPage::Install => {
                             gtk::Label {
-                                set_label: &gettext("Installing")
+                                set_label: &gettext("Installing…")
                             }
                         },
                         StackPage::Finished => {
