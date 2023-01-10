@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-09 20:26-0500\n"
+"POT-Creation-Date: 2023-01-09 20:48-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,10 +37,6 @@ msgstr ""
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:7
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:9
 msgid "A graphical installer for NixOS based distributions."
-msgstr ""
-
-#: data/org.snowflakeos.Icicle.metainfo.xml.in.in:13
-msgid "Victor Fuentes"
 msgstr ""
 
 #: data/org.snowflakeos.Icicle.policy.in.in:8
