@@ -21,7 +21,7 @@ steps:
           # Enable flatpak support
           services.flatpak.enable = true;
     - AppImage:
-        description: _("Enable AppImage support by installing the \"appimage-run\" package. For appimages to work, you must run them with the \"appimage-run\" command.")
+        description: _("Enable AppImage support by installing the \"appimage-run\" package. For AppImages to work, you must run them with the \"appimage-run\" command.")
         packages:
         - appimage-run
 - !list
@@ -43,7 +43,7 @@ steps:
           # Install the libre kernel
           boot.kernelPackages = pkgs.linuxPackages_libre;
     - Zen:
-        description: _("Install the zen kernel")
+        description: _("Install the Zen kernel")
         config: |-
           # Install the zen kernel
           boot.kernelPackages = pkgs.linuxPackages_zen;
