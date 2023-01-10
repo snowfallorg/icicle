@@ -130,8 +130,9 @@ impl SimpleComponent for UserModel {
                             #[name(autoswitch)]
                             add_suffix = &gtk::Switch {
                                 set_valign: gtk::Align::Center,
-                                connect_activate[sender] => move |switch| {
-                                    sender.input(UserMsg::SetAutoLogin(switch.is_active()));
+                                connect_state_set[sender] => move |_, state| {
+                                    sender.input(UserMsg::SetAutoLogin(state));
+                                    gtk::Inhibit(false)
                                 }
                             }
                         }
@@ -341,6 +342,7 @@ impl SimpleComponent for UserModel {
             }
             UserMsg::SetAutoLogin(autologin) => {
                 self.autologin = autologin;
+                sender.input(UserMsg::CheckSelected);
             }
             UserMsg::CheckSelected => {
                 let cangoforward = self.name.is_some()
