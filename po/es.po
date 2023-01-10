@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-09 20:48-0500\n"
-"PO-Revision-Date: 2023-01-10 00:35+0000\n"
-"Last-Translator: Victor Fuentes <vlinkz@snowflakeos.org>\n"
+"PO-Revision-Date: 2023-01-10 02:25+0000\n"
+"Last-Translator: Angelica E <aestevez558@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/snowflakeos/"
 "icicle/es/>\n"
 "Language: es\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:3
 msgid "Install SnowflakeOS"
-msgstr ""
+msgstr "Instala SnowflakeOS"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:4
 msgid "Install"
@@ -30,322 +30,331 @@ msgstr "Instalar"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.snowflakeos.Icicle.desktop.in.in:10
 msgid "Installer;Icicle;"
-msgstr ""
+msgstr "Instalador;Icicle;"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:6 src/main.rs:30
 msgid "Icicle Installer"
-msgstr ""
+msgstr "Instalador Icicle"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:7
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:9
 msgid "A graphical installer for NixOS based distributions."
-msgstr ""
+msgstr "Un instalador gráfico para distribuciones basadas en NixOS."
 
 #: data/org.snowflakeos.Icicle.policy.in.in:8
 msgid "Give Icicle Installer root access"
-msgstr ""
+msgstr "Dar acceso root al instalador de Icicle"
 
 #: data/org.snowflakeos.Icicle.policy.in.in:9
 msgid "Authentication is required to install operating system"
-msgstr ""
+msgstr "Se requiere autenticación para instalar el sistema operativo"
 
 #: src/ui/pages/error.rs:51
 msgid "Installation Failed!"
-msgstr ""
+msgstr "¡La instalación Falló!"
 
 #: src/ui/pages/error.rs:80
 msgid "Upload Report"
-msgstr ""
+msgstr "Subir informe"
 
 #: src/ui/pages/error.rs:98
 msgid "Open Report"
-msgstr ""
+msgstr "Abrir informe"
 
 #: src/ui/pages/keyboard.rs:52
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Distribución del teclado"
 
 #: src/ui/pages/keyboard.rs:60
 msgid "Test the Keyboard Layout"
-msgstr ""
+msgstr "Prueba la distribución del teclado"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 msgid "Show less"
-msgstr ""
+msgstr "Muestra menos"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 msgid "Show all"
-msgstr ""
+msgstr "Mostrar todo"
 
 #: src/ui/pages/list.rs:60
 msgid "Clear"
-msgstr ""
+msgstr "Borrar"
 
 #: src/ui/pages/partitions.rs:80
 msgid "Select a disk"
-msgstr ""
+msgstr "Seleccione un disco"
 
 #: src/ui/pages/partitions.rs:85
 msgid "Disk will be formatted and all data will be lost"
-msgstr ""
+msgstr "El disco será formateado y todos los datos se perderán"
 
 #: src/ui/pages/partitions.rs:102
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzado"
 
 #: src/ui/pages/partitions.rs:117 src/ui/pages/partitions.rs:230
 msgid "Refresh"
-msgstr ""
+msgstr "Actualizar"
 
 #: src/ui/pages/partitions.rs:127
 msgid "Select partitions"
-msgstr ""
+msgstr "Selecciona particiones"
 
 #: src/ui/pages/partitions.rs:172
 msgid "Ready to install!"
-msgstr ""
+msgstr "¡Listo para instalar!"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:174
 msgid "Missing <tt>/boot/efi</tt> partition"
-msgstr ""
+msgstr "Falta <tt>/boot/efi</tt> partición"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:176
 msgid "Missing <tt>/</tt> partition"
-msgstr ""
+msgstr "Falta <tt>/</tt> partición"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:178 src/ui/pages/partitions.rs:182
 msgid "Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions"
-msgstr ""
+msgstr "Faltan las particiones <tt>/</tt> y <tt>/boot/efi</tt>"
 
 #: src/ui/pages/partitions.rs:198
+#, fuzzy
 msgid "Launch GParted"
-msgstr ""
+msgstr "Lanza GParted"
 
 #: src/ui/pages/partitions.rs:215
 msgid "Basic"
-msgstr ""
+msgstr "Básico"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{/dev/sdX} (20 Gb minimum needed)" indicating that the given disk is not large enough
 #: src/ui/pages/partitions.rs:548
+#, fuzzy
 msgid "{} (20 Gb minimum needed)"
-msgstr ""
+msgstr "{}(se necesitan por lo menos 20 Gb)"
 
 #: src/ui/pages/partitions.rs:612
 msgid "Format"
-msgstr ""
+msgstr "Formatear"
 
 #: src/ui/pages/partitions.rs:633 src/ui/pages/partitions.rs:652
 msgid "Mount"
-msgstr ""
+msgstr "Monta"
 
 #: src/ui/pages/partitions.rs:667 src/ui/pages/summary.rs:305
 msgid "Do not mount"
-msgstr ""
+msgstr "No monte"
 
 #: src/ui/pages/partitions.rs:668
 msgid "Leave as is"
-msgstr ""
+msgstr "Dejar como está"
 
 #: src/ui/pages/summary.rs:58
 msgid "Summary"
-msgstr ""
+msgstr "Resumen"
 
 #: src/ui/pages/summary.rs:63
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: src/ui/pages/summary.rs:74
 msgid "Keyboard"
-msgstr ""
+msgstr "Teclado"
 
 #: src/ui/pages/summary.rs:85 src/ui/pages/timezone.rs:52
 msgid "Timezone"
-msgstr ""
+msgstr "Zona horaria"
 
 #: src/ui/pages/summary.rs:97 src/ui/pages/summary.rs:115
 #: src/ui/pages/summary.rs:121
 msgid "Partitions"
-msgstr ""
+msgstr "Particiones"
 
 #: src/ui/pages/summary.rs:103
 msgid "Full Disk"
-msgstr ""
+msgstr "Disco lleno"
 
 #: src/ui/pages/summary.rs:106
 msgid "Entire disk will be formatted"
-msgstr ""
+msgstr "El disco entero será formateado"
 
 #: src/ui/pages/summary.rs:131
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 #: src/ui/pages/summary.rs:135 src/ui/pages/user.rs:70
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: src/ui/pages/summary.rs:153 src/ui/pages/user.rs:78
 msgid "Username"
-msgstr ""
+msgstr "Nombre de usuario"
 
 #: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:147
 msgid "Hostname"
-msgstr ""
+msgstr "Nombre de host"
 
 #. Translators: Leave the ':' at the end of the string, it will read Mountpoint: {disk mount location}
 #: src/ui/pages/summary.rs:298
 msgid "Mountpoint:"
-msgstr ""
+msgstr "Punto de montaje:"
 
 #. Translators: Leave the ':' at the end of the string, it will read Format: {disk format}
 #: src/ui/pages/summary.rs:318
 msgid "Format:"
-msgstr ""
+msgstr "Formato:"
 
 #: src/ui/pages/summary.rs:325
 msgid "Do not format"
-msgstr ""
+msgstr "No formatear"
 
 #: src/ui/pages/user.rs:62
 msgid "Create a new user"
-msgstr ""
+msgstr "Crear un nuevo usuario"
 
 #: src/ui/pages/user.rs:110
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 #: src/ui/pages/user.rs:118
 msgid "Confirm Password"
-msgstr ""
+msgstr "Confirma Contraseña"
 
 #: src/ui/pages/user.rs:125
 msgid "Login automatically"
-msgstr ""
+msgstr "Iniciar sesión automáticamente"
 
 #: src/ui/pages/user.rs:172
 msgid "Root password"
-msgstr ""
+msgstr "Contraseña de root"
 
 #: src/ui/pages/user.rs:180
 msgid "Confirm root password"
-msgstr ""
+msgstr "Confirmar contraseña de root"
 
 #: src/ui/pages/welcome.rs:42
 msgid "Welcome!"
-msgstr ""
+msgstr "¡Bienvenido!"
 
 #: src/ui/pages/welcome.rs:47
 msgid "Choose a language"
-msgstr ""
+msgstr "Elige un idioma"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{distribution name} Installer"
 #: src/ui/window.rs:159
 msgid "{} Installer"
-msgstr ""
+msgstr "Instalador de {}"
 
 #: src/ui/window.rs:171
 msgid "Installing"
-msgstr ""
+msgstr "Instalando"
 
 #: src/ui/window.rs:176
 msgid "Installation Finished"
-msgstr ""
+msgstr "Instalación Terminada"
 
 #: src/ui/window.rs:181
 msgid "Installation Failed"
-msgstr ""
+msgstr "La instalación Falló"
 
 #: src/ui/window.rs:291
 msgid "Finished!"
-msgstr ""
+msgstr "¡Terminado!"
 
 #: src/ui/window.rs:303
 msgid "Reboot"
-msgstr ""
+msgstr "Reiniciar"
 
 #: src/ui/window.rs:319
 msgid "No Internet"
-msgstr ""
+msgstr "No hay Internet"
 
 #: src/ui/window.rs:320
 msgid "Please connect to the internet to continue"
-msgstr ""
+msgstr "Por favor, conéctese a Internet para continuar"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "Try {distribution name} live"
 #: src/ui/window.rs:485
 msgid "Try {} live"
-msgstr ""
+msgstr "Prueba {} en vivo"
 
 #: config/icicle/advanced.yml.in:2
 msgid "Advanced Installation"
-msgstr ""
+msgstr "Instalación avanzada"
 
 #: config/icicle/advanced.yml.in:15
 msgid "Extra Package Managers"
-msgstr ""
+msgstr "Gestores de paquetes adicionales"
 
 #: config/icicle/advanced.yml.in:19
 msgid "Enable Flatpak support"
-msgstr ""
+msgstr "Habilitar soporte de Flatpak"
 
 #: config/icicle/advanced.yml.in:24
 msgid "Enable AppImage support by installing the \"appimage-run\" package."
 msgstr ""
+"Para que los appimages funcionen, necesitas ejecutarlos con el comando "
+"\"appimage-run\"."
 
 #: config/icicle/advanced.yml.in:25
 msgid ""
 "For appimages to work, you must run them with the \"appimage-run\" command."
 msgstr ""
+"Para que los appimages funcionen, necesitas ejecutarlos con el comando "
+"\"appimage-run\"."
 
 #: config/icicle/advanced.yml.in:31
 msgid "Kernel"
-msgstr ""
+msgstr "Kernel"
 
 #: config/icicle/advanced.yml.in:35
 msgid "Install the latest LTS kernel"
-msgstr ""
+msgstr "Instalar el kernel LTS más reciente"
 
 #: config/icicle/advanced.yml.in:37
 msgid "Install the latest kernel"
-msgstr ""
+msgstr "Instalar el kernel más reciente"
 
 #: config/icicle/advanced.yml.in:42
 msgid "Install the libre kernel"
-msgstr ""
+msgstr "Instalar el kernel libre"
 
 #: config/icicle/advanced.yml.in:47
 msgid "Install the zen kernel"
-msgstr ""
+msgstr "Instalar el kernel zen"
 
 #: config/icicle/basic.yml.in:2
 msgid "Basic Installation"
-msgstr ""
+msgstr "Instalación básica"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:3
 msgid "Configurable and Customizable"
-msgstr ""
+msgstr "Configurable y Personalizable"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:4
 msgid ""
 "Easily modify and manage your system configuration with the power of NixOS"
 msgstr ""
+"Fácilmente modifique y gestione su configuración del sistema con el poder de "
+"NixOS"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:6
 msgid "Nix Package Manager"
-msgstr ""
+msgstr "Gestor de paquetes Nix"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:7
 msgid "Keep your system stable with Nix's reliable and reproducible packages"
 msgstr ""
+"Mantenga su sistema estable con los paquetes fiables y reproducibles de Nix"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:9
 msgid "Over 80,000 packages available"
-msgstr ""
+msgstr "Más de 80.000 paquetes disponibles"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:10
 msgid ""
