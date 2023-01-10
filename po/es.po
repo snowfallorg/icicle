@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-09 20:48-0500\n"
-"PO-Revision-Date: 2023-01-10 02:25+0000\n"
-"Last-Translator: Angelica E <aestevez558@gmail.com>\n"
+"PO-Revision-Date: 2023-01-10 02:27+0000\n"
+"Last-Translator: Victor Fuentes <vlinkz@snowflakeos.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/snowflakeos/"
 "icicle/es/>\n"
 "Language: es\n"
@@ -121,7 +121,6 @@ msgid "Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions"
 msgstr "Faltan las particiones <tt>/</tt> y <tt>/boot/efi</tt>"
 
 #: src/ui/pages/partitions.rs:198
-#, fuzzy
 msgid "Launch GParted"
 msgstr "Lanza GParted"
 
@@ -132,9 +131,8 @@ msgstr "Básico"
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{/dev/sdX} (20 Gb minimum needed)" indicating that the given disk is not large enough
 #: src/ui/pages/partitions.rs:548
-#, fuzzy
 msgid "{} (20 Gb minimum needed)"
-msgstr "{}(se necesitan por lo menos 20 Gb)"
+msgstr "{} (se necesitan por lo menos 20 Gb)"
 
 #: src/ui/pages/partitions.rs:612
 msgid "Format"
@@ -357,6 +355,9 @@ msgid "Over 80,000 packages available"
 msgstr "Más de 80.000 paquetes disponibles"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:10
+#, fuzzy
 msgid ""
 "Easily find and install all the packages you need on your SnowflakeOS system"
 msgstr ""
+"Encuentra y instala fácilmente todos los paquetes que necesitas en tu "
+"sistema SnowflakeOS"
