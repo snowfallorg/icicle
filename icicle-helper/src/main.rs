@@ -81,21 +81,22 @@ fn main() {
                     size: device.length() * sectorsize,
                     partitions: vec![],
                 };
-                let partdisk = libparted::Disk::new(&mut device).unwrap();
-                let mut partvec = vec![];
-                for part in partdisk.parts() {
-                    if part.get_path().is_none() {
-                        continue;
+                if let Ok(partdisk) = libparted::Disk::new(&mut device) {
+                    let mut partvec = vec![];
+                    for part in partdisk.parts() {
+                        if part.get_path().is_none() {
+                            continue;
+                        }
+                        partvec.push(part);
                     }
-                    partvec.push(part);
-                }
-                partvec.sort_by(|a, b| a.get_path().cmp(&b.get_path()));
-                for part in partvec {
-                    disk.partitions.push(Partition {
-                        name: part.get_path().unwrap().to_string_lossy().to_string(),
-                        format: part.fs_type_name().unwrap_or("unknown").to_string(),
-                        size: (part.geom_length() as u64) * sectorsize,
-                    });
+                    partvec.sort_by(|a, b| a.get_path().cmp(&b.get_path()));
+                    for part in partvec {
+                        disk.partitions.push(Partition {
+                            name: part.get_path().unwrap().to_string_lossy().to_string(),
+                            format: part.fs_type_name().unwrap_or("unknown").to_string(),
+                            size: (part.geom_length() as u64) * sectorsize,
+                        });
+                    }   
                 }
                 outdisks.push(disk);
             }
