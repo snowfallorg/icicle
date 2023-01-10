@@ -7,3 +7,4 @@ option(
   ],
   value: 'default',
 )
+option('norust', type : 'boolean', value : false)

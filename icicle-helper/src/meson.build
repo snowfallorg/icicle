@@ -12,21 +12,22 @@ else
 endif
 
 cargo_env = [ 'CARGO_HOME=' + meson.project_build_root() / 'icicle-helper' / 'cargo-home' ]
-
-cargo_build = custom_target(
-  'cargo-build',
-  build_by_default: true,
-  build_always_stale: true,
-  output: 'icicle-helper',
-  console: true,
-  install: true,
-  install_dir: get_option('libexecdir'),
-  command: [
-    'env',
-    cargo_env,
-    cargo, 'build',
-    cargo_options,
-    '&&',
-    'cp', 'icicle-helper' / 'src' / rust_target / 'icicle-helper', '@OUTPUT@',
-  ]
-)
+if get_option('norust') == false
+  cargo_build = custom_target(
+    'cargo-build',
+    build_by_default: true,
+    build_always_stale: true,
+    output: 'icicle-helper',
+    console: true,
+    install: true,
+    install_dir: get_option('libexecdir'),
+    command: [
+      'env',
+      cargo_env,
+      cargo, 'build',
+      cargo_options,
+      '&&',
+      'cp', 'icicle-helper' / 'src' / rust_target / 'icicle-helper', '@OUTPUT@',
+    ]
+  )
+endif
