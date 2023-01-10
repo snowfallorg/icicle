@@ -122,7 +122,7 @@ impl SimpleComponent for UserModel {
                         },
                         adw::ActionRow {
                             #[watch]
-                            set_title: &gettext("Login automatically"),
+                            set_title: &gettext("Log in automatically"),
                             set_activatable: true,
                             connect_activated[autoswitch] => move |_| {
                                 autoswitch.activate();
