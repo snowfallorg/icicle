@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: icicle\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@snowflakeos.org\n"
 "POT-Creation-Date: 2023-01-11 02:18-0500\n"
-"PO-Revision-Date: 2023-01-10 02:28+0000\n"
+"PO-Revision-Date: 2023-01-11 19:49+0000\n"
 "Last-Translator: Victor Fuentes <vlinkz@snowflakeos.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/snowflakeos/"
 "icicle/es/>\n"
@@ -224,7 +224,6 @@ msgid "Confirm Password"
 msgstr "Confirma Contraseña"
 
 #: src/ui/pages/user.rs:125
-#, fuzzy
 msgid "Log in automatically"
 msgstr "Iniciar sesión automáticamente"
 
