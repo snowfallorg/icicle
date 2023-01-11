@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 02:22-0500\n"
+"POT-Creation-Date: 2023-01-11 02:18-0500\n"
 "PO-Revision-Date: 2023-01-10 02:28+0000\n"
 "Last-Translator: Victor Fuentes <vlinkz@snowflakeos.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/snowflakeos/"
@@ -131,10 +131,10 @@ msgid "Basic"
 msgstr "Básico"
 
 #. Translators: Do NOT translate the '{}'
-#. The string reads "{/dev/sdX} (20 Gb minimum needed)" indicating that the given disk is not large enough
+#. The string reads "{/dev/sdX} (20 GB minimum needed)" indicating that the given disk is not large enough
 #: src/ui/pages/partitions.rs:548
-msgid "{} (20 Gb minimum needed)"
-msgstr "{} (se necesitan por lo menos 20 Gb)"
+msgid "{} (20 GB minimum needed)"
+msgstr "{} (se necesitan por lo menos 20 GB)"
 
 #: src/ui/pages/partitions.rs:612
 msgid "Format"
@@ -193,7 +193,7 @@ msgstr "Nombre"
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:147
+#: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:148
 msgid "Hostname"
 msgstr "Nombre de host"
 
@@ -224,14 +224,15 @@ msgid "Confirm Password"
 msgstr "Confirma Contraseña"
 
 #: src/ui/pages/user.rs:125
-msgid "Login automatically"
+#, fuzzy
+msgid "Log in automatically"
 msgstr "Iniciar sesión automáticamente"
 
-#: src/ui/pages/user.rs:172
+#: src/ui/pages/user.rs:173
 msgid "Root password"
 msgstr "Contraseña de root"
 
-#: src/ui/pages/user.rs:180
+#: src/ui/pages/user.rs:181
 msgid "Confirm root password"
 msgstr "Confirmar contraseña de root"
 
@@ -245,41 +246,41 @@ msgstr "Elige un idioma"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{distribution name} Installer"
-#: src/ui/window.rs:159
+#: src/ui/window.rs:171
 msgid "{} Installer"
 msgstr "Instalador de {}"
 
-#: src/ui/window.rs:171
-msgid "Installing"
-msgstr "Instalando"
+#: src/ui/window.rs:183
+msgid "Installing…"
+msgstr "Instalando…"
 
-#: src/ui/window.rs:176
+#: src/ui/window.rs:188
 msgid "Installation Finished"
 msgstr "Instalación Terminada"
 
-#: src/ui/window.rs:181
+#: src/ui/window.rs:193
 msgid "Installation Failed"
 msgstr "La instalación Falló"
 
-#: src/ui/window.rs:291
+#: src/ui/window.rs:303
 msgid "Finished!"
 msgstr "¡Terminado!"
 
-#: src/ui/window.rs:303
+#: src/ui/window.rs:315
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: src/ui/window.rs:319
+#: src/ui/window.rs:331
 msgid "No Internet"
 msgstr "No hay Internet"
 
-#: src/ui/window.rs:320
-msgid "Please connect to the internet to continue"
+#: src/ui/window.rs:332
+msgid "Please connect to the Internet to continue"
 msgstr "Por favor, conéctese a Internet para continuar"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "Try {distribution name} live"
-#: src/ui/window.rs:485
+#: src/ui/window.rs:501
 msgid "Try {} live"
 msgstr "Prueba {} en vivo"
 
@@ -298,10 +299,10 @@ msgstr "Habilitar soporte de Flatpak"
 #: config/icicle/advanced.yml.in:24
 msgid ""
 "Enable AppImage support by installing the \"appimage-run\" package. For "
-"appimages to work, you must run them with the \"appimage-run\" command."
+"AppImages to work, you must run them with the \"appimage-run\" command."
 msgstr ""
 "Habilitar el soporte de AppImage mediante la instalación del paquete "
-"\"appimage-run\". Para que los appimages funcionen, necesitas ejecutarlos "
+"\"appimage-run\". Para que los AppImage funcionen, necesitas ejecutarlos "
 "con el comando \"appimage-run\"."
 
 #: config/icicle/advanced.yml.in:30
@@ -321,8 +322,8 @@ msgid "Install the libre kernel"
 msgstr "Instalar el kernel libre"
 
 #: config/icicle/advanced.yml.in:46
-msgid "Install the zen kernel"
-msgstr "Instalar el kernel zen"
+msgid "Install the Zen kernel"
+msgstr "Instalar el kernel Zen"
 
 #: config/icicle/basic.yml.in:2
 msgid "Basic Installation"

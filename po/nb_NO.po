@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: icicle\n"
-"Report-Msgid-Bugs-To: dev@snowflakeos.org\n"
-"POT-Creation-Date: 2023-01-10 02:22-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-11 02:18-0500\n"
 "PO-Revision-Date: 2023-01-10 08:39+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -131,10 +131,10 @@ msgid "Basic"
 msgstr "Grunnleggende"
 
 #. Translators: Do NOT translate the '{}'
-#. The string reads "{/dev/sdX} (20 Gb minimum needed)" indicating that the given disk is not large enough
+#. The string reads "{/dev/sdX} (20 GB minimum needed)" indicating that the given disk is not large enough
 #: src/ui/pages/partitions.rs:548
 #, fuzzy
-msgid "{} (20 Gb minimum needed)"
+msgid "{} (20 GB minimum needed)"
 msgstr "{} (minst 20 GB kreves)"
 
 #: src/ui/pages/partitions.rs:612
@@ -194,7 +194,7 @@ msgstr "Navn"
 msgid "Username"
 msgstr "Brukernavn"
 
-#: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:147
+#: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:148
 msgid "Hostname"
 msgstr "Vertsnavn"
 
@@ -226,14 +226,14 @@ msgstr "Bekreft passord"
 
 #: src/ui/pages/user.rs:125
 #, fuzzy
-msgid "Login automatically"
+msgid "Log in automatically"
 msgstr "Logg inn automatisk"
 
-#: src/ui/pages/user.rs:172
+#: src/ui/pages/user.rs:173
 msgid "Root password"
 msgstr "Rot-passord"
 
-#: src/ui/pages/user.rs:180
+#: src/ui/pages/user.rs:181
 msgid "Confirm root password"
 msgstr "Bekreft rot-passord"
 
@@ -247,42 +247,43 @@ msgstr "Velg et språk"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{distribution name} Installer"
-#: src/ui/window.rs:159
+#: src/ui/window.rs:171
 msgid "{} Installer"
 msgstr "{}-installasjonskandidat"
 
-#: src/ui/window.rs:171
-msgid "Installing"
+#: src/ui/window.rs:183
+#, fuzzy
+msgid "Installing…"
 msgstr "Installerer …"
 
-#: src/ui/window.rs:176
+#: src/ui/window.rs:188
 msgid "Installation Finished"
 msgstr "Installasjon fullført"
 
-#: src/ui/window.rs:181
+#: src/ui/window.rs:193
 msgid "Installation Failed"
 msgstr "Installasjonen mislyktes"
 
-#: src/ui/window.rs:291
+#: src/ui/window.rs:303
 msgid "Finished!"
 msgstr "Fullført."
 
-#: src/ui/window.rs:303
+#: src/ui/window.rs:315
 msgid "Reboot"
 msgstr "Omstart"
 
-#: src/ui/window.rs:319
+#: src/ui/window.rs:331
 msgid "No Internet"
 msgstr "Mangler Internett"
 
-#: src/ui/window.rs:320
+#: src/ui/window.rs:332
 #, fuzzy
-msgid "Please connect to the internet to continue"
+msgid "Please connect to the Internet to continue"
 msgstr "Koble til Internett for å fortsette"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "Try {distribution name} live"
-#: src/ui/window.rs:485
+#: src/ui/window.rs:501
 msgid "Try {} live"
 msgstr "Prøv {} direkte"
 
@@ -302,7 +303,7 @@ msgstr "Skru på Flatpak-støtte"
 #, fuzzy
 msgid ""
 "Enable AppImage support by installing the \"appimage-run\" package. For "
-"appimages to work, you must run them with the \"appimage-run\" command."
+"AppImages to work, you must run them with the \"appimage-run\" command."
 msgstr ""
 "Skru på AppImage-støtte ved å installere «appimage-run»-pakken. For de skal "
 "virke må du kjøre dem med «appimage-run»-kommandoen."
@@ -325,7 +326,7 @@ msgstr "Installer den frie kjernen"
 
 #: config/icicle/advanced.yml.in:46
 #, fuzzy
-msgid "Install the zen kernel"
+msgid "Install the Zen kernel"
 msgstr "Installer Zen-kjernen"
 
 #: config/icicle/basic.yml.in:2

@@ -1,5 +1,6 @@
 use crate::{config::SYSCONFDIR, ui::window::AppMsg, utils::parse::parse_branding};
 use adw::prelude::*;
+use gettextrs::gettext;
 use gtk::gio;
 use log::{debug, error, info};
 use relm4::{factory::*, *};
@@ -241,11 +242,13 @@ impl FactoryComponent for InstallSlide {
             gtk::Label {
                 set_halign: gtk::Align::Center,
                 add_css_class: "title-3",
-                set_label: &self.title
+                #[watch]
+                set_label: &gettext(&self.title)
             },
             gtk::Label {
                 set_halign: gtk::Align::Center,
-                set_label: &self.subtitle
+                #[watch]
+                set_label: &gettext(&self.subtitle)
             },
             gtk::Picture {
                 set_margin_all: 50,

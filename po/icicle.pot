@@ -8,13 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 02:22-0500\n"
+"POT-Creation-Date: 2023-01-11 02:18-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:3
@@ -129,9 +129,9 @@ msgid "Basic"
 msgstr ""
 
 #. Translators: Do NOT translate the '{}'
-#. The string reads "{/dev/sdX} (20 Gb minimum needed)" indicating that the given disk is not large enough
+#. The string reads "{/dev/sdX} (20 GB minimum needed)" indicating that the given disk is not large enough
 #: src/ui/pages/partitions.rs:548
-msgid "{} (20 Gb minimum needed)"
+msgid "{} (20 GB minimum needed)"
 msgstr ""
 
 #: src/ui/pages/partitions.rs:612
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:147
+#: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:148
 msgid "Hostname"
 msgstr ""
 
@@ -222,14 +222,14 @@ msgid "Confirm Password"
 msgstr ""
 
 #: src/ui/pages/user.rs:125
-msgid "Login automatically"
+msgid "Log in automatically"
 msgstr ""
 
-#: src/ui/pages/user.rs:172
+#: src/ui/pages/user.rs:173
 msgid "Root password"
 msgstr ""
 
-#: src/ui/pages/user.rs:180
+#: src/ui/pages/user.rs:181
 msgid "Confirm root password"
 msgstr ""
 
@@ -243,41 +243,41 @@ msgstr ""
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{distribution name} Installer"
-#: src/ui/window.rs:159
+#: src/ui/window.rs:171
 msgid "{} Installer"
 msgstr ""
 
-#: src/ui/window.rs:171
-msgid "Installing"
+#: src/ui/window.rs:183
+msgid "Installing…"
 msgstr ""
 
-#: src/ui/window.rs:176
+#: src/ui/window.rs:188
 msgid "Installation Finished"
 msgstr ""
 
-#: src/ui/window.rs:181
+#: src/ui/window.rs:193
 msgid "Installation Failed"
 msgstr ""
 
-#: src/ui/window.rs:291
+#: src/ui/window.rs:303
 msgid "Finished!"
 msgstr ""
 
-#: src/ui/window.rs:303
+#: src/ui/window.rs:315
 msgid "Reboot"
 msgstr ""
 
-#: src/ui/window.rs:319
+#: src/ui/window.rs:331
 msgid "No Internet"
 msgstr ""
 
-#: src/ui/window.rs:320
-msgid "Please connect to the internet to continue"
+#: src/ui/window.rs:332
+msgid "Please connect to the Internet to continue"
 msgstr ""
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "Try {distribution name} live"
-#: src/ui/window.rs:485
+#: src/ui/window.rs:501
 msgid "Try {} live"
 msgstr ""
 
@@ -296,7 +296,7 @@ msgstr ""
 #: config/icicle/advanced.yml.in:24
 msgid ""
 "Enable AppImage support by installing the \"appimage-run\" package. For "
-"appimages to work, you must run them with the \"appimage-run\" command."
+"AppImages to work, you must run them with the \"appimage-run\" command."
 msgstr ""
 
 #: config/icicle/advanced.yml.in:30
@@ -316,7 +316,7 @@ msgid "Install the libre kernel"
 msgstr ""
 
 #: config/icicle/advanced.yml.in:46
-msgid "Install the zen kernel"
+msgid "Install the Zen kernel"
 msgstr ""
 
 #: config/icicle/basic.yml.in:2
