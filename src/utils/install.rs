@@ -411,7 +411,7 @@ fn makeconfig(
                     autocfg.push_str(&format!(
                         r#"  # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = {};
+  services.xserver.displayManager.autoLogin.user = "{}";
 "#,
                         user.username
                     ));
