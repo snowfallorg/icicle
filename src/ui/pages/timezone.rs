@@ -3,7 +3,7 @@ use adw::prelude::*;
 use gettextrs::gettext;
 use glib::TimeZone;
 use gnome_desktop::{self, WallClockExt};
-use log::trace;
+use log::{trace, debug};
 use relm4::*;
 use std::{collections::HashMap, process::Command};
 
@@ -119,10 +119,14 @@ impl SimpleComponent for TimeZoneModel {
         ];
 
         let mut shorttzvec = vec![];
-        let selected = gnome_desktop::WallClock::new()
+        let mut selected = gnome_desktop::WallClock::new()
             .timezone()
             .map(|x| x.identifier().to_string());
-
+        if ["UTC", "CET", "Etc/GMT+12"].contains(&selected.as_ref().unwrap().as_str()) {
+            selected = Some("America/New_York".to_string());
+        }
+        debug!("Selected timezone: {:?}", selected);
+        
         for tz in y.get(2..).unwrap() {
             if let (Some(country), Some(region)) = (
                 tz.identifier().split('/').next(),
@@ -157,17 +161,13 @@ impl SimpleComponent for TimeZoneModel {
             country: Some("us".to_string()),
             timezones: tzvec,
             showall: false,
-            selected: None,
+            selected,
             selectiongroup: gtk::CheckButton::new(),
             expanders: vec![],
             time: String::default(),
             timelist: HashMap::new(),
             tracker: 0,
         };
-
-        model.selected = gnome_desktop::WallClock::new()
-            .timezone()
-            .map(|x| x.identifier().to_string());
 
         let asyncsender = sender.clone();
         relm4::spawn(async move {

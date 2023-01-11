@@ -100,8 +100,6 @@ pub enum AppMsg {
     SetCanGoForward(bool),
     SetStackPage(StackPage),
     SetStackPageConfig(StackPage, Option<InstallationConfig>),
-    SetLanguage(String),
-
     SetLanguageConfig(Option<String>),
     SetKeyboardConfig(Option<String>),
     SetTimezoneConfig(Option<String>),
@@ -705,17 +703,17 @@ impl Component for AppModel {
                 }
                 sender.input(AppMsg::ChangePage(0));
             }
-            AppMsg::SetLanguage(language) => {
-                if let (Ok(lang), Ok(country)) =
-                    (get_lang(language.to_string()), get_country(language))
-                {
-                    self.keyboard.emit(KeyboardMsg::SetCountry(lang, country));
-                }
-            }
             AppMsg::SetLanguageConfig(language) => {
                 self.languageconfig = language;
                 for listpage in self.list.values() {
                     listpage.emit(ListMsg::SetLocale(self.languageconfig.clone()));
+                }
+                if let Some(language) = &self.languageconfig {
+                    if let (Ok(lang), Ok(country)) =
+                        (get_lang(language.to_string()), get_country(language.to_string()))
+                    {
+                        self.keyboard.emit(KeyboardMsg::SetCountry(lang, country));
+                    }
                 }
             }
             AppMsg::SetKeyboardConfig(keyboard) => {

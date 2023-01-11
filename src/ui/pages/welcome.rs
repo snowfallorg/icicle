@@ -280,7 +280,6 @@ impl SimpleComponent for WelcomeModel {
                 info!("Selected language: {:?}", x);
                 if let Some(lang) = &x {
                     let _ = sender.output(AppMsg::SetCanGoForward(true));
-                    let _ = sender.output(AppMsg::SetLanguage(lang.to_string()));
                     let _ = sender.output(AppMsg::SetLanguageConfig(Some(lang.to_string())));
                 } else {
                     self.selectiongroup.set_active(true);
