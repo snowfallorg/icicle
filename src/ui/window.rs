@@ -145,9 +145,9 @@ impl Component for AppModel {
         adw::ApplicationWindow {
             set_default_width: 900,
             set_default_height: 800,
-            connect_close_request[quitdialog = model.quitdialog.sender().clone(), page = model.page.clone()] => move |_| {
-                debug!("Caught close request");
-                if page == StackPage::Install {
+            connect_close_request[quitdialog = model.quitdialog.sender().clone()] => move |_| {
+                debug!("Caught close request: {}", model.page == StackPage::Install);
+                if model.page == StackPage::Install {
                     let _ = quitdialog.send(QuitDialogMsg::Show);
                     gtk::Inhibit(true)
                 } else {
