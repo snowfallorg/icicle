@@ -302,8 +302,8 @@ msgid ""
 "AppImages to work, you must run them with the \"appimage-run\" command."
 msgstr ""
 "Habilitar el soporte de AppImage mediante la instalación del paquete "
-"\"appimage-run\". Para que los AppImage funcionen, necesitas ejecutarlos "
-"con el comando \"appimage-run\"."
+"\"appimage-run\". Para que los AppImage funcionen, necesitas ejecutarlos con "
+"el comando \"appimage-run\"."
 
 #: config/icicle/advanced.yml.in:30
 msgid "Kernel"
