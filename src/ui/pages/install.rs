@@ -13,6 +13,7 @@ pub struct InstallModel {
     showterminal: bool,
     installing: bool,
     slides: FactoryVecDeque<InstallSlide>,
+    locale: Option<String>,
 }
 
 #[derive(Debug)]
@@ -23,6 +24,7 @@ pub enum InstallMsg {
     Echo(String),
     Install(Vec<String>),
     VTEOutput(i32),
+    SetLocale(Option<String>)
 }
 
 pub static INSTALL_BROKER: MessageBroker<InstallModel> = MessageBroker::new();
@@ -105,6 +107,7 @@ impl SimpleComponent for InstallModel {
             progressbar: gtk::ProgressBar::new(),
             installing: false,
             slides: FactoryVecDeque::new(adw::Carousel::new(), sender.input_sender()),
+            locale: None
         };
 
         if let Ok(brandingconfig) = parse_branding(&branding) {
@@ -117,6 +120,8 @@ impl SimpleComponent for InstallModel {
                         "{}/icicle/branding/{}/{}",
                         SYSCONFDIR, branding, slide.image
                     ),
+                    locale: model.locale.clone(),
+                    tracker: 0,
                 });
             }
             slides_guard.drop();
@@ -212,15 +217,25 @@ impl SimpleComponent for InstallModel {
                     }
                 }
             }
+            InstallMsg::SetLocale(locale) => {
+                self.locale = locale;
+                let mut slides_guard = self.slides.guard();
+                for item in slides_guard.iter_mut() {
+                    item.set_locale(self.locale.clone());
+                }
+                slides_guard.drop();
+            }
         }
     }
 }
 
 #[derive(Debug)]
+#[tracker::track]
 pub struct InstallSlide {
     title: String,
     subtitle: String,
     image: String,
+    locale: Option<String>,
 }
 
 #[relm4::factory(pub)]
@@ -242,12 +257,12 @@ impl FactoryComponent for InstallSlide {
             gtk::Label {
                 set_halign: gtk::Align::Center,
                 add_css_class: "title-3",
-                #[watch]
+                #[track(self.changed(InstallSlide::locale()))]
                 set_label: &gettext(&self.title)
             },
             gtk::Label {
                 set_halign: gtk::Align::Center,
-                #[watch]
+                #[track(self.changed(InstallSlide::locale()))]
                 set_label: &gettext(&self.subtitle)
             },
             gtk::Picture {
@@ -261,5 +276,9 @@ impl FactoryComponent for InstallSlide {
 
     fn init_model(init: Self::Init, _index: &DynamicIndex, _sender: FactorySender<Self>) -> Self {
         init
+    }
+
+    fn update(&mut self, _message: Self::Input, _sender: FactorySender<Self>) {
+        self.reset();
     }
 }

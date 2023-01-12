@@ -1,6 +1,6 @@
 use super::pages::{
     error::ErrorModel,
-    install::InstallModel,
+    install::{InstallModel, InstallMsg},
     keyboard::{KeyboardModel, KeyboardMsg},
     list::ListModel,
     partitions::{PartitionMsg, PartitionSchema},
@@ -708,6 +708,7 @@ impl Component for AppModel {
                 for listpage in self.list.values() {
                     listpage.emit(ListMsg::SetLocale(self.languageconfig.clone()));
                 }
+                self.install.emit(InstallMsg::SetLocale(self.languageconfig.clone()));
                 if let Some(language) = &self.languageconfig {
                     if let (Ok(lang), Ok(country)) =
                         (get_lang(language.to_string()), get_country(language.to_string()))
