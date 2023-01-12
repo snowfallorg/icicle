@@ -180,16 +180,19 @@ impl Component for AppModel {
                         },
                         StackPage::Install => {
                             gtk::Label {
+                                #[watch]
                                 set_label: &gettext("Installing…")
                             }
                         },
                         StackPage::Finished => {
                             gtk::Label {
+                                #[watch]
                                 set_label: &gettext("Installation Finished")
                             }
                         },
                         StackPage::Error => {
                             gtk::Label {
+                                #[watch]
                                 set_label: &gettext("Installation Failed")
                             }
                         }
@@ -300,6 +303,7 @@ impl Component for AppModel {
                                     set_margin_all: 20,
                                     gtk::Label {
                                         add_css_class: "title-1",
+                                        #[watch]
                                         set_label: &gettext("Finished!"),
                                     },
                                     gtk::Image {
@@ -312,6 +316,7 @@ impl Component for AppModel {
                                         add_css_class: "pill",
                                         set_halign: gtk::Align::Center,
                                         set_valign: gtk::Align::Center,
+                                        #[watch]
                                         set_label: &gettext("Reboot"),
                                         connect_clicked => move |_| {
                                             let _ = Command::new("systemctl").arg("reboot").arg("-i").spawn();
