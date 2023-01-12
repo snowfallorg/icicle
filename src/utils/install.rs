@@ -207,7 +207,7 @@ impl Worker for InstallAsyncModel {
                             .arg("--root")
                             .arg("/tmp/icicle")
                             .arg("-c")
-                            .arg("passwd")
+                            .arg("chpasswd")
                             .stdin(Stdio::piped())
                             .spawn()?;
                         let rootpasswdstdin = rootpasswdcmd
