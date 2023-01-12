@@ -698,6 +698,7 @@ impl Component for AppModel {
                                         choices: choices.clone(),
                                     },
                                 );
+                                self.listconfig.insert(id.to_string(), HashMap::new());
                                 i += 1;
                             }
                             _ => {
@@ -736,11 +737,7 @@ impl Component for AppModel {
             }
             AppMsg::SetListConfig(title, list) => {
                 info!("SetListConfig: {} {:?}", title, list);
-                if list.is_empty() {
-                    self.listconfig.remove(&title);
-                } else {
-                    self.listconfig.insert(title, list);
-                }
+                self.listconfig.insert(title, list);
                 info!("ListConfig: {:?}", self.listconfig);
             }
             AppMsg::Install => {
