@@ -225,9 +225,14 @@ impl SimpleComponent for SummaryModel {
                 partitionconfig,
                 userconfig,
             ) => {
+                let debuguser = userconfig.clone().map(|mut user| {
+                    user.password = "*****".to_string();
+                    user.rootpassword = user.rootpassword.map(|_| "*****".to_string());
+                    user
+                });
                 debug!(
                     "SetConfig: {:?}, {:?}, {:?}, {:?}, {:?}",
-                    languageconfig, keyboardconfig, timezoneconfig, partitionconfig, userconfig
+                    languageconfig, keyboardconfig, timezoneconfig, partitionconfig, debuguser
                 );
                 self.languageconfig = languageconfig;
                 self.keyboardconfig = keyboardconfig;
