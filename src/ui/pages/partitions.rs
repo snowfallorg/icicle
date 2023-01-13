@@ -132,13 +132,13 @@ impl SimpleComponent for PartitionModel {
                                 #[watch]
                                 set_css_classes: if let Some(PartitionSchema::Custom(schema)) = &model.schema {
                                     let mut root = false;
-                                    let mut bootefi = false;
+                                    let mut bootefi = !model.efi;
                                     for v in schema.values() {
                                         if let Some(file) = &v.mountpoint {
                                             if file == "/" {
                                                 root = true;
                                             }
-                                            if file == "/boot/efi" || !model.efi {
+                                            if file == "/boot/efi" {
                                                 bootefi = true;
                                             }
                                         }
@@ -157,13 +157,13 @@ impl SimpleComponent for PartitionModel {
                                     #[watch]
                                     set_markup: &if let Some(PartitionSchema::Custom(schema)) = &model.schema {
                                         let mut root = false;
-                                        let mut bootefi = false;
+                                        let mut bootefi = !model.efi;
                                         for v in schema.values() {
                                             if let Some(file) = &v.mountpoint {
                                                 if file == "/" {
                                                     root = true;
                                                 }
-                                                if file == "/boot/efi" || !model.efi {
+                                                if file == "/boot/efi" {
                                                     bootefi = true;
                                                 }
                                             }
@@ -177,9 +177,11 @@ impl SimpleComponent for PartitionModel {
                                             // Translators: Do NOT translate anything between the <tt> tags
                                             (false, false) => gettext("Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions"),
                                         }
-                                    } else {
+                                    } else if model.efi {
                                         // Translators: Do NOT translate anything between the <tt> tags
                                         gettext("Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions")
+                                    } else {
+                                        gettext("Missing <tt>/</tt> partition")
                                     }
                                 }
                             },
