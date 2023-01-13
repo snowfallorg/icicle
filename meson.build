@@ -65,7 +65,7 @@ subdir('data')
 subdir('po')
 subdir('src')
 subdir('icicle-helper/src')
-subdir('config/icicle')
+subdir('config')
 
 gnome.post_install(
   gtk_update_icon_cache: true,

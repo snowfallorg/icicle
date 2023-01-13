@@ -48,5 +48,4 @@ steps:
           # Install the zen kernel
           boot.kernelPackages = pkgs.linuxPackages_zen;
 - partitioning
-- manual
 - summary
