@@ -9,7 +9,7 @@
   };
   outputs = { self, nixpkgs, ... }@inputs:
     let
-      system = "x86_64-linux";
+      system = "@ARCH@";
     in
     {
       nixosConfigurations."@HOSTNAME@" = nixpkgs.lib.nixosSystem {

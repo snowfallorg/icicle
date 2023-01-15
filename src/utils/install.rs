@@ -305,6 +305,14 @@ fn makeconfig(
         if file.file_name().to_string_lossy().ends_with(".nix") {
             let mut config = fs::read_to_string(file.path())?;
             config = config.replace("@NVIDIAOFFLOAD@", "");
+
+            let archout = Command::new("uname")
+                .arg("-m")
+                .output()
+                .context("Failed to get architecture")?;
+            let arch = String::from_utf8_lossy(&archout.stdout).trim().to_string();
+            config = config.replace("@ARCH@", &format!("{}-linux", arch));
+
             if efi {
                 config = config.replace(
                     "@BOOTLOADER@",
