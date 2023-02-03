@@ -6,7 +6,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./hardware.nix
     ];
 
 @BOOTLOADER@
@@ -47,9 +47,6 @@
 
 @PACKAGES@
 
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

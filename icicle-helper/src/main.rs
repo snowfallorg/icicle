@@ -106,6 +106,7 @@ fn main() {
             partition().unwrap();
         }
         SubCommands::WriteFile { path, contents } => {
+            fs::create_dir_all(path.rsplitn(2, '/').last().unwrap()).unwrap();
             let mut file = File::create(path).unwrap();
             file.write_all(contents.as_bytes()).unwrap();
         }

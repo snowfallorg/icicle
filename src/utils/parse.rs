@@ -24,11 +24,21 @@ pub enum ChoiceEnum {
     Live,
 }
 
+#[derive(Deserialize, Serialize, Default, Clone, Debug, PartialEq, Eq)]
+#[serde(rename_all = "lowercase")]
+pub enum ConfigType {
+    Snowfall,
+    #[default]
+    Flakes,
+    Legacy
+}
+
 #[derive(Deserialize, Serialize, Default, Clone, Debug)]
 pub struct InstallationConfig {
     pub config_id: String,
     pub config_name: String,
     pub config_logo: String,
+    pub config_type: ConfigType,
     pub steps: Vec<StepType>,
 }
 
