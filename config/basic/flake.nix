@@ -13,13 +13,10 @@
   };
 
   outputs = inputs:
-    let
-      lib = inputs.snowfall-lib.mkLib {
-        inherit inputs;
-        src = ./.;
-      };
-    in
-    lib.mkFlake {
+    inputs.snowfall-lib.mkFlake {
+      inherit inputs;
+      src = ./.;
+
       channels-config.allowUnfree = true;
       systems.modules = with inputs; [
         snowflake.nixosModules.snowflake
