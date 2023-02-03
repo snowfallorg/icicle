@@ -2,6 +2,7 @@
 config_name: _("Basic Installation")
 config_logo: emoji-symbols-symbolic
 config_id: basic
+config_type: snowfall
 steps:
 - welcome
 - keyboard

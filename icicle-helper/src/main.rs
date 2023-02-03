@@ -106,6 +106,7 @@ fn main() {
             partition().unwrap();
         }
         SubCommands::WriteFile { path, contents } => {
+            fs::create_dir_all(path.rsplitn(2, '/').last().unwrap()).unwrap();
             let mut file = File::create(path).unwrap();
             file.write_all(contents.as_bytes()).unwrap();
         }
@@ -149,7 +150,7 @@ fn partition() -> Result<()> {
                     .ok_or_else(|| anyhow!("Failed to create GPT partition table"))?;
 
                 println!("Partition: Creating EFI partition");
-                // Add /boot/efi partition
+                // Add /boot partition
                 dev.add_partition(
                     PartitionBuilder::new(
                         dev.get_sector(start_sector),
@@ -158,7 +159,7 @@ fn partition() -> Result<()> {
                     )
                     .partition_type(PartitionType::Primary)
                     .flag(PartitionFlag::PED_PARTITION_ESP)
-                    .mount("/boot/efi".into()),
+                    .mount("/boot".into()),
                 )
                 .ok()
                 .ok_or_else(|| anyhow!("Failed to create EFI partition"))?;
@@ -281,7 +282,7 @@ fn partition() -> Result<()> {
                             .ok()
                             .ok_or_else(|| anyhow!("Failed to format partition {}", part))?;
                         if let Some(mountpoint) = &custom.mountpoint {
-                            if mountpoint == "/boot/efi" {
+                            if mountpoint == "/boot" {
                                 let partition = dev
                                     .partitions
                                     .iter_mut()

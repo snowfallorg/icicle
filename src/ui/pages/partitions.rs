@@ -138,7 +138,7 @@ impl SimpleComponent for PartitionModel {
                                             if file == "/" {
                                                 root = true;
                                             }
-                                            if file == "/boot/efi" {
+                                            if file == "/boot" {
                                                 bootefi = true;
                                             }
                                         }
@@ -163,7 +163,7 @@ impl SimpleComponent for PartitionModel {
                                                 if file == "/" {
                                                     root = true;
                                                 }
-                                                if file == "/boot/efi" {
+                                                if file == "/boot" {
                                                     bootefi = true;
                                                 }
                                             }
@@ -171,15 +171,15 @@ impl SimpleComponent for PartitionModel {
                                         match (root, bootefi) {
                                             (true, true) => gettext("Ready to install!"),
                                             // Translators: Do NOT translate anything between the <tt> tags
-                                            (true, false) => gettext("Missing <tt>/boot/efi</tt> partition"),
+                                            (true, false) => gettext("Missing <tt>/boot</tt> partition"),
                                             // Translators: Do NOT translate anything between the <tt> tags
                                             (false, true) => gettext("Missing <tt>/</tt> partition"),
                                             // Translators: Do NOT translate anything between the <tt> tags
-                                            (false, false) => gettext("Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions"),
+                                            (false, false) => gettext("Missing <tt>/</tt> and <tt>/boot</tt> partitions"),
                                         }
                                     } else if model.efi {
                                         // Translators: Do NOT translate anything between the <tt> tags
-                                        gettext("Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions")
+                                        gettext("Missing <tt>/</tt> and <tt>/boot</tt> partitions")
                                     } else {
                                         gettext("Missing <tt>/</tt> partition")
                                     }
@@ -507,7 +507,7 @@ impl SimpleComponent for PartitionModel {
                             if part.mountpoint == Some("/".to_string()) {
                                 root = true;
                             }
-                            if part.mountpoint == Some("/boot/efi".to_string()) || !self.efi {
+                            if part.mountpoint == Some("/boot".to_string()) || !self.efi {
                                 bootefi = true;
                             }
                         }
@@ -634,7 +634,7 @@ impl FactoryComponent for Partition {
                 #[watch]
                 set_title: &gettext("Mount"),
                 // TODO: When switching language the "Do not mount" option does not update
-                set_model: Some(&gtk::StringList::new(&[&self.donotmount, "/", "/boot", "/boot/efi", "/home", "/opt", "/var", "/nix"])),
+                set_model: Some(&gtk::StringList::new(&[&self.donotmount, "/", "/boot", "/boot", "/home", "/opt", "/var", "/nix"])),
                 connect_selected_notify[name = self.name.to_string(), device = self.device.to_string(), mountstring = self.donotmount.to_string()] => move |row| {
                     if let Some(item) = row.selected_item() {
                         if let Ok(item) = item.downcast::<gtk::StringObject>() {

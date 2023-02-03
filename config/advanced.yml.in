@@ -2,6 +2,7 @@
 config_name: _("Advanced Installation")
 config_logo: preferences-system-symbolic
 config_id: advanced
+config_type: snowfall
 steps:
 - welcome
 - location
@@ -18,12 +19,11 @@ steps:
     - Flatpak:
         description: _("Enable Flatpak support")
         config: |-
-          # Enable flatpak support
-          services.flatpak.enable = true;
+          modules.packagemanagers.flatpak = true;
     - AppImage:
         description: _("Enable AppImage support by installing the \"appimage-run\" package. For AppImages to work, you must run them with the \"appimage-run\" command.")
-        packages:
-        - appimage-run
+        config: |-
+          modules.packagemanagers.appimage = true;
 - !list
   multiple: false
   required: true
@@ -35,17 +35,14 @@ steps:
     - Latest:
         description: _("Install the latest kernel")
         config: |-
-          # Install the latest kernel
-          boot.kernelPackages = pkgs.linuxPackages_latest;
+          modules.kernel.package = pkgs.linuxPackages_latest;
     - Libre:
         description: _("Install the libre kernel")
         config: |-
-          # Install the libre kernel
-          boot.kernelPackages = pkgs.linuxPackages_libre;
+          modules.kernel.package = pkgs.linuxPackages_libre;
     - Zen:
         description: _("Install the Zen kernel")
         config: |-
-          # Install the zen kernel
-          boot.kernelPackages = pkgs.linuxPackages_zen;
+          modules.kernel.package = pkgs.linuxPackages_zen;
 - partitioning
 - summary

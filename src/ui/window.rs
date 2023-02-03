@@ -742,19 +742,18 @@ impl Component for AppModel {
             }
             AppMsg::Install => {
                 debug!("Installing!");
-                if let Some(id) = &self
+                if let Some(config) = &self
                     .installconfig
-                    .as_ref()
-                    .map(|cfg| cfg.config_id.to_string())
                 {
                     self.installworker.emit(InstallAsyncMsg::Install(
-                        id.to_string(),
+                        config.config_id.to_string(),
                         self.languageconfig.clone(),
                         self.timezoneconfig.clone(),
                         self.keyboardconfig.clone(),
                         Box::new(self.partitionconfig.clone()),
                         Box::new(self.userconfig.clone()),
                         self.listconfig.clone(),
+                        config.config_type.clone()
                     ));
                 }
             }

@@ -1,26 +1,32 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    snowflake.url = "github:snowflakelinux/snowflake-modules";
-    nix-data.url = "github:snowflakelinux/nix-data";
-    nix-software-center.url = "github:vlinkz/nix-software-center";
-    nixos-conf-editor.url = "github:vlinkz/nixos-conf-editor";
-    snow.url = "github:snowflakelinux/snow";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-data.inputs.nixpkgs.follows = "nixpkgs";
+    nix-data.url = "github:snowflakelinux/nix-data/dev";
+    snowflakeos-module-manager.url = "github:snowflakelinux/snowflakeos-module-manager";
+    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
+    snowfall-lib.url = "github:snowfallorg/lib/dev";
+    snowflakeos-modules.inputs.nixpkgs.follows = "nixpkgs";
+    snowflakeos-modules.url = "github:snowflakelinux/snowflakeos-modules";
   };
-  outputs = { self, nixpkgs, ... }@inputs:
-    let
-      system = "@ARCH@";
-    in
-    {
-      nixosConfigurations."@HOSTNAME@" = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./configuration.nix
-          ./snowflake.nix
-          inputs.snowflake.nixosModules.snowflake
-          inputs.nix-data.nixosModules.${system}.nix-data
-        ];
-        specialArgs = { inherit inputs; inherit system; };
+
+  outputs = inputs:
+    inputs.snowfall-lib.mkFlake {
+      inherit inputs;
+      src = ./.;
+
+      channels-config.allowUnfree = true;
+      systems.modules.nixos = with inputs; [
+        nix-data.nixosModules.nix-data
+        @BOOTLOADER_MODULE@
+        snowflakeos-modules.nixosModules.gnome
+        snowflakeos-modules.nixosModules.kernel
+        snowflakeos-modules.nixosModules.networking
+        snowflakeos-modules.nixosModules.packagemanagers
+        snowflakeos-modules.nixosModules.pipewire
+        snowflakeos-modules.nixosModules.printing
+        snowflakeos-modules.nixosModules.snowflakeos
+        snowflakeos-modules.nixosModules.metadata
+      ];
     };
-  };
 }
