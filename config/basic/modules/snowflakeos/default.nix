@@ -8,7 +8,7 @@
       pkgs.git # For rebuiling with github flakes
     ];
     programs.nix-data = {
-      systemconfig = "/etc/nixos/configuration.nix";
+      systemconfig = "/etc/nixos/systems/@ARCH@/@HOSTNAME@/configuration.nix";
       flake = "/etc/nixos/flake.nix";
       flakearg = "@HOSTNAME@";
     };
