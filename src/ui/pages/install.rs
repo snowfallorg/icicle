@@ -52,6 +52,7 @@ impl SimpleComponent for InstallModel {
                                 connect_child_exited[sender] => move |_term, status| {
                                     sender.input(InstallMsg::VTEOutput(status));
                                 }
+                                set_input_enabled: false,
                             }
                         }
                     }
