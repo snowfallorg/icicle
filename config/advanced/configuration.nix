@@ -36,13 +36,7 @@
     pulse.enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."@USERNAME@" = {
-    isNormalUser = true;
-    description = "@FULLNAME@";
-    extraGroups = [ "wheel" "networkmanager" "dialout" ];
-  };
-@AUTOLOGIN@
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";

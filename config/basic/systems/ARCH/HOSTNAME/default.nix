@@ -11,41 +11,18 @@
 
 @BOOTLOADER@
 
-@NETWORK@
-
-@TIMEZONE@
-
-@LOCALE@
-
-@KEYBOARD@
-
-@DESKTOP@
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  modules.snowflakeos = {
+    base.enable = true;
+    gnome.enable = true;
+    keyboard.enable = true;
+    localetime.enable = true;
+    systempackages.enable = true;
+    users.enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."@USERNAME@" = {
-    isNormalUser = true;
-    description = "@FULLNAME@";
-    extraGroups = [ "wheel" "networkmanager" "dialout" ];
-  };
-@AUTOLOGIN@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
-
-@PACKAGES@
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
