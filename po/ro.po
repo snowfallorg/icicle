@@ -6,28 +6,32 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: icicle\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@snowflakeos.org\n"
 "POT-Creation-Date: 2023-01-11 02:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-02-21 22:36+0000\n"
+"Last-Translator: Alex S <alex.inventeaza@gmail.com>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/snowflakeos/"
+"icicle/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:3
 msgid "Install SnowflakeOS"
-msgstr ""
+msgstr "Instalați SnowflakeOS"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:4
 msgid "Install"
-msgstr ""
+msgstr "Instalați"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.snowflakeos.Icicle.desktop.in.in:10
 msgid "Installer;Icicle;"
-msgstr ""
+msgstr "Instalare;Icicle;"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:6 src/main.rs:30
 msgid "Icicle Installer"
