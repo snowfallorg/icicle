@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: dev@snowflakeos.org\n"
 "POT-Creation-Date: 2023-01-11 02:18-0500\n"
-"PO-Revision-Date: 2023-03-01 08:36+0000\n"
+"PO-Revision-Date: 2023-03-03 16:35+0000\n"
 "Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "snowflakeos/icicle/pt_BR/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16-rc\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:3
 msgid "Install SnowflakeOS"
@@ -30,11 +30,11 @@ msgstr "Instalar"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.snowflakeos.Icicle.desktop.in.in:10
 msgid "Installer;Icicle;"
-msgstr ""
+msgstr "Instalador;Icicle;"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:6 src/main.rs:30
 msgid "Icicle Installer"
-msgstr ""
+msgstr "Instalador Icicle"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:7
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:9
@@ -43,11 +43,11 @@ msgstr "Um instalador gráfico para distribuições baseadas no NixOS."
 
 #: data/org.snowflakeos.Icicle.policy.in.in:8
 msgid "Give Icicle Installer root access"
-msgstr ""
+msgstr "Dar acesso root ao instalador Icicle"
 
 #: data/org.snowflakeos.Icicle.policy.in.in:9
 msgid "Authentication is required to install operating system"
-msgstr ""
+msgstr "Autenticação é necessária para instalar o sistema operacional"
 
 #: src/ui/pages/error.rs:51
 msgid "Installation Failed!"
@@ -67,7 +67,7 @@ msgstr "Layout de Teclado"
 
 #: src/ui/pages/keyboard.rs:60
 msgid "Test the Keyboard Layout"
-msgstr ""
+msgstr "Testar o layout do teclado"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 #: src/ui/pages/welcome.rs:76
@@ -89,7 +89,7 @@ msgstr "Selecionar um disco"
 
 #: src/ui/pages/partitions.rs:85
 msgid "Disk will be formatted and all data will be lost"
-msgstr ""
+msgstr "O disco será formatado e todos os dados serão perdidos"
 
 #: src/ui/pages/partitions.rs:102
 msgid "Advanced"
@@ -110,17 +110,17 @@ msgstr "Pronto para instalar!"
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:174
 msgid "Missing <tt>/boot/efi</tt> partition"
-msgstr ""
+msgstr "Faltando partição <tt>/boot/efi</tt>"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:176
 msgid "Missing <tt>/</tt> partition"
-msgstr ""
+msgstr "Faltando partição <tt>/</tt>"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:178 src/ui/pages/partitions.rs:182
 msgid "Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions"
-msgstr ""
+msgstr "Faltando partições <tt>/</tt> e <tt>/boot/efi</tt>"
 
 #: src/ui/pages/partitions.rs:198
 msgid "Launch GParted"
@@ -150,7 +150,7 @@ msgstr "Não montar"
 
 #: src/ui/pages/partitions.rs:668
 msgid "Leave as is"
-msgstr ""
+msgstr "Deixar como está"
 
 #: src/ui/pages/summary.rs:58
 msgid "Summary"
@@ -246,9 +246,8 @@ msgstr "Escolher um idioma"
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{distribution name} Installer"
 #: src/ui/window.rs:171
-#, fuzzy
 msgid "{} Installer"
-msgstr " "
+msgstr "{} Instalador"
 
 #: src/ui/window.rs:183
 msgid "Installing…"
@@ -282,7 +281,7 @@ msgstr "Por favor, conecte-se a Internet para continuar"
 #. The string reads "Try {distribution name} live"
 #: src/ui/window.rs:501
 msgid "Try {} live"
-msgstr ""
+msgstr "Testar {} live"
 
 #: config/icicle/advanced.yml.in:2
 msgid "Advanced Installation"
@@ -290,7 +289,7 @@ msgstr "Instalação avançada"
 
 #: config/icicle/advanced.yml.in:15
 msgid "Extra Package Managers"
-msgstr ""
+msgstr "Gerenciadores de pacotes extra"
 
 #: config/icicle/advanced.yml.in:19
 msgid "Enable Flatpak support"
@@ -301,14 +300,16 @@ msgid ""
 "Enable AppImage support by installing the \"appimage-run\" package. For "
 "AppImages to work, you must run them with the \"appimage-run\" command."
 msgstr ""
+"Habilitar suporte ao AppImage com o pacote \"appimage-run\". Para AppImages "
+"funcionarem, você deve executá-los com o comando \"appimage-run\"."
 
 #: config/icicle/advanced.yml.in:30
 msgid "Kernel"
-msgstr ""
+msgstr "Kernel"
 
 #: config/icicle/advanced.yml.in:34
 msgid "Install the latest LTS kernel"
-msgstr ""
+msgstr "Instalar o kernel LTS mais recente"
 
 #: config/icicle/advanced.yml.in:36
 msgid "Install the latest kernel"
@@ -328,12 +329,14 @@ msgstr "Instalação básica"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:3
 msgid "Configurable and Customizable"
-msgstr ""
+msgstr "Configurável e customizável"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:4
 msgid ""
 "Easily modify and manage your system configuration with the power of NixOS"
 msgstr ""
+"Modifique e gerencie facilmente a configuração do seu sistema com o poder do "
+"NixOS"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:6
 msgid "Nix Package Manager"
@@ -341,13 +344,15 @@ msgstr "Gerenciador de Pacotes Nix"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:7
 msgid "Keep your system stable with Nix's reliable and reproducible packages"
-msgstr ""
+msgstr "Mantenha seu sistema estável com confiáveis e reprodutíveis pacotes Nix"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:9
 msgid "Over 80,000 packages available"
-msgstr ""
+msgstr "Mais de 80.000 pacotes disponíveis"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:10
 msgid ""
 "Easily find and install all the packages you need on your SnowflakeOS system"
 msgstr ""
+"Encontre e instale facilmente todos os pacotes que você precisa no seu "
+"sistema SnowflakeOS"
