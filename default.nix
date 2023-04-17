@@ -10,10 +10,13 @@ pkgs.stdenv.mkDerivation rec {
 
   src = [ ./. ];
 
-  cargoDeps = pkgs.rustPlatform.fetchCargoTarball {
-    inherit src;
-    name = "${pname}-${version}";
-    hash = "sha256-f3L2x2NRv4aqYoAFvXBU1tcCHPeTp7PLl/87HiC9y0s=";
+  cargoDeps = pkgs.rustPlatform.importCargoLock {
+    lockFile = ./Cargo.lock;
+    outputHashes = {
+      "disk-types-0.1.5" = "sha256-jXQanPALSKekae9wxLtH+dIvfIOB7VRUP+JeLBjrIqE=";
+      "gnome-desktop-0.4.0" = "sha256-E0ElNlLikDoMB41xsH7M9Cy/RIqQ3spqZzDmg0mhTpE=";
+      "gweather-sys-4.0.0" = "sha256-6ORuEXmPW2GD42p4Lr4VLAXM6TfOhdP9glndY8wPkXk=";
+    };
   };
 
   nativeBuildInputs = with pkgs; [

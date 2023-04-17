@@ -175,7 +175,7 @@ impl Worker for InstallAsyncModel {
                         .arg("--root")
                         .arg("/tmp/icicle")
                         .arg("-c")
-                        .arg("chpasswd")
+                        .arg("chpasswd -c SHA512")
                         .stdin(Stdio::piped())
                         .spawn()?;
                     let passwdstdin = passwdcmd
@@ -190,6 +190,16 @@ impl Worker for InstallAsyncModel {
                         )
                         .as_bytes(),
                     )?;
+                    match passwdcmd.wait() {
+                        Err(e) => {
+                            error!("Failed to set root password: {}", e);
+                        }
+                        Ok(status) => {
+                            if !status.success() {
+                                error!("Failed to set root password");
+                            }
+                        }
+                    }
                     Ok(())
                 }
                 if let Err(e) = setuserpasswd(self.username.clone(), self.password.clone()) {
@@ -207,7 +217,7 @@ impl Worker for InstallAsyncModel {
                             .arg("--root")
                             .arg("/tmp/icicle")
                             .arg("-c")
-                            .arg("chpasswd")
+                            .arg("chpasswd -c SHA512")
                             .stdin(Stdio::piped())
                             .spawn()?;
                         let rootpasswdstdin = rootpasswdcmd
@@ -215,6 +225,16 @@ impl Worker for InstallAsyncModel {
                             .as_mut()
                             .context("Failed to get root password stdin")?;
                         rootpasswdstdin.write_all(format!("root:{}", rootpasswd).as_bytes())?;
+                        match rootpasswdcmd.wait() {
+                            Err(e) => {
+                                error!("Failed to set root password: {}", e);
+                            }
+                            Ok(status) => {
+                                if !status.success() {
+                                    error!("Failed to set root password");
+                                }
+                            }
+                        }
                         Ok(())
                     }
 
