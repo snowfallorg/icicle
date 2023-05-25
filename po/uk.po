@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: dev@snowflakeos.org\n"
 "POT-Creation-Date: 2023-01-11 02:18-0500\n"
-"PO-Revision-Date: 2023-05-24 06:51+0000\n"
-"Last-Translator: misuzu <neironyan@gmail.com>\n"
+"PO-Revision-Date: 2023-05-25 06:51+0000\n"
+"Last-Translator: Dan <denqwerta@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/snowflakeos/"
 "icicle/uk/>\n"
 "Language: uk\n"
@@ -31,20 +31,20 @@ msgstr "Встановити"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.snowflakeos.Icicle.desktop.in.in:10
 msgid "Installer;Icicle;"
-msgstr "Встановник;Icicle;"
+msgstr "Встановлювач;Icicle;"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:6 src/main.rs:30
 msgid "Icicle Installer"
-msgstr "Встановник Installer"
+msgstr "Встановлювач Icicle"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:7
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:9
 msgid "A graphical installer for NixOS based distributions."
-msgstr "Графічний встановник для дистрибутивів заснованих на NixOS."
+msgstr "Графічний встановлювач для дистрибутивів заснованих на NixOS."
 
 #: data/org.snowflakeos.Icicle.policy.in.in:8
 msgid "Give Icicle Installer root access"
-msgstr "Надайте встановнику Icicle root-доступ"
+msgstr "Надайте встановлювачу Icicle root-доступ"
 
 #: data/org.snowflakeos.Icicle.policy.in.in:9
 msgid "Authentication is required to install operating system"
@@ -94,7 +94,7 @@ msgstr "Диск буде відформатовано і всі дані буд
 
 #: src/ui/pages/partitions.rs:102
 msgid "Advanced"
-msgstr "Просунутий"
+msgstr "Розширені"
 
 #: src/ui/pages/partitions.rs:117 src/ui/pages/partitions.rs:230
 msgid "Refresh"
@@ -286,7 +286,7 @@ msgstr "Спробувати {} без встановлення"
 
 #: config/icicle/advanced.yml.in:2
 msgid "Advanced Installation"
-msgstr "Просунуте встановлення"
+msgstr "Розширене встановлення"
 
 #: config/icicle/advanced.yml.in:15
 msgid "Extra Package Managers"
