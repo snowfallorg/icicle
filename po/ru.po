@@ -6,344 +6,356 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: icicle\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@snowflakeos.org\n"
 "POT-Creation-Date: 2023-01-11 02:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-05-30 04:50+0000\n"
+"Last-Translator: milachew <milachew@mail.lv>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/snowflakeos/"
+"icicle/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:3
 msgid "Install SnowflakeOS"
-msgstr ""
+msgstr "Установить SnowflakeOS"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:4
 msgid "Install"
-msgstr ""
+msgstr "Установить"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.snowflakeos.Icicle.desktop.in.in:10
 msgid "Installer;Icicle;"
-msgstr ""
+msgstr "Установщик;Icicle;"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:6 src/main.rs:30
 msgid "Icicle Installer"
-msgstr ""
+msgstr "Установщик Icicle"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:7
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:9
 msgid "A graphical installer for NixOS based distributions."
-msgstr ""
+msgstr "Графический установщик для дистрибутивов на базе NixOS."
 
 #: data/org.snowflakeos.Icicle.policy.in.in:8
 msgid "Give Icicle Installer root access"
-msgstr ""
+msgstr "Предоставьте установщику Icicle права суперпользователя"
 
 #: data/org.snowflakeos.Icicle.policy.in.in:9
 msgid "Authentication is required to install operating system"
-msgstr ""
+msgstr "Для установки операционной системы требуется аутентификация"
 
 #: src/ui/pages/error.rs:51
 msgid "Installation Failed!"
-msgstr ""
+msgstr "Установка не удалась!"
 
 #: src/ui/pages/error.rs:80
 msgid "Upload Report"
-msgstr ""
+msgstr "Отправить отчет"
 
 #: src/ui/pages/error.rs:98
 msgid "Open Report"
-msgstr ""
+msgstr "Открыть отчет"
 
 #: src/ui/pages/keyboard.rs:52
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Раскладка клавиатуры"
 
 #: src/ui/pages/keyboard.rs:60
 msgid "Test the Keyboard Layout"
-msgstr ""
+msgstr "Протестировать раскладку"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 #: src/ui/pages/welcome.rs:76
 msgid "Show less"
-msgstr ""
+msgstr "Показать меньше"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 #: src/ui/pages/welcome.rs:76
 msgid "Show all"
-msgstr ""
+msgstr "Показать все"
 
 #: src/ui/pages/list.rs:66
 msgid "Clear"
-msgstr ""
+msgstr "Очистить"
 
 #: src/ui/pages/partitions.rs:80
 msgid "Select a disk"
-msgstr ""
+msgstr "Выбрать диск"
 
 #: src/ui/pages/partitions.rs:85
 msgid "Disk will be formatted and all data will be lost"
-msgstr ""
+msgstr "Диск будет отформатирован и все данные будут потеряны"
 
 #: src/ui/pages/partitions.rs:102
 msgid "Advanced"
-msgstr ""
+msgstr "Расширенные"
 
 #: src/ui/pages/partitions.rs:117 src/ui/pages/partitions.rs:230
 msgid "Refresh"
-msgstr ""
+msgstr "Обновить"
 
 #: src/ui/pages/partitions.rs:127
 msgid "Select partitions"
-msgstr ""
+msgstr "Выбрать раздел"
 
 #: src/ui/pages/partitions.rs:172
 msgid "Ready to install!"
-msgstr ""
+msgstr "Готов к установке!"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:174
 msgid "Missing <tt>/boot/efi</tt> partition"
-msgstr ""
+msgstr "Отсутствует раздел <tt>/boot/efi</tt>"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:176
 msgid "Missing <tt>/</tt> partition"
-msgstr ""
+msgstr "Отсутствует раздел <tt>/</tt>"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:178 src/ui/pages/partitions.rs:182
 msgid "Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions"
-msgstr ""
+msgstr "Отсутствуют разделы <tt>/</tt> и <tt>/boot/efi</tt>"
 
 #: src/ui/pages/partitions.rs:198
 msgid "Launch GParted"
-msgstr ""
+msgstr "Запустить GParted"
 
 #: src/ui/pages/partitions.rs:215
 msgid "Basic"
-msgstr ""
+msgstr "Базовый"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{/dev/sdX} (20 GB minimum needed)" indicating that the given disk is not large enough
 #: src/ui/pages/partitions.rs:548
 msgid "{} (20 GB minimum needed)"
-msgstr ""
+msgstr "{} (необходимо минимум 20 GB)"
 
 #: src/ui/pages/partitions.rs:612
 msgid "Format"
-msgstr ""
+msgstr "Форматировать"
 
 #: src/ui/pages/partitions.rs:633 src/ui/pages/partitions.rs:652
 msgid "Mount"
-msgstr ""
+msgstr "Монтировать"
 
 #: src/ui/pages/partitions.rs:667 src/ui/pages/summary.rs:305
 msgid "Do not mount"
-msgstr ""
+msgstr "Не монтировать"
 
 #: src/ui/pages/partitions.rs:668
 msgid "Leave as is"
-msgstr ""
+msgstr "Оставить как есть"
 
 #: src/ui/pages/summary.rs:58
 msgid "Summary"
-msgstr ""
+msgstr "Итог"
 
 #: src/ui/pages/summary.rs:63
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 #: src/ui/pages/summary.rs:74
 msgid "Keyboard"
-msgstr ""
+msgstr "Клавиатура"
 
 #: src/ui/pages/summary.rs:85 src/ui/pages/timezone.rs:52
 msgid "Timezone"
-msgstr ""
+msgstr "Часовой пояс"
 
 #: src/ui/pages/summary.rs:97 src/ui/pages/summary.rs:115
 #: src/ui/pages/summary.rs:121
 msgid "Partitions"
-msgstr ""
+msgstr "Разделы"
 
 #: src/ui/pages/summary.rs:103
 msgid "Full Disk"
-msgstr ""
+msgstr "Весь диск"
 
 #: src/ui/pages/summary.rs:106
 msgid "Entire disk will be formatted"
-msgstr ""
+msgstr "Весь диск будет отформатирован"
 
 #: src/ui/pages/summary.rs:131
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
 #: src/ui/pages/summary.rs:135 src/ui/pages/user.rs:70
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: src/ui/pages/summary.rs:153 src/ui/pages/user.rs:78
 msgid "Username"
-msgstr ""
+msgstr "Логин"
 
 #: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:148
 msgid "Hostname"
-msgstr ""
+msgstr "Имя хоста"
 
 #. Translators: Leave the ':' at the end of the string, it will read Mountpoint: {disk mount location}
 #: src/ui/pages/summary.rs:298
 msgid "Mountpoint:"
-msgstr ""
+msgstr "Точки монтирования:"
 
 #. Translators: Leave the ':' at the end of the string, it will read Format: {disk format}
 #: src/ui/pages/summary.rs:318
 msgid "Format:"
-msgstr ""
+msgstr "Формат:"
 
 #: src/ui/pages/summary.rs:325
 msgid "Do not format"
-msgstr ""
+msgstr "Не форматировать"
 
 #: src/ui/pages/user.rs:62
 msgid "Create a new user"
-msgstr ""
+msgstr "Создать нового пользователя"
 
 #: src/ui/pages/user.rs:110
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: src/ui/pages/user.rs:118
 msgid "Confirm Password"
-msgstr ""
+msgstr "Подтверждение пароля"
 
 #: src/ui/pages/user.rs:125
 msgid "Log in automatically"
-msgstr ""
+msgstr "Входить в систему автоматически"
 
 #: src/ui/pages/user.rs:173
 msgid "Root password"
-msgstr ""
+msgstr "Пароль суперпользователя"
 
 #: src/ui/pages/user.rs:181
 msgid "Confirm root password"
-msgstr ""
+msgstr "Подтвердить пароль суперпользователя"
 
 #: src/ui/pages/welcome.rs:42
 msgid "Welcome!"
-msgstr ""
+msgstr "Добро пожаловать!"
 
 #: src/ui/pages/welcome.rs:47
 msgid "Choose a language"
-msgstr ""
+msgstr "Выберите язык"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{distribution name} Installer"
 #: src/ui/window.rs:171
 msgid "{} Installer"
-msgstr ""
+msgstr "Установщик {}"
 
 #: src/ui/window.rs:183
 msgid "Installing…"
-msgstr ""
+msgstr "Установка…"
 
 #: src/ui/window.rs:188
 msgid "Installation Finished"
-msgstr ""
+msgstr "Установка завершена"
 
 #: src/ui/window.rs:193
 msgid "Installation Failed"
-msgstr ""
+msgstr "Установка не удалась"
 
 #: src/ui/window.rs:303
 msgid "Finished!"
-msgstr ""
+msgstr "Готово!"
 
 #: src/ui/window.rs:315
 msgid "Reboot"
-msgstr ""
+msgstr "Перезагрузить"
 
 #: src/ui/window.rs:331
 msgid "No Internet"
-msgstr ""
+msgstr "Нет доступа к интернету"
 
 #: src/ui/window.rs:332
 msgid "Please connect to the Internet to continue"
-msgstr ""
+msgstr "Пожалуйста, подключитесь к Интернету, чтобы продолжить"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "Try {distribution name} live"
 #: src/ui/window.rs:501
 msgid "Try {} live"
-msgstr ""
+msgstr "Попробовать {} без установки"
 
 #: config/icicle/advanced.yml.in:2
 msgid "Advanced Installation"
-msgstr ""
+msgstr "Расширенная установка"
 
 #: config/icicle/advanced.yml.in:15
 msgid "Extra Package Managers"
-msgstr ""
+msgstr "Дополнительные менеджеры пакетов"
 
 #: config/icicle/advanced.yml.in:19
 msgid "Enable Flatpak support"
-msgstr ""
+msgstr "Включить поддержку Flatpak"
 
 #: config/icicle/advanced.yml.in:24
 msgid ""
 "Enable AppImage support by installing the \"appimage-run\" package. For "
 "AppImages to work, you must run them with the \"appimage-run\" command."
 msgstr ""
+"Включить поддержку AppImage, установив пакет appimage-run. Чтобы AppImages "
+"работали, вы должны запустить их с помощью команды «appimage-run»."
 
 #: config/icicle/advanced.yml.in:30
 msgid "Kernel"
-msgstr ""
+msgstr "Ядро"
 
 #: config/icicle/advanced.yml.in:34
 msgid "Install the latest LTS kernel"
-msgstr ""
+msgstr "Установить последнее ядро LTS"
 
 #: config/icicle/advanced.yml.in:36
 msgid "Install the latest kernel"
-msgstr ""
+msgstr "Установить последнее ядро"
 
 #: config/icicle/advanced.yml.in:41
 msgid "Install the libre kernel"
-msgstr ""
+msgstr "Установить ядро libre"
 
 #: config/icicle/advanced.yml.in:46
 msgid "Install the Zen kernel"
-msgstr ""
+msgstr "Установить ядро Zen"
 
 #: config/icicle/basic.yml.in:2
 msgid "Basic Installation"
-msgstr ""
+msgstr "Базовая установка"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:3
 msgid "Configurable and Customizable"
-msgstr ""
+msgstr "Конфигурируемый и настраиваемый"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:4
 msgid ""
 "Easily modify and manage your system configuration with the power of NixOS"
 msgstr ""
+"Легко изменяйте и управляйте конфигурацией вашей системы с помощью "
+"возможностей NixOS"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:6
 msgid "Nix Package Manager"
-msgstr ""
+msgstr "Менеджер пакетов Nix"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:7
 msgid "Keep your system stable with Nix's reliable and reproducible packages"
 msgstr ""
+"Обеспечьте стабильность своей системы с помощью надежных и воспроизводимых "
+"пакетов Nix"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:9
 msgid "Over 80,000 packages available"
-msgstr ""
+msgstr "Доступно более 80,000 пакетов"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:10
 msgid ""
 "Easily find and install all the packages you need on your SnowflakeOS system"
 msgstr ""
+"Легко находите и устанавливайте все необходимые пакеты в вашей системе "
+"SnowflakeOS"
