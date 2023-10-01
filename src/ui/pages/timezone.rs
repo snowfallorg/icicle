@@ -94,7 +94,7 @@ impl SimpleComponent for TimeZoneModel {
         let mut locvec: Vec<libgweather::Location> = vec![];
         let x = libgweather::Location::world().unwrap();
         loop {
-            let loc = x.next_child(locvec.last());
+            let loc = x.next_child(locvec.last().cloned());
             if loc.is_none() {
                 break;
             }

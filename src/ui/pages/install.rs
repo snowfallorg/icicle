@@ -24,10 +24,10 @@ pub enum InstallMsg {
     Echo(String),
     Install(Vec<String>),
     VTEOutput(i32),
-    SetLocale(Option<String>)
+    SetLocale(Option<String>),
 }
 
-pub static INSTALL_BROKER: MessageBroker<InstallModel> = MessageBroker::new();
+pub static INSTALL_BROKER: MessageBroker<InstallMsg> = MessageBroker::new();
 
 #[relm4::component(pub)]
 impl SimpleComponent for InstallModel {
@@ -107,8 +107,10 @@ impl SimpleComponent for InstallModel {
             showterminal: false,
             progressbar: gtk::ProgressBar::new(),
             installing: false,
-            slides: FactoryVecDeque::new(adw::Carousel::new(), sender.input_sender()),
-            locale: None
+            slides: FactoryVecDeque::builder(adw::Carousel::new())
+                .launch()
+                .detach(),
+            locale: None,
         };
 
         if let Ok(brandingconfig) = parse_branding(&branding) {
@@ -171,11 +173,11 @@ impl SimpleComponent for InstallModel {
                     Some("/"),
                     &["/usr/bin/env", "echo", &s],
                     &[],
-                    glib::SpawnFlags::DEFAULT,
+                    adw::glib::SpawnFlags::DEFAULT,
                     || (),
                     -1,
                     gio::Cancellable::NONE,
-                    |_, _, _| (),
+                    |_| (),
                 );
             }
             InstallMsg::Install(cmds) => {
@@ -187,11 +189,11 @@ impl SimpleComponent for InstallModel {
                     Some("/"),
                     &cmds,
                     &[],
-                    glib::SpawnFlags::DEFAULT,
+                    adw::glib::SpawnFlags::DEFAULT,
                     || (),
                     -1,
                     gio::Cancellable::NONE,
-                    |_term, pid, err| (debug!("VTE Install: {:?} {:?}", pid, err)),
+                    |err| (debug!("VTE Install: {:?}", err)),
                 );
             }
             InstallMsg::VTEOutput(status) => {
@@ -245,7 +247,6 @@ impl FactoryComponent for InstallSlide {
     type Input = ();
     type Output = ();
     type ParentWidget = adw::Carousel;
-    type ParentInput = InstallMsg;
     type CommandOutput = ();
 
     view! {

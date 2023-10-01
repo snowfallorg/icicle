@@ -132,7 +132,7 @@ impl SimpleComponent for UserModel {
                                 set_valign: gtk::Align::Center,
                                 connect_state_set[sender] => move |_, state| {
                                     sender.input(UserMsg::SetAutoLogin(state));
-                                    gtk::Inhibit(false)
+                                    glib::Propagation::Proceed
                                 }
                             }
                         }

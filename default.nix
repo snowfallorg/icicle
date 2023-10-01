@@ -13,9 +13,9 @@ pkgs.stdenv.mkDerivation rec {
   cargoDeps = pkgs.rustPlatform.importCargoLock {
     lockFile = ./Cargo.lock;
     outputHashes = {
-      "disk-types-0.1.5" = "sha256-jXQanPALSKekae9wxLtH+dIvfIOB7VRUP+JeLBjrIqE=";
-      "gnome-desktop-0.4.0" = "sha256-E0ElNlLikDoMB41xsH7M9Cy/RIqQ3spqZzDmg0mhTpE=";
-      "gweather-sys-4.0.0" = "sha256-6ORuEXmPW2GD42p4Lr4VLAXM6TfOhdP9glndY8wPkXk=";
+      "disk-types-0.1.5" = "sha256-TilJ+6Zgc3g1Vd2vWAwscbLGPIgaBWGb4CUxcTKrvlo=";
+      "gnome-desktop-0.4.2" = "sha256-V1KHgbH7uu1l1NJ8XiFVqlkPs/IGazfvINuS39+f8zw=";
+      "vte4-0.7.0" = "sha256-BVOKGEQn/VwPhJPPGq1wTcjwcvVraCPPvFE72wNrGB0=";
     };
   };
 
@@ -32,8 +32,8 @@ pkgs.stdenv.mkDerivation rec {
     wrapGAppsHook4
   ] ++ (with pkgs.rustPlatform; [
     cargoSetupHook
-    rust.cargo
-    rust.rustc
+    cargo
+    rustc
   ]);
 
   buildInputs = with pkgs; [

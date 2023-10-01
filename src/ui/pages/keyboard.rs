@@ -99,6 +99,7 @@ impl SimpleComponent for KeyboardModel {
         root: &Self::Root,
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
+        println!("Keyboard init");
         let xkb = XkbInfo::new();
         let layouts = xkb.all_layouts();
 
@@ -143,6 +144,7 @@ impl SimpleComponent for KeyboardModel {
             .filter(|x| x != &"custom")
             .collect::<Vec<_>>();
         countries.dedup();
+        println!("Pre sort");
         countries.sort_by(|a, b| {
             let aname = gnome_desktop::country_from_code(&a.to_uppercase(), None)
                 .map(|x| x.to_string())
@@ -184,6 +186,7 @@ impl SimpleComponent for KeyboardModel {
                 });
             aname.cmp(&bname)
         });
+        println!("Post sort");
 
         for country in &countries {
             let possible_country = model

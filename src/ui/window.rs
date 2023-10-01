@@ -147,9 +147,10 @@ impl Component for AppModel {
                 debug!("Caught close request: {}", model.page == StackPage::Install);
                 if model.page == StackPage::Install {
                     let _ = quitdialog.send(QuitDialogMsg::Show);
-                    gtk::Inhibit(true)
-                } else {
-                    gtk::Inhibit(false)
+                    glib::Propagation::Stop
+                } else {            
+                    relm4::main_application().quit();
+                    glib::Propagation::Proceed
                 }
             },
             gtk::Box {
@@ -347,37 +348,47 @@ impl Component for AppModel {
         root: &Self::Root,
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
-        let config = parse_config().unwrap();
+        let config = parse_config().expect("Failed to parse config");
         let welcomepage = WelcomeModel::builder()
             .launch(())
             .forward(sender.input_sender(), identity);
+        println!("Welcome page launched");
         let keyboardpage = KeyboardModel::builder()
             .launch(())
             .forward(sender.input_sender(), identity);
+        println!("Keyboard page launched");
         let timezonepage = TimeZoneModel::builder()
             .launch(())
             .forward(sender.input_sender(), identity);
+        println!("Timezone page launched");
         let partitionpage = PartitionModel::builder()
             .launch_with_broker((), &PARTITION_BROKER)
             .forward(sender.input_sender(), identity);
+        println!("Partition page launched");
         let userpage = UserModel::builder()
             .launch(())
             .forward(sender.input_sender(), identity);
+        println!("User page launched");
         let summarypage = SummaryModel::builder()
             .launch(())
             .forward(sender.input_sender(), identity);
+        println!("Summary page launched");
         let installpage = InstallModel::builder()
             .launch_with_broker(config.branding.to_string(), &INSTALL_BROKER)
             .forward(sender.input_sender(), identity);
+        println!("Install page launched");
         let installworker = InstallAsyncModel::builder()
             .detach_worker(())
             .forward(sender.input_sender(), identity);
+        println!("Install worker launched");
         let errorpage = ErrorModel::builder()
             .launch(())
             .forward(sender.input_sender(), identity);
+        println!("Error page launched");
         let quitdialog = QuitDialogModel::builder()
             .launch(root.clone().upcast())
             .forward(sender.input_sender(), identity);
+        println!("Quit dialog launched");
 
         let res = reqwest::blocking::get(&config.internet_check_url);
         let startpage = if let Ok(res) = res {
@@ -714,11 +725,13 @@ impl Component for AppModel {
                 for listpage in self.list.values() {
                     listpage.emit(ListMsg::SetLocale(self.languageconfig.clone()));
                 }
-                self.install.emit(InstallMsg::SetLocale(self.languageconfig.clone()));
+                self.install
+                    .emit(InstallMsg::SetLocale(self.languageconfig.clone()));
                 if let Some(language) = &self.languageconfig {
-                    if let (Ok(lang), Ok(country)) =
-                        (get_lang(language.to_string()), get_country(language.to_string()))
-                    {
+                    if let (Ok(lang), Ok(country)) = (
+                        get_lang(language.to_string()),
+                        get_country(language.to_string()),
+                    ) {
                         self.keyboard.emit(KeyboardMsg::SetCountry(lang, country));
                     }
                 }
@@ -742,9 +755,7 @@ impl Component for AppModel {
             }
             AppMsg::Install => {
                 debug!("Installing!");
-                if let Some(config) = &self
-                    .installconfig
-                {
+                if let Some(config) = &self.installconfig {
                     self.installworker.emit(InstallAsyncMsg::Install(
                         config.config_id.to_string(),
                         self.languageconfig.clone(),
@@ -753,13 +764,20 @@ impl Component for AppModel {
                         Box::new(self.partitionconfig.clone()),
                         Box::new(self.userconfig.clone()),
                         self.listconfig.clone(),
-                        config.config_type.clone()
+                        config.config_type.clone(),
+                        config.imperative_timezone.clone(),
                     ));
                 }
             }
             AppMsg::FinishInstall => {
                 debug!("Finishing install!");
-                self.installworker.emit(InstallAsyncMsg::FinishInstall);
+                if let Some(config) = &self.installconfig {
+                    self.installworker.emit(InstallAsyncMsg::FinishInstall(
+                        self.timezoneconfig.clone(),
+                        config.imperative_timezone.clone(),
+                        config.commands.clone(),
+                    ));
+                }
             }
             AppMsg::Finished => {
                 debug!("Finished!");

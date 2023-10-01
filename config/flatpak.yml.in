@@ -1,0 +1,37 @@
+---
+config_name: _("Flatpak Installation")
+config_logo: package-x-generic-symbolic
+config_id: flatpak
+config_type: snowfall
+imperative_timezone: true
+steps:
+- welcome
+- keyboard
+- location
+- !user
+- partitioning
+- summary
+commands:
+- flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+- flatpak install -y flathub org.gnome.baobab
+- flatpak install -y flathub org.gnome.Calculator
+- flatpak install -y flathub org.gnome.Calendar
+- flatpak install -y flathub org.gnome.Characters
+- flatpak install -y flathub org.gnome.clocks
+- flatpak install -y flathub org.gnome.Contacts
+- flatpak install -y flathub org.gnome.Epiphany
+- flatpak install -y flathub org.gnome.Evince
+- flatpak install -y flathub org.gnome.Extensions
+- flatpak install -y flathub org.gnome.FileRoller
+- flatpak install -y flathub org.gnome.font-viewer
+- flatpak install -y flathub org.gnome.Geary
+- flatpak install -y flathub org.gnome.Logs
+- flatpak install -y flathub org.gnome.Loupe
+- flatpak install -y flathub org.gnome.Maps
+- flatpak install -y flathub org.gnome.Music
+- flatpak install -y flathub org.gnome.seahorse.Application
+- flatpak install -y flathub org.gnome.SimpleScan
+- flatpak install -y flathub org.gnome.Snapshot
+- flatpak install -y flathub org.gnome.TextEditor
+- flatpak install -y flathub org.gnome.Totem
+- flatpak install -y flathub org.gnome.Weather

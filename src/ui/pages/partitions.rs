@@ -28,7 +28,7 @@ pub enum PartitionMsg {
     Refresh,
 }
 
-pub static PARTITION_BROKER: MessageBroker<PartitionModel> = MessageBroker::new();
+pub static PARTITION_BROKER: MessageBroker<PartitionMsg> = MessageBroker::new();
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum PartitionMethod {
@@ -247,12 +247,16 @@ impl SimpleComponent for PartitionModel {
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
         let model = PartitionModel {
-            disks: FactoryVecDeque::new(gtk::ListBox::new(), sender.input_sender()),
+            disks: FactoryVecDeque::builder(gtk::ListBox::new())
+                .launch()
+                .detach(),
             method: PartitionMethod::Basic,
-            partition_groups: FactoryVecDeque::new(
-                gtk::Box::new(gtk::Orientation::Vertical, 20),
-                sender.input_sender(),
-            ),
+            partition_groups: FactoryVecDeque::builder(gtk::Box::new(
+                gtk::Orientation::Vertical,
+                20,
+            ))
+            .launch()
+            .detach(),
             diskgroupbtn: gtk::CheckButton::new(),
             schema: None,
             efi: distinst_disks::Bootloader::detect() == distinst_disks::Bootloader::Efi,
@@ -314,10 +318,9 @@ impl SimpleComponent for PartitionModel {
                                 });
 
                                 let mut part_factoryvec: FactoryVecDeque<Partition> =
-                                    FactoryVecDeque::new(
-                                        gtk::ListBox::new(),
-                                        sender.input_sender(),
-                                    );
+                                    FactoryVecDeque::builder(gtk::ListBox::new())
+                                        .launch()
+                                        .detach();
                                 let mut part_guard = part_factoryvec.guard();
 
                                 for part in disk.partitions {
@@ -538,7 +541,6 @@ impl FactoryComponent for WholeDisk {
     type Input = ();
     type Output = ();
     type ParentWidget = gtk::ListBox;
-    type ParentInput = PartitionMsg;
     type CommandOutput = ();
 
     view! {
@@ -602,7 +604,6 @@ impl FactoryComponent for Partition {
     type Input = PartitionRowMsg;
     type Output = ();
     type ParentWidget = gtk::ListBox;
-    type ParentInput = PartitionMsg;
     type CommandOutput = ();
 
     view! {
@@ -712,7 +713,6 @@ impl FactoryComponent for PartitionGroup {
     type Input = ();
     type Output = ();
     type ParentWidget = gtk::Box;
-    type ParentInput = PartitionMsg;
     type CommandOutput = ();
 
     view! {

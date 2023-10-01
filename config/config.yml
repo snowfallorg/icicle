@@ -9,4 +9,6 @@ choices:
   file: basic.yml
 - !configuration
   file: advanced.yml
+- !configuration
+  file: flatpak.yml
 - live

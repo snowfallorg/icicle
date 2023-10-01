@@ -36,8 +36,13 @@ pub enum InstallAsyncMsg {
         Box<Option<UserConfig>>,
         HashMap<String, HashMap<String, Choice>>, // Listconfig
         ConfigType,
+        bool,
     ),
-    FinishInstall,
+    FinishInstall(
+        Option<String>, //timezone,
+        bool,           // Imperative timezone
+        Vec<String>,    // Commands
+    ),
 }
 
 impl Worker for InstallAsyncModel {
@@ -64,6 +69,7 @@ impl Worker for InstallAsyncModel {
                 user,
                 listconfig,
                 configtype,
+                imperative_timezone,
             ) => {
                 self.username = user.as_ref().as_ref().map(|u| u.username.clone());
                 self.password = user.as_ref().as_ref().map(|u| u.password.clone());
@@ -184,6 +190,7 @@ impl Worker for InstallAsyncModel {
                     user: *user.clone(),
                     list: listconfig,
                     bootdisk: mbrdisk,
+                    imperative_timezone,
                 }) {
                     error!("Failed to make config: {}", e);
                     let _ = sender.output(AppMsg::Error);
@@ -214,7 +221,7 @@ impl Worker for InstallAsyncModel {
                     let _ = sender.output(AppMsg::Error);
                 }
             }
-            InstallAsyncMsg::FinishInstall => {
+            InstallAsyncMsg::FinishInstall(timezone, imperative_timezone, mut commands) => {
                 // Step 5: Set user passwords
                 info!("Step 5: Set user passwords");
                 fn setuserpasswd(username: Option<String>, password: Option<String>) -> Result<()> {
@@ -293,6 +300,42 @@ impl Worker for InstallAsyncModel {
                     }
                 }
 
+                // Step 7: Run commands
+                fn run_commands(commands: Vec<String>) -> Result<()> {
+                    for command in commands {
+                        let mut cmd = Command::new("pkexec")
+                            .arg("nixos-enter")
+                            .arg("--root")
+                            .arg("/tmp/icicle")
+                            .arg("-c")
+                            .arg(&command)
+                            .spawn()?;
+                        match cmd.wait() {
+                            Err(e) => {
+                                error!("Failed to run command: {}", e);
+                                return Err(e.into());
+                            }
+                            Ok(status) => {
+                                if !status.success() {
+                                    error!("Failed to run command");
+                                    return Err(anyhow!("Failed to run command"));
+                                }
+                            }
+                        }
+                    }
+                    Ok(())
+                }
+                if imperative_timezone {
+                    if let Some(timezone) = timezone {
+                        commands.insert(0, format!("timedatectl set-timezone {}", timezone));
+                    }
+                }
+                if let Err(e) = run_commands(commands) {
+                    error!("Failed to run commands: {}", e);
+                    let _ = sender.output(AppMsg::Error);
+                    return;
+                }
+
                 let _ = sender.output(AppMsg::Finished);
             }
         }
@@ -346,6 +389,7 @@ pub struct MakeConfig {
     pub user: Option<UserConfig>,
     pub list: HashMap<String, HashMap<String, Choice>>,
     pub bootdisk: Option<String>,
+    pub imperative_timezone: bool,
 }
 
 pub fn makeconfig(makeconfig: MakeConfig) -> Result<()> {
@@ -384,16 +428,6 @@ pub fn makeconfig(makeconfig: MakeConfig) -> Result<()> {
         {
             // Check if it is a dir
             if file.metadata()?.is_dir() {
-                // if (efi
-                //     && format!("{}/icicle/{}/modules/biosboot", SYSCONFDIR, makeconfig.id)
-                //         == file.path().to_string_lossy().trim_end_matches('/'))
-                //     || (!efi
-                //         && format!("{}/icicle/{}/modules/efiboot", SYSCONFDIR, makeconfig.id)
-                //             == file.path().to_string_lossy().trim_end_matches('/'))
-                // {
-                //     debug!("Skipping {}", file.path().to_string_lossy());
-                //     continue;
-                // }
                 // Iterate through files in the dir
                 debug!("Iterating through {}", file.path().to_string_lossy());
                 debug!("Path: {}", path);
@@ -419,7 +453,10 @@ pub fn makeconfig(makeconfig: MakeConfig) -> Result<()> {
 
                 if efi {
                     config = config.replace("@BOOTLOADER@", "");
-                    config = config.replace("@BOOTLOADER_MODULE@", "snowflakeos-modules.nixosModules.efiboot")
+                    config = config.replace(
+                        "@BOOTLOADER_MODULE@",
+                        "snowflakeos-modules.nixosModules.efiboot",
+                    )
                 } else {
                     config = config.replace(
                         "@BOOTLOADER@",
@@ -431,7 +468,10 @@ pub fn makeconfig(makeconfig: MakeConfig) -> Result<()> {
                                 .context("Failed to get bootloader disk")?
                         ),
                     );
-                    config = config.replace("@BOOTLOADER_MODULE@", "snowflakeos-modules.nixosModules.biosboot")
+                    config = config.replace(
+                        "@BOOTLOADER_MODULE@",
+                        "snowflakeos-modules.nixosModules.biosboot",
+                    )
                 }
 
                 config = config.replace(
@@ -447,15 +487,19 @@ pub fn makeconfig(makeconfig: MakeConfig) -> Result<()> {
                     ),
                 );
 
-                if let Some(tz) = &makeconfig.timezone {
-                    config = config.replace(
-                        "@TIMEZONE@",
-                        &format!(
-                            r#"  # Set your time zone.
+                if makeconfig.imperative_timezone {
+                    config = config.replace("@TIMEZONE@", "");
+                } else {
+                    if let Some(tz) = &makeconfig.timezone {
+                        config = config.replace(
+                            "@TIMEZONE@",
+                            &format!(
+                                r#"  # Set your time zone.
   time.timeZone = "{}";"#,
-                            tz
-                        ),
-                    );
+                                tz
+                            ),
+                        );
+                    }
                 }
 
                 if let Some(locale) = &makeconfig.language {

@@ -3,6 +3,7 @@ config_name: _("Advanced Installation")
 config_logo: preferences-system-symbolic
 config_id: advanced
 config_type: snowfall
+imperative_timezone: true
 steps:
 - welcome
 - location

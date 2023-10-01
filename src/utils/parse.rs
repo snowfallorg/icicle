@@ -39,7 +39,11 @@ pub struct InstallationConfig {
     pub config_name: String,
     pub config_logo: String,
     pub config_type: ConfigType,
+    #[serde(default)]
+    pub imperative_timezone: bool,
     pub steps: Vec<StepType>,
+    #[serde(default)]
+    pub commands: Vec<String>,
 }
 
 #[derive(Deserialize, Serialize, Clone, Debug)]

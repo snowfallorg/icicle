@@ -204,7 +204,9 @@ impl SimpleComponent for SummaryModel {
             userconfig: None,
             prettylanguage: None,
             prettykeyboard: None,
-            partitions: FactoryVecDeque::new(adw::PreferencesGroup::new(), sender.input_sender()),
+            partitions: FactoryVecDeque::builder(adw::PreferencesGroup::new())
+                .launch()
+                .detach(),
             showhostname: false,
             tracker: 0,
         };
@@ -283,7 +285,6 @@ impl FactoryComponent for Partition {
     type Input = ();
     type Output = ();
     type ParentWidget = adw::PreferencesGroup;
-    type ParentInput = SummaryMsg;
     type CommandOutput = ();
 
     view! {
