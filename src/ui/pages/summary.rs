@@ -194,7 +194,7 @@ impl SimpleComponent for SummaryModel {
     fn init(
         _parent_window: Self::Init,
         root: &Self::Root,
-        sender: ComponentSender<Self>,
+        _sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
         let model = SummaryModel {
             languageconfig: None,
@@ -204,8 +204,8 @@ impl SimpleComponent for SummaryModel {
             userconfig: None,
             prettylanguage: None,
             prettykeyboard: None,
-            partitions: FactoryVecDeque::builder(adw::PreferencesGroup::new())
-                .launch()
+            partitions: FactoryVecDeque::builder()
+                .launch_default()
                 .detach(),
             showhostname: false,
             tracker: 0,

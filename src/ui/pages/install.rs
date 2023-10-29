@@ -2,7 +2,7 @@ use crate::{config::SYSCONFDIR, ui::window::AppMsg, utils::parse::parse_branding
 use adw::prelude::*;
 use gettextrs::gettext;
 use gtk::gio;
-use log::{debug, error, info};
+use log::{debug, error};
 use relm4::{factory::*, *};
 use std::fs::File;
 use vte::{self, TerminalExt, TerminalExtManual};
@@ -25,6 +25,7 @@ pub enum InstallMsg {
     Install(Vec<String>),
     VTEOutput(i32),
     SetLocale(Option<String>),
+    PostInstall(Vec<String>),
 }
 
 pub static INSTALL_BROKER: MessageBroker<InstallMsg> = MessageBroker::new();
@@ -107,8 +108,8 @@ impl SimpleComponent for InstallModel {
             showterminal: false,
             progressbar: gtk::ProgressBar::new(),
             installing: false,
-            slides: FactoryVecDeque::builder(adw::Carousel::new())
-                .launch()
+            slides: FactoryVecDeque::builder()
+                .launch_default()
                 .detach(),
             locale: None,
         };
@@ -196,26 +197,49 @@ impl SimpleComponent for InstallModel {
                     |err| (debug!("VTE Install: {:?}", err)),
                 );
             }
+            InstallMsg::PostInstall(cmds) => {
+                debug!("PostInstall command: {:?}", cmds);
+                self.installing = false;
+                let cmds: Vec<&str> = cmds.iter().map(|x| &**x).collect();
+                self.terminal.spawn_async(
+                    vte::PtyFlags::DEFAULT,
+                    Some("/"),
+                    &cmds,
+                    &[],
+                    adw::glib::SpawnFlags::DEFAULT,
+                    || (),
+                    -1,
+                    gio::Cancellable::NONE,
+                    |err| (debug!("VTE postinstall: {:?}", err)),
+                );
+            }
             InstallMsg::VTEOutput(status) => {
                 debug!("VTE command exited with status: {}", status);
-                info!("Installing: {}", self.installing);
-                if self.installing {
-                    if let Ok(file) = File::create("/tmp/icicle-term.log") {
-                        let output = gio::WriteOutputStream::new(file);
-                        if let Err(e) = self.terminal.write_contents_sync(
-                            &output,
-                            vte::WriteFlags::Default,
-                            gio::Cancellable::NONE,
-                        ) {
-                            error!("{:?}", e);
-                        }
-                        let _ = output.flush(gio::Cancellable::NONE);
+                if let Ok(file) = File::create("/tmp/icicle-term.log") {
+                    let output = gio::WriteOutputStream::new(file);
+                    if let Err(e) = self.terminal.write_contents_sync(
+                        &output,
+                        vte::WriteFlags::Default,
+                        gio::Cancellable::NONE,
+                    ) {
+                        error!("{:?}", e);
                     }
+                    let _ = output.flush(gio::Cancellable::NONE);
+                }
+                if self.installing {
                     if status == 0 {
                         debug!("Installation Success!");
                         let _ = sender.output(AppMsg::FinishInstall);
                     } else {
                         debug!("Installation Failed!");
+                        let _ = sender.output(AppMsg::Error);
+                    }
+                } else {
+                    if status == 0 {
+                        debug!("Post install command success!");
+                        let _ = sender.output(AppMsg::RunNextCommand);
+                    } else {
+                        debug!("Post install command failed!");
                         let _ = sender.output(AppMsg::Error);
                     }
                 }

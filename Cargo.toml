@@ -1,12 +1,12 @@
 [package]
 name = "icicle"
-version = "0.0.1"
+version = "0.0.2"
 edition = "2021"
 default-run = "icicle"
 
 [dependencies]
-relm4 = { version = "0.7.0-beta.1", features = ["libadwaita", "macros"]  }
-relm4-components = { package = "relm4-components", version = "0.7.0-beta.1"}
+relm4 = { version = "0.7.0-beta.2", features = ["libadwaita", "macros"]  }
+relm4-components = { package = "relm4-components", version = "0.7.0-beta.2"}
 adw = { package = "libadwaita", version = "0.5", features = ["v1_2", "gtk_v4_6"] }
 gtk = { package = "gtk4", version = "0.7", features = ["v4_6"] }
 glib = { package = "glib", version = "0.18", features = ["v2_68"] }
@@ -22,7 +22,7 @@ simplelog = "0.12"
 anyhow = "1.0"
 
 isolang = "2.3.0"
-gnome-desktop = { git = "https://gitlab.gnome.org/vlinkz/gnome-desktop-rs" }
+gnome-desktop = "0.4.2"
 libgweather = "4.3"
 
 size = "0.4"

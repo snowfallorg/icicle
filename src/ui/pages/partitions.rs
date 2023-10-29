@@ -247,15 +247,15 @@ impl SimpleComponent for PartitionModel {
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
         let model = PartitionModel {
-            disks: FactoryVecDeque::builder(gtk::ListBox::new())
-                .launch()
+            disks: FactoryVecDeque::builder()
+                .launch_default()
                 .detach(),
             method: PartitionMethod::Basic,
-            partition_groups: FactoryVecDeque::builder(gtk::Box::new(
+            partition_groups: FactoryVecDeque::builder()
+            .launch(gtk::Box::new(
                 gtk::Orientation::Vertical,
                 20,
             ))
-            .launch()
             .detach(),
             diskgroupbtn: gtk::CheckButton::new(),
             schema: None,
@@ -318,8 +318,8 @@ impl SimpleComponent for PartitionModel {
                                 });
 
                                 let mut part_factoryvec: FactoryVecDeque<Partition> =
-                                    FactoryVecDeque::builder(gtk::ListBox::new())
-                                        .launch()
+                                    FactoryVecDeque::builder()
+                                        .launch_default()
                                         .detach();
                                 let mut part_guard = part_factoryvec.guard();
 
@@ -635,14 +635,14 @@ impl FactoryComponent for Partition {
                 #[watch]
                 set_title: &gettext("Mount"),
                 // TODO: When switching language the "Do not mount" option does not update
-                set_model: Some(&gtk::StringList::new(&[&self.donotmount, "/", "/boot", "/boot", "/home", "/opt", "/var", "/nix"])),
+                set_model: Some(&gtk::StringList::new(&[&self.donotmount, " /", "/boot", "/home", "/opt", "/var", "/nix"])),
                 connect_selected_notify[name = self.name.to_string(), device = self.device.to_string(), mountstring = self.donotmount.to_string()] => move |row| {
                     if let Some(item) = row.selected_item() {
                         if let Ok(item) = item.downcast::<gtk::StringObject>() {
                             if item.string() == mountstring {
                                 PARTITION_BROKER.send(PartitionMsg::RemoveMountPartition(name.to_string()));
                             } else {
-                                PARTITION_BROKER.send(PartitionMsg::AddMountPartition(name.to_string(), item.string().to_string(), device.to_string()));
+                                PARTITION_BROKER.send(PartitionMsg::AddMountPartition(name.to_string(), item.string().trim().to_string(), device.to_string()));
                             }
                         }
                     }

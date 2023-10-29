@@ -20,7 +20,7 @@ steps:
     - Flatpak:
         description: _("Enable Flatpak support")
         config: |-
-          modules.packagemanagers.flatpak = true;
+          services.flatpak.enable = true;
     - AppImage:
         description: _("Enable AppImage support by installing the \"appimage-run\" package. For AppImages to work, you must run them with the \"appimage-run\" command.")
         config: |-
@@ -36,14 +36,14 @@ steps:
     - Latest:
         description: _("Install the latest kernel")
         config: |-
-          modules.kernel.package = pkgs.linuxPackages_latest;
+          boot.kernelPackages = pkgs.linuxPackages_latest;
     - Libre:
         description: _("Install the libre kernel")
         config: |-
-          modules.kernel.package = pkgs.linuxPackages_libre;
+          boot.kernelPackages = pkgs.linuxPackages_libre;
     - Zen:
         description: _("Install the Zen kernel")
         config: |-
-          modules.kernel.package = pkgs.linuxPackages_zen;
+          boot.kernelPackages = pkgs.linuxPackages_zen;
 - partitioning
 - summary

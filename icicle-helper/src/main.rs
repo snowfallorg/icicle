@@ -96,7 +96,7 @@ fn main() {
                             format: part.fs_type_name().unwrap_or("unknown").to_string(),
                             size: (part.geom_length() as u64) * sectorsize,
                         });
-                    }   
+                    }
                 }
                 outdisks.push(disk);
             }
@@ -230,11 +230,22 @@ fn partition() -> Result<()> {
                     );
                     fs::create_dir_all(format!("/tmp/icicle{}", target))
                         .context("Failed to create mountpoint")?;
-                    let output = Command::new("mount")
-                        .arg(part.get_device_path())
-                        .arg(format!("/tmp/icicle{}", target))
-                        .output()
-                        .context("Failed to mount partition")?;
+                    let output = if *target == "/boot" {
+                        Command::new("mount")
+                            .arg("-o")
+                            .arg("umask=0077")
+                            .arg(part.get_device_path())
+                            .arg(format!("/tmp/icicle{}", target))
+                            .output()
+                            .context("Failed to mount partition")?
+                    } else {
+                        Command::new("mount")
+                            .arg(part.get_device_path())
+                            .arg(format!("/tmp/icicle{}", target))
+                            .output()
+                            .context("Failed to mount partition")?
+                    };
+
                     if !output.status.success() {
                         return Err(anyhow!(
                             "Failed to mount partition: {}",
@@ -330,11 +341,21 @@ fn partition() -> Result<()> {
                 if let Some(target) = custom.mountpoint {
                     fs::create_dir_all(format!("/tmp/icicle{}", target))
                         .context("Failed to create mountpoint")?;
-                    let _output = Command::new("mount")
+                    let _output = if target == "/boot" {
+                        Command::new("mount")
+                        .arg("-o")
+                        .arg("umask=0077")
                         .arg(&part)
                         .arg(format!("/tmp/icicle{}", target))
                         .output()
-                        .context("Failed to mount partition")?;
+                        .context("Failed to mount partition")?
+                    } else {
+                        Command::new("mount")
+                        .arg(&part)
+                        .arg(format!("/tmp/icicle{}", target))
+                        .output()
+                        .context("Failed to mount partition")?
+                    };
                 }
             }
         }

@@ -5,7 +5,7 @@ yaml_build = custom_target(
   output: 'basic.yml',
   console: true,
   install: true,
-  install_dir: sysconfdir / 'icicle',
+  install_dir: pkgconfdir / 'icicle',
   command: [
     ymlconvert,
     '@INPUT@',
@@ -20,7 +20,7 @@ yaml_build = custom_target(
   output: 'advanced.yml',
   console: true,
   install: true,
-  install_dir: sysconfdir / 'icicle',
+  install_dir: pkgconfdir / 'icicle',
   command: [
     ymlconvert,
     '@INPUT@',
@@ -35,7 +35,7 @@ yaml_build = custom_target(
   output: 'flatpak.yml',
   console: true,
   install: true,
-  install_dir: sysconfdir / 'icicle',
+  install_dir: pkgconfdir / 'icicle',
   command: [
     ymlconvert,
     '@INPUT@',
@@ -43,10 +43,10 @@ yaml_build = custom_target(
   ]
 )
 
-install_data('config.yml', install_dir : sysconfdir / 'icicle')
+install_data('config.yml', install_dir : pkgconfdir / 'icicle')
 
-install_subdir('basic', install_dir : sysconfdir / 'icicle')
-install_subdir('advanced', install_dir : sysconfdir / 'icicle')
-install_subdir('flatpak', install_dir : sysconfdir / 'icicle')
+install_subdir('basic', install_dir : pkgconfdir / 'icicle')
+install_subdir('advanced', install_dir : pkgconfdir / 'icicle')
+install_subdir('flatpak', install_dir : pkgconfdir / 'icicle')
 
 subdir('branding/snowflakeos')

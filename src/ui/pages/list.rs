@@ -93,8 +93,8 @@ impl SimpleComponent for ListModel {
         let mut model = ListModel {
             id: init.id,
             title: init.title,
-            list: FactoryVecDeque::builder(adw::PreferencesGroup::new())
-                .launch()
+            list: FactoryVecDeque::builder()
+                .launch_default()
                 .forward(sender.input_sender(), |msg| match msg {
                     ListItemMsg::Select(key) => ListMsg::Select(key),
                     ListItemMsg::Deselect(key) => ListMsg::Deselect(key),
@@ -202,9 +202,9 @@ impl FactoryComponent for ListItem {
                 set_group: self.group.as_ref(),
                 connect_toggled[sender, title = self.title.to_string()] => move |checkbtn| {
                     if checkbtn.is_active() {
-                        sender.output(ListItemMsg::Select(title.to_string()));
+                        let _ = sender.output(ListItemMsg::Select(title.to_string()));
                     } else {
-                        sender.output(ListItemMsg::Deselect(title.to_string()));
+                        let _ = sender.output(ListItemMsg::Deselect(title.to_string()));
                     }
                 },
             }

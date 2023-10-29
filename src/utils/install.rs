@@ -23,6 +23,7 @@ pub struct InstallAsyncModel {
     username: Option<String>,
     password: Option<String>,
     rootpassword: Option<String>,
+    postinstall_commands: Vec<String>,
 }
 
 #[derive(Debug)]
@@ -43,6 +44,7 @@ pub enum InstallAsyncMsg {
         bool,           // Imperative timezone
         Vec<String>,    // Commands
     ),
+    RunNextCommand,
 }
 
 impl Worker for InstallAsyncModel {
@@ -55,6 +57,7 @@ impl Worker for InstallAsyncModel {
             username: None,
             password: None,
             rootpassword: None,
+            postinstall_commands: vec![],
         }
     }
 
@@ -247,11 +250,11 @@ impl Worker for InstallAsyncModel {
                     )?;
                     match passwdcmd.wait() {
                         Err(e) => {
-                            error!("Failed to set root password: {}", e);
+                            error!("Failed to set password: {}", e);
                         }
                         Ok(status) => {
                             if !status.success() {
-                                error!("Failed to set root password");
+                                error!("Failed to set password");
                             }
                         }
                     }
@@ -266,77 +269,40 @@ impl Worker for InstallAsyncModel {
                 // Step 6: Set root password
                 info!("Step 6: Set root password if specified");
                 if let Some(rootpasswd) = &self.rootpassword {
-                    fn setrootpasswd(rootpasswd: String) -> Result<()> {
-                        let mut rootpasswdcmd = Command::new("pkexec")
-                            .arg("nixos-enter")
-                            .arg("--root")
-                            .arg("/tmp/icicle")
-                            .arg("-c")
-                            .arg("chpasswd -c SHA512")
-                            .stdin(Stdio::piped())
-                            .spawn()?;
-                        let rootpasswdstdin = rootpasswdcmd
-                            .stdin
-                            .as_mut()
-                            .context("Failed to get root password stdin")?;
-                        rootpasswdstdin.write_all(format!("root:{}", rootpasswd).as_bytes())?;
-                        match rootpasswdcmd.wait() {
-                            Err(e) => {
-                                error!("Failed to set root password: {}", e);
-                            }
-                            Ok(status) => {
-                                if !status.success() {
-                                    error!("Failed to set root password");
-                                }
-                            }
-                        }
-                        Ok(())
-                    }
-
-                    if let Err(e) = setrootpasswd(rootpasswd.clone()) {
+                    if let Err(e) = setuserpasswd(Some("root".to_string()), Some(rootpasswd.clone())) {
                         error!("Failed to set root password: {}", e);
                         let _ = sender.output(AppMsg::Error);
                         return;
                     }
                 }
 
-                // Step 7: Run commands
-                fn run_commands(commands: Vec<String>) -> Result<()> {
-                    for command in commands {
-                        let mut cmd = Command::new("pkexec")
-                            .arg("nixos-enter")
-                            .arg("--root")
-                            .arg("/tmp/icicle")
-                            .arg("-c")
-                            .arg(&command)
-                            .spawn()?;
-                        match cmd.wait() {
-                            Err(e) => {
-                                error!("Failed to run command: {}", e);
-                                return Err(e.into());
-                            }
-                            Ok(status) => {
-                                if !status.success() {
-                                    error!("Failed to run command");
-                                    return Err(anyhow!("Failed to run command"));
-                                }
-                            }
-                        }
-                    }
-                    Ok(())
-                }
                 if imperative_timezone {
                     if let Some(timezone) = timezone {
-                        commands.insert(0, format!("timedatectl set-timezone {}", timezone));
+                        commands.insert(0, format!("ln -sf ../etc/zoneinfo/{} /etc/localtime", timezone));
                     }
                 }
-                if let Err(e) = run_commands(commands) {
-                    error!("Failed to run commands: {}", e);
-                    let _ = sender.output(AppMsg::Error);
+
+                self.postinstall_commands = commands;
+                sender.input(InstallAsyncMsg::RunNextCommand);
+            }
+            // Step 7: Run commands
+            InstallAsyncMsg::RunNextCommand => {
+                if self.postinstall_commands.is_empty() {
+                    let _ = sender.output(AppMsg::Finished);
                     return;
                 }
-
-                let _ = sender.output(AppMsg::Finished);
+                let mut commands = self.postinstall_commands.clone();
+                let active = commands.remove(0);
+                self.postinstall_commands = commands;
+                INSTALL_BROKER.send(InstallMsg::PostInstall(vec![
+                    "/usr/bin/env".to_string(),
+                    "pkexec".to_string(),
+                    "nixos-enter".to_string(),
+                    "--root".to_string(),
+                    "/tmp/icicle".to_string(),
+                    "-c".to_string(),
+                    active
+                ]));
             }
         }
     }
@@ -461,7 +427,7 @@ pub fn makeconfig(makeconfig: MakeConfig) -> Result<()> {
                     config = config.replace(
                         "@BOOTLOADER@",
                         &format!(
-                            r#"  modules.biosboot.device = "{}";"#,
+                            r#"  boot.loader.grub.device = "{}";"#,
                             makeconfig
                                 .bootdisk
                                 .as_ref()
@@ -542,8 +508,6 @@ pub fn makeconfig(makeconfig: MakeConfig) -> Result<()> {
                         );
                     }
                 }
-
-                config = config.replace("@DESKTOP@", r#"  modules.gnome.enable = true;"#);
 
                 if let Some(user) = &makeconfig.user {
                     config = config.replace("@USERNAME@", &user.username);

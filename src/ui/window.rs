@@ -110,6 +110,7 @@ pub enum AppMsg {
 
     Install,
     FinishInstall,
+    RunNextCommand,
 
     Finished,
     Error,
@@ -778,6 +779,10 @@ impl Component for AppModel {
                         config.commands.clone(),
                     ));
                 }
+            }
+            AppMsg::RunNextCommand => {
+                debug!("Running next postinstall command");
+                self.installworker.emit(InstallAsyncMsg::RunNextCommand);
             }
             AppMsg::Finished => {
                 debug!("Finished!");

@@ -3,6 +3,4 @@
 
 @BOOTLOADER@
 
-@DESKTOP@
-
 }
