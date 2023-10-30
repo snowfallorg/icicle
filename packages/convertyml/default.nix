@@ -1,6 +1,8 @@
-{ pkgs ? import <nixpkgs> { } }:
+{
+  stdenv,
+}:
 
-pkgs.stdenv.mkDerivation {
+stdenv.mkDerivation {
   name = "convertyml";
   src = [ ./. ];
   installPhase = ''

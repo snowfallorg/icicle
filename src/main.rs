@@ -37,7 +37,7 @@ fn main() {
     gtk::Window::set_default_icon_name(icicle::config::APP_ID);
     let app = adw::Application::new(Some(icicle::config::APP_ID), gio::ApplicationFlags::empty());
     app.set_resource_base_path(Some("/org/snowflakeos/Icicle"));
-    let app = RelmApp::with_app(app);
+    let app = RelmApp::from_app(app);
     app.run::<AppModel>(());
 }
 

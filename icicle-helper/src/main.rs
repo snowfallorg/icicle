@@ -96,7 +96,7 @@ fn main() {
                             format: part.fs_type_name().unwrap_or("unknown").to_string(),
                             size: (part.geom_length() as u64) * sectorsize,
                         });
-                    }   
+                    }
                 }
                 outdisks.push(disk);
             }
@@ -106,6 +106,7 @@ fn main() {
             partition().unwrap();
         }
         SubCommands::WriteFile { path, contents } => {
+            fs::create_dir_all(path.rsplitn(2, '/').last().unwrap()).unwrap();
             let mut file = File::create(path).unwrap();
             file.write_all(contents.as_bytes()).unwrap();
         }
@@ -149,7 +150,7 @@ fn partition() -> Result<()> {
                     .ok_or_else(|| anyhow!("Failed to create GPT partition table"))?;
 
                 println!("Partition: Creating EFI partition");
-                // Add /boot/efi partition
+                // Add /boot partition
                 dev.add_partition(
                     PartitionBuilder::new(
                         dev.get_sector(start_sector),
@@ -158,7 +159,7 @@ fn partition() -> Result<()> {
                     )
                     .partition_type(PartitionType::Primary)
                     .flag(PartitionFlag::PED_PARTITION_ESP)
-                    .mount("/boot/efi".into()),
+                    .mount("/boot".into()),
                 )
                 .ok()
                 .ok_or_else(|| anyhow!("Failed to create EFI partition"))?;
@@ -229,11 +230,22 @@ fn partition() -> Result<()> {
                     );
                     fs::create_dir_all(format!("/tmp/icicle{}", target))
                         .context("Failed to create mountpoint")?;
-                    let output = Command::new("mount")
-                        .arg(part.get_device_path())
-                        .arg(format!("/tmp/icicle{}", target))
-                        .output()
-                        .context("Failed to mount partition")?;
+                    let output = if *target == "/boot" {
+                        Command::new("mount")
+                            .arg("-o")
+                            .arg("umask=0077")
+                            .arg(part.get_device_path())
+                            .arg(format!("/tmp/icicle{}", target))
+                            .output()
+                            .context("Failed to mount partition")?
+                    } else {
+                        Command::new("mount")
+                            .arg(part.get_device_path())
+                            .arg(format!("/tmp/icicle{}", target))
+                            .output()
+                            .context("Failed to mount partition")?
+                    };
+
                     if !output.status.success() {
                         return Err(anyhow!(
                             "Failed to mount partition: {}",
@@ -281,7 +293,7 @@ fn partition() -> Result<()> {
                             .ok()
                             .ok_or_else(|| anyhow!("Failed to format partition {}", part))?;
                         if let Some(mountpoint) = &custom.mountpoint {
-                            if mountpoint == "/boot/efi" {
+                            if mountpoint == "/boot" {
                                 let partition = dev
                                     .partitions
                                     .iter_mut()
@@ -329,11 +341,21 @@ fn partition() -> Result<()> {
                 if let Some(target) = custom.mountpoint {
                     fs::create_dir_all(format!("/tmp/icicle{}", target))
                         .context("Failed to create mountpoint")?;
-                    let _output = Command::new("mount")
+                    let _output = if target == "/boot" {
+                        Command::new("mount")
+                        .arg("-o")
+                        .arg("umask=0077")
                         .arg(&part)
                         .arg(format!("/tmp/icicle{}", target))
                         .output()
-                        .context("Failed to mount partition")?;
+                        .context("Failed to mount partition")?
+                    } else {
+                        Command::new("mount")
+                        .arg(&part)
+                        .arg(format!("/tmp/icicle{}", target))
+                        .output()
+                        .context("Failed to mount partition")?
+                    };
                 }
             }
         }

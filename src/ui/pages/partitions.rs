@@ -28,7 +28,7 @@ pub enum PartitionMsg {
     Refresh,
 }
 
-pub static PARTITION_BROKER: MessageBroker<PartitionModel> = MessageBroker::new();
+pub static PARTITION_BROKER: MessageBroker<PartitionMsg> = MessageBroker::new();
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum PartitionMethod {
@@ -138,7 +138,7 @@ impl SimpleComponent for PartitionModel {
                                             if file == "/" {
                                                 root = true;
                                             }
-                                            if file == "/boot/efi" {
+                                            if file == "/boot" {
                                                 bootefi = true;
                                             }
                                         }
@@ -163,7 +163,7 @@ impl SimpleComponent for PartitionModel {
                                                 if file == "/" {
                                                     root = true;
                                                 }
-                                                if file == "/boot/efi" {
+                                                if file == "/boot" {
                                                     bootefi = true;
                                                 }
                                             }
@@ -171,15 +171,15 @@ impl SimpleComponent for PartitionModel {
                                         match (root, bootefi) {
                                             (true, true) => gettext("Ready to install!"),
                                             // Translators: Do NOT translate anything between the <tt> tags
-                                            (true, false) => gettext("Missing <tt>/boot/efi</tt> partition"),
+                                            (true, false) => gettext("Missing <tt>/boot</tt> partition"),
                                             // Translators: Do NOT translate anything between the <tt> tags
                                             (false, true) => gettext("Missing <tt>/</tt> partition"),
                                             // Translators: Do NOT translate anything between the <tt> tags
-                                            (false, false) => gettext("Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions"),
+                                            (false, false) => gettext("Missing <tt>/</tt> and <tt>/boot</tt> partitions"),
                                         }
                                     } else if model.efi {
                                         // Translators: Do NOT translate anything between the <tt> tags
-                                        gettext("Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions")
+                                        gettext("Missing <tt>/</tt> and <tt>/boot</tt> partitions")
                                     } else {
                                         gettext("Missing <tt>/</tt> partition")
                                     }
@@ -247,12 +247,16 @@ impl SimpleComponent for PartitionModel {
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
         let model = PartitionModel {
-            disks: FactoryVecDeque::new(gtk::ListBox::new(), sender.input_sender()),
+            disks: FactoryVecDeque::builder()
+                .launch_default()
+                .detach(),
             method: PartitionMethod::Basic,
-            partition_groups: FactoryVecDeque::new(
-                gtk::Box::new(gtk::Orientation::Vertical, 20),
-                sender.input_sender(),
-            ),
+            partition_groups: FactoryVecDeque::builder()
+            .launch(gtk::Box::new(
+                gtk::Orientation::Vertical,
+                20,
+            ))
+            .detach(),
             diskgroupbtn: gtk::CheckButton::new(),
             schema: None,
             efi: distinst_disks::Bootloader::detect() == distinst_disks::Bootloader::Efi,
@@ -314,10 +318,9 @@ impl SimpleComponent for PartitionModel {
                                 });
 
                                 let mut part_factoryvec: FactoryVecDeque<Partition> =
-                                    FactoryVecDeque::new(
-                                        gtk::ListBox::new(),
-                                        sender.input_sender(),
-                                    );
+                                    FactoryVecDeque::builder()
+                                        .launch_default()
+                                        .detach();
                                 let mut part_guard = part_factoryvec.guard();
 
                                 for part in disk.partitions {
@@ -507,7 +510,7 @@ impl SimpleComponent for PartitionModel {
                             if part.mountpoint == Some("/".to_string()) {
                                 root = true;
                             }
-                            if part.mountpoint == Some("/boot/efi".to_string()) || !self.efi {
+                            if part.mountpoint == Some("/boot".to_string()) || !self.efi {
                                 bootefi = true;
                             }
                         }
@@ -538,7 +541,6 @@ impl FactoryComponent for WholeDisk {
     type Input = ();
     type Output = ();
     type ParentWidget = gtk::ListBox;
-    type ParentInput = PartitionMsg;
     type CommandOutput = ();
 
     view! {
@@ -602,7 +604,6 @@ impl FactoryComponent for Partition {
     type Input = PartitionRowMsg;
     type Output = ();
     type ParentWidget = gtk::ListBox;
-    type ParentInput = PartitionMsg;
     type CommandOutput = ();
 
     view! {
@@ -634,14 +635,14 @@ impl FactoryComponent for Partition {
                 #[watch]
                 set_title: &gettext("Mount"),
                 // TODO: When switching language the "Do not mount" option does not update
-                set_model: Some(&gtk::StringList::new(&[&self.donotmount, "/", "/boot", "/boot/efi", "/home", "/opt", "/var", "/nix"])),
+                set_model: Some(&gtk::StringList::new(&[&self.donotmount, " /", "/boot", "/home", "/opt", "/var", "/nix"])),
                 connect_selected_notify[name = self.name.to_string(), device = self.device.to_string(), mountstring = self.donotmount.to_string()] => move |row| {
                     if let Some(item) = row.selected_item() {
                         if let Ok(item) = item.downcast::<gtk::StringObject>() {
                             if item.string() == mountstring {
                                 PARTITION_BROKER.send(PartitionMsg::RemoveMountPartition(name.to_string()));
                             } else {
-                                PARTITION_BROKER.send(PartitionMsg::AddMountPartition(name.to_string(), item.string().to_string(), device.to_string()));
+                                PARTITION_BROKER.send(PartitionMsg::AddMountPartition(name.to_string(), item.string().trim().to_string(), device.to_string()));
                             }
                         }
                     }
@@ -712,7 +713,6 @@ impl FactoryComponent for PartitionGroup {
     type Input = ();
     type Output = ();
     type ParentWidget = gtk::Box;
-    type ParentInput = PartitionMsg;
     type CommandOutput = ();
 
     view! {

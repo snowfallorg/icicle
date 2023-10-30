@@ -23,7 +23,7 @@ pub enum ListMsg {
     CheckSelected,
     Select(String),
     Deselect(String),
-    SetLocale(Option<String>)
+    SetLocale(Option<String>),
 }
 
 pub struct ListInit {
@@ -93,7 +93,12 @@ impl SimpleComponent for ListModel {
         let mut model = ListModel {
             id: init.id,
             title: init.title,
-            list: FactoryVecDeque::new(adw::PreferencesGroup::new(), sender.input_sender()),
+            list: FactoryVecDeque::builder()
+                .launch_default()
+                .forward(sender.input_sender(), |msg| match msg {
+                    ListItemMsg::Select(key) => ListMsg::Select(key),
+                    ListItemMsg::Deselect(key) => ListMsg::Deselect(key),
+                }),
             choices,
             selected: Vec::new(),
             required: init.required,
@@ -103,7 +108,7 @@ impl SimpleComponent for ListModel {
                 Some(gtk::CheckButton::new())
             },
             locale: None,
-            tracker: 0
+            tracker: 0,
         };
 
         let mut list_guard = model.list.guard();
@@ -180,7 +185,6 @@ impl FactoryComponent for ListItem {
     type Input = ();
     type Output = ListItemMsg;
     type ParentWidget = adw::PreferencesGroup;
-    type ParentInput = ListMsg;
     type CommandOutput = ();
 
     view! {
@@ -198,9 +202,9 @@ impl FactoryComponent for ListItem {
                 set_group: self.group.as_ref(),
                 connect_toggled[sender, title = self.title.to_string()] => move |checkbtn| {
                     if checkbtn.is_active() {
-                        sender.output(ListItemMsg::Select(title.to_string()));
+                        let _ = sender.output(ListItemMsg::Select(title.to_string()));
                     } else {
-                        sender.output(ListItemMsg::Deselect(title.to_string()));
+                        let _ = sender.output(ListItemMsg::Deselect(title.to_string()));
                     }
                 },
             }
@@ -209,13 +213,6 @@ impl FactoryComponent for ListItem {
 
     fn init_model(parent: Self::Init, _index: &DynamicIndex, _sender: FactorySender<Self>) -> Self {
         parent
-    }
-
-    fn output_to_parent_input(output: Self::Output) -> Option<Self::ParentInput> {
-        Some(match output {
-            ListItemMsg::Select(key) => ListMsg::Select(key),
-            ListItemMsg::Deselect(key) => ListMsg::Deselect(key),
-        })
     }
 
     fn update(&mut self, _message: Self::Input, _sender: FactorySender<Self>) {

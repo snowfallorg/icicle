@@ -5,7 +5,7 @@ yaml_build = custom_target(
   output: 'slides.yml',
   console: true,
   install: true,
-  install_dir: sysconfdir / 'icicle' / 'branding' / 'snowflakeos',
+  install_dir: pkgconfdir / 'icicle' / 'branding' / 'snowflakeos',
   command: [
     ymlconvert,
     '@INPUT@',
@@ -15,5 +15,5 @@ yaml_build = custom_target(
 
 install_data(
   ['apps.svg', 'configuration.svg', 'nix.svg', 'snowflakeos.svg'],
-  install_dir: sysconfdir / 'icicle' / 'branding' / 'snowflakeos'
+  install_dir: pkgconfdir / 'icicle' / 'branding' / 'snowflakeos'
 )

@@ -1,16 +1,16 @@
 [package]
 name = "icicle"
-version = "0.0.1"
+version = "0.0.2"
 edition = "2021"
 default-run = "icicle"
 
 [dependencies]
-relm4 = { version = "0.5.0-beta.5", features = ["libadwaita", "macros"]  }
-relm4-components = { package = "relm4-components", version = "0.5.0-beta.5"}
-adw = { package = "libadwaita", version = "0.2", features = ["v1_2", "gtk_v4_6"] }
-gtk = { package = "gtk4", version = "0.5", features = ["v4_6"] }
-glib = { package = "glib", version = "0.16", features = ["v2_68"] }
-tokio = { version = "1.21", features = ["full"] }
+relm4 = { version = "0.7.0-beta.2", features = ["libadwaita", "macros"]  }
+relm4-components = { package = "relm4-components", version = "0.7.0-beta.2"}
+adw = { package = "libadwaita", version = "0.5", features = ["v1_2", "gtk_v4_6"] }
+gtk = { package = "gtk4", version = "0.7", features = ["v4_6"] }
+glib = { package = "glib", version = "0.18", features = ["v2_68"] }
+tokio = { version = "1.32", features = ["full"] }
 tracker = "0.2"
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
@@ -21,20 +21,20 @@ simplelog = "0.12"
 
 anyhow = "1.0"
 
-isolang = "2.2.0"
-gnome-desktop = { git = "https://gitlab.gnome.org/vlinkz/gnome-desktop-rs" }
-libgweather = { git = "https://gitlab.gnome.org/vlinkz/libgweather-rs" }
+isolang = "2.3.0"
+gnome-desktop = "0.4.2"
+libgweather = "4.3"
 
 size = "0.4"
 
-vte = { package = "vte4", version = "0.5" }
+vte = { package = "vte4", git = "https://gitlab.gnome.org/vlinkz/vte4-rs", branch = "0.7" }
 
 distinst-disks = { git = "https://github.com/pop-os/distinst/" }
 
 reqwest = { version = "0.11", features = ["blocking"] }
 
 gettext-rs = { version = "0.7", features = ["gettext-system"] }
-regex = "1.7"
+regex = "1.9"
 
 [workspace]
 members = [".", "icicle-helper"]
