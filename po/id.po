@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: dev@snowflakeos.org\n"
 "POT-Creation-Date: 2023-01-11 02:18-0500\n"
-"PO-Revision-Date: 2024-02-07 04:01+0000\n"
+"PO-Revision-Date: 2024-02-08 23:02+0000\n"
 "Last-Translator: Jeannes Bryan <me@jeannesbryan.men>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/snowflakeos/"
 "icicle/id/>\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:3
 msgid "Install SnowflakeOS"
-msgstr ""
+msgstr "Pasang SnowflakeOS"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:4
 msgid "Install"
-msgstr ""
+msgstr "Pasang"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.snowflakeos.Icicle.desktop.in.in:10
@@ -51,7 +51,7 @@ msgstr "Autentikasi diperlukan untuk memasang sistem operasi"
 
 #: src/ui/pages/error.rs:51
 msgid "Installation Failed!"
-msgstr ""
+msgstr "Pemasangan Gagal!"
 
 #: src/ui/pages/error.rs:80
 msgid "Upload Report"
@@ -124,7 +124,7 @@ msgstr "Partisi <tt>/</tt> dan <tt>/boot/efi</tt> tidak ada"
 
 #: src/ui/pages/partitions.rs:198
 msgid "Launch GParted"
-msgstr ""
+msgstr "Luncurkan GParted"
 
 #: src/ui/pages/partitions.rs:215
 msgid "Basic"
