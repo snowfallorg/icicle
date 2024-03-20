@@ -1,0 +1,349 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the icicle package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: icicle\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-11 02:18-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/org.snowflakeos.Icicle.desktop.in.in:3
+msgid "Install SnowflakeOS"
+msgstr ""
+
+#: data/org.snowflakeos.Icicle.desktop.in.in:4
+msgid "Install"
+msgstr ""
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.snowflakeos.Icicle.desktop.in.in:10
+msgid "Installer;Icicle;"
+msgstr ""
+
+#: data/org.snowflakeos.Icicle.metainfo.xml.in.in:6 src/main.rs:30
+msgid "Icicle Installer"
+msgstr ""
+
+#: data/org.snowflakeos.Icicle.metainfo.xml.in.in:7
+#: data/org.snowflakeos.Icicle.metainfo.xml.in.in:9
+msgid "A graphical installer for NixOS based distributions."
+msgstr ""
+
+#: data/org.snowflakeos.Icicle.policy.in.in:8
+msgid "Give Icicle Installer root access"
+msgstr ""
+
+#: data/org.snowflakeos.Icicle.policy.in.in:9
+msgid "Authentication is required to install operating system"
+msgstr ""
+
+#: src/ui/pages/error.rs:51
+msgid "Installation Failed!"
+msgstr ""
+
+#: src/ui/pages/error.rs:80
+msgid "Upload Report"
+msgstr ""
+
+#: src/ui/pages/error.rs:98
+msgid "Open Report"
+msgstr ""
+
+#: src/ui/pages/keyboard.rs:52
+msgid "Keyboard Layout"
+msgstr ""
+
+#: src/ui/pages/keyboard.rs:60
+msgid "Test the Keyboard Layout"
+msgstr ""
+
+#: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
+#: src/ui/pages/welcome.rs:76
+msgid "Show less"
+msgstr ""
+
+#: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
+#: src/ui/pages/welcome.rs:76
+msgid "Show all"
+msgstr ""
+
+#: src/ui/pages/list.rs:66
+msgid "Clear"
+msgstr ""
+
+#: src/ui/pages/partitions.rs:80
+msgid "Select a disk"
+msgstr ""
+
+#: src/ui/pages/partitions.rs:85
+msgid "Disk will be formatted and all data will be lost"
+msgstr ""
+
+#: src/ui/pages/partitions.rs:102
+msgid "Advanced"
+msgstr ""
+
+#: src/ui/pages/partitions.rs:117 src/ui/pages/partitions.rs:230
+msgid "Refresh"
+msgstr ""
+
+#: src/ui/pages/partitions.rs:127
+msgid "Select partitions"
+msgstr ""
+
+#: src/ui/pages/partitions.rs:172
+msgid "Ready to install!"
+msgstr ""
+
+#. Translators: Do NOT translate anything between the <tt> tags
+#: src/ui/pages/partitions.rs:174
+msgid "Missing <tt>/boot/efi</tt> partition"
+msgstr ""
+
+#. Translators: Do NOT translate anything between the <tt> tags
+#: src/ui/pages/partitions.rs:176
+msgid "Missing <tt>/</tt> partition"
+msgstr ""
+
+#. Translators: Do NOT translate anything between the <tt> tags
+#: src/ui/pages/partitions.rs:178 src/ui/pages/partitions.rs:182
+msgid "Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions"
+msgstr ""
+
+#: src/ui/pages/partitions.rs:198
+msgid "Launch GParted"
+msgstr ""
+
+#: src/ui/pages/partitions.rs:215
+msgid "Basic"
+msgstr ""
+
+#. Translators: Do NOT translate the '{}'
+#. The string reads "{/dev/sdX} (20 GB minimum needed)" indicating that the given disk is not large enough
+#: src/ui/pages/partitions.rs:548
+msgid "{} (20 GB minimum needed)"
+msgstr ""
+
+#: src/ui/pages/partitions.rs:612
+msgid "Format"
+msgstr ""
+
+#: src/ui/pages/partitions.rs:633 src/ui/pages/partitions.rs:652
+msgid "Mount"
+msgstr ""
+
+#: src/ui/pages/partitions.rs:667 src/ui/pages/summary.rs:305
+msgid "Do not mount"
+msgstr ""
+
+#: src/ui/pages/partitions.rs:668
+msgid "Leave as is"
+msgstr ""
+
+#: src/ui/pages/summary.rs:58
+msgid "Summary"
+msgstr ""
+
+#: src/ui/pages/summary.rs:63
+msgid "Language"
+msgstr ""
+
+#: src/ui/pages/summary.rs:74
+msgid "Keyboard"
+msgstr ""
+
+#: src/ui/pages/summary.rs:85 src/ui/pages/timezone.rs:52
+msgid "Timezone"
+msgstr ""
+
+#: src/ui/pages/summary.rs:97 src/ui/pages/summary.rs:115
+#: src/ui/pages/summary.rs:121
+msgid "Partitions"
+msgstr ""
+
+#: src/ui/pages/summary.rs:103
+msgid "Full Disk"
+msgstr ""
+
+#: src/ui/pages/summary.rs:106
+msgid "Entire disk will be formatted"
+msgstr ""
+
+#: src/ui/pages/summary.rs:131
+msgid "User"
+msgstr ""
+
+#: src/ui/pages/summary.rs:135 src/ui/pages/user.rs:70
+msgid "Name"
+msgstr ""
+
+#: src/ui/pages/summary.rs:153 src/ui/pages/user.rs:78
+msgid "Username"
+msgstr ""
+
+#: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:148
+msgid "Hostname"
+msgstr ""
+
+#. Translators: Leave the ':' at the end of the string, it will read Mountpoint: {disk mount location}
+#: src/ui/pages/summary.rs:298
+msgid "Mountpoint:"
+msgstr ""
+
+#. Translators: Leave the ':' at the end of the string, it will read Format: {disk format}
+#: src/ui/pages/summary.rs:318
+msgid "Format:"
+msgstr ""
+
+#: src/ui/pages/summary.rs:325
+msgid "Do not format"
+msgstr ""
+
+#: src/ui/pages/user.rs:62
+msgid "Create a new user"
+msgstr ""
+
+#: src/ui/pages/user.rs:110
+msgid "Password"
+msgstr ""
+
+#: src/ui/pages/user.rs:118
+msgid "Confirm Password"
+msgstr ""
+
+#: src/ui/pages/user.rs:125
+msgid "Log in automatically"
+msgstr ""
+
+#: src/ui/pages/user.rs:173
+msgid "Root password"
+msgstr ""
+
+#: src/ui/pages/user.rs:181
+msgid "Confirm root password"
+msgstr ""
+
+#: src/ui/pages/welcome.rs:42
+msgid "Welcome!"
+msgstr ""
+
+#: src/ui/pages/welcome.rs:47
+msgid "Choose a language"
+msgstr ""
+
+#. Translators: Do NOT translate the '{}'
+#. The string reads "{distribution name} Installer"
+#: src/ui/window.rs:171
+msgid "{} Installer"
+msgstr ""
+
+#: src/ui/window.rs:183
+msgid "Installing…"
+msgstr ""
+
+#: src/ui/window.rs:188
+msgid "Installation Finished"
+msgstr ""
+
+#: src/ui/window.rs:193
+msgid "Installation Failed"
+msgstr ""
+
+#: src/ui/window.rs:303
+msgid "Finished!"
+msgstr ""
+
+#: src/ui/window.rs:315
+msgid "Reboot"
+msgstr ""
+
+#: src/ui/window.rs:331
+msgid "No Internet"
+msgstr ""
+
+#: src/ui/window.rs:332
+msgid "Please connect to the Internet to continue"
+msgstr ""
+
+#. Translators: Do NOT translate the '{}'
+#. The string reads "Try {distribution name} live"
+#: src/ui/window.rs:501
+msgid "Try {} live"
+msgstr ""
+
+#: config/icicle/advanced.yml.in:2
+msgid "Advanced Installation"
+msgstr ""
+
+#: config/icicle/advanced.yml.in:15
+msgid "Extra Package Managers"
+msgstr ""
+
+#: config/icicle/advanced.yml.in:19
+msgid "Enable Flatpak support"
+msgstr ""
+
+#: config/icicle/advanced.yml.in:24
+msgid ""
+"Enable AppImage support by installing the \"appimage-run\" package. For "
+"AppImages to work, you must run them with the \"appimage-run\" command."
+msgstr ""
+
+#: config/icicle/advanced.yml.in:30
+msgid "Kernel"
+msgstr ""
+
+#: config/icicle/advanced.yml.in:34
+msgid "Install the latest LTS kernel"
+msgstr ""
+
+#: config/icicle/advanced.yml.in:36
+msgid "Install the latest kernel"
+msgstr ""
+
+#: config/icicle/advanced.yml.in:41
+msgid "Install the libre kernel"
+msgstr ""
+
+#: config/icicle/advanced.yml.in:46
+msgid "Install the Zen kernel"
+msgstr ""
+
+#: config/icicle/basic.yml.in:2
+msgid "Basic Installation"
+msgstr ""
+
+#: config/icicle/branding/snowflakeos/slides.yml.in:3
+msgid "Configurable and Customizable"
+msgstr ""
+
+#: config/icicle/branding/snowflakeos/slides.yml.in:4
+msgid ""
+"Easily modify and manage your system configuration with the power of NixOS"
+msgstr ""
+
+#: config/icicle/branding/snowflakeos/slides.yml.in:6
+msgid "Nix Package Manager"
+msgstr ""
+
+#: config/icicle/branding/snowflakeos/slides.yml.in:7
+msgid "Keep your system stable with Nix's reliable and reproducible packages"
+msgstr ""
+
+#: config/icicle/branding/snowflakeos/slides.yml.in:9
+msgid "Over 80,000 packages available"
+msgstr ""
+
+#: config/icicle/branding/snowflakeos/slides.yml.in:10
+msgid ""
+"Easily find and install all the packages you need on your SnowflakeOS system"
+msgstr ""
