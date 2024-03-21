@@ -6,344 +6,349 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: icicle\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@snowflakeos.org\n"
 "POT-Creation-Date: 2023-01-11 02:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: zh_Hans\n"
+"PO-Revision-Date: 2024-03-21 05:02+0000\n"
+"Last-Translator: Shijia Zhang <codgician@outlook.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"snowflakeos/icicle/zh_Hans/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:3
 msgid "Install SnowflakeOS"
-msgstr ""
+msgstr "安装 SnowflakeOS"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:4
 msgid "Install"
-msgstr ""
+msgstr "安装"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.snowflakeos.Icicle.desktop.in.in:10
 msgid "Installer;Icicle;"
-msgstr ""
+msgstr "安装器;Icicle;"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:6 src/main.rs:30
 msgid "Icicle Installer"
-msgstr ""
+msgstr "Icicle 安装器"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:7
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:9
 msgid "A graphical installer for NixOS based distributions."
-msgstr ""
+msgstr "为 NixOS 发行版设计的图形化安装器。"
 
 #: data/org.snowflakeos.Icicle.policy.in.in:8
 msgid "Give Icicle Installer root access"
-msgstr ""
+msgstr "授予 Icicle 安装器 root 权限"
 
 #: data/org.snowflakeos.Icicle.policy.in.in:9
 msgid "Authentication is required to install operating system"
-msgstr ""
+msgstr "安装操作系统前需要认证身份"
 
 #: src/ui/pages/error.rs:51
 msgid "Installation Failed!"
-msgstr ""
+msgstr "安装失败！"
 
 #: src/ui/pages/error.rs:80
 msgid "Upload Report"
-msgstr ""
+msgstr "上传报告"
 
 #: src/ui/pages/error.rs:98
 msgid "Open Report"
-msgstr ""
+msgstr "打开报告"
 
 #: src/ui/pages/keyboard.rs:52
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "键盘布局"
 
 #: src/ui/pages/keyboard.rs:60
 msgid "Test the Keyboard Layout"
-msgstr ""
+msgstr "测试键盘布局"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 #: src/ui/pages/welcome.rs:76
 msgid "Show less"
-msgstr ""
+msgstr "显示更少"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 #: src/ui/pages/welcome.rs:76
 msgid "Show all"
-msgstr ""
+msgstr "显示所有"
 
 #: src/ui/pages/list.rs:66
 msgid "Clear"
-msgstr ""
+msgstr "清除"
 
 #: src/ui/pages/partitions.rs:80
 msgid "Select a disk"
-msgstr ""
+msgstr "选择硬盘"
 
 #: src/ui/pages/partitions.rs:85
 msgid "Disk will be formatted and all data will be lost"
-msgstr ""
+msgstr "硬盘将会被格式化并丢失所有数据"
 
 #: src/ui/pages/partitions.rs:102
 msgid "Advanced"
-msgstr ""
+msgstr "高级"
 
 #: src/ui/pages/partitions.rs:117 src/ui/pages/partitions.rs:230
 msgid "Refresh"
-msgstr ""
+msgstr "刷新"
 
 #: src/ui/pages/partitions.rs:127
 msgid "Select partitions"
-msgstr ""
+msgstr "选择分区"
 
 #: src/ui/pages/partitions.rs:172
 msgid "Ready to install!"
-msgstr ""
+msgstr "安装准备就绪！"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:174
 msgid "Missing <tt>/boot/efi</tt> partition"
-msgstr ""
+msgstr "缺失 <tt>/boot/efi</tt> 分区"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:176
 msgid "Missing <tt>/</tt> partition"
-msgstr ""
+msgstr "缺失 <tt></tt> 分区"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:178 src/ui/pages/partitions.rs:182
 msgid "Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions"
-msgstr ""
+msgstr "缺失 <tt></tt> 和 <tt>/boot/efi</tt> 分区"
 
 #: src/ui/pages/partitions.rs:198
 msgid "Launch GParted"
-msgstr ""
+msgstr "启动 GParted"
 
 #: src/ui/pages/partitions.rs:215
 msgid "Basic"
-msgstr ""
+msgstr "基本"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{/dev/sdX} (20 GB minimum needed)" indicating that the given disk is not large enough
 #: src/ui/pages/partitions.rs:548
 msgid "{} (20 GB minimum needed)"
-msgstr ""
+msgstr "{}（最少需 20 GB 空间）"
 
 #: src/ui/pages/partitions.rs:612
 msgid "Format"
-msgstr ""
+msgstr "格式化"
 
 #: src/ui/pages/partitions.rs:633 src/ui/pages/partitions.rs:652
 msgid "Mount"
-msgstr ""
+msgstr "挂载"
 
 #: src/ui/pages/partitions.rs:667 src/ui/pages/summary.rs:305
 msgid "Do not mount"
-msgstr ""
+msgstr "不要挂载"
 
 #: src/ui/pages/partitions.rs:668
 msgid "Leave as is"
-msgstr ""
+msgstr "保持原样"
 
 #: src/ui/pages/summary.rs:58
 msgid "Summary"
-msgstr ""
+msgstr "总结"
 
 #: src/ui/pages/summary.rs:63
 msgid "Language"
-msgstr ""
+msgstr "语言"
 
 #: src/ui/pages/summary.rs:74
 msgid "Keyboard"
-msgstr ""
+msgstr "键盘"
 
 #: src/ui/pages/summary.rs:85 src/ui/pages/timezone.rs:52
 msgid "Timezone"
-msgstr ""
+msgstr "时区"
 
 #: src/ui/pages/summary.rs:97 src/ui/pages/summary.rs:115
 #: src/ui/pages/summary.rs:121
 msgid "Partitions"
-msgstr ""
+msgstr "分区"
 
 #: src/ui/pages/summary.rs:103
 msgid "Full Disk"
-msgstr ""
+msgstr "整块硬盘"
 
 #: src/ui/pages/summary.rs:106
 msgid "Entire disk will be formatted"
-msgstr ""
+msgstr "整块硬盘将被格式化"
 
 #: src/ui/pages/summary.rs:131
 msgid "User"
-msgstr ""
+msgstr "用户"
 
 #: src/ui/pages/summary.rs:135 src/ui/pages/user.rs:70
 msgid "Name"
-msgstr ""
+msgstr "名字"
 
 #: src/ui/pages/summary.rs:153 src/ui/pages/user.rs:78
 msgid "Username"
-msgstr ""
+msgstr "用户名"
 
 #: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:148
 msgid "Hostname"
-msgstr ""
+msgstr "主机名"
 
 #. Translators: Leave the ':' at the end of the string, it will read Mountpoint: {disk mount location}
 #: src/ui/pages/summary.rs:298
 msgid "Mountpoint:"
-msgstr ""
+msgstr "挂载点:"
 
 #. Translators: Leave the ':' at the end of the string, it will read Format: {disk format}
 #: src/ui/pages/summary.rs:318
 msgid "Format:"
-msgstr ""
+msgstr "格式化:"
 
 #: src/ui/pages/summary.rs:325
 msgid "Do not format"
-msgstr ""
+msgstr "不要格式化"
 
 #: src/ui/pages/user.rs:62
 msgid "Create a new user"
-msgstr ""
+msgstr "创建新用户"
 
 #: src/ui/pages/user.rs:110
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 #: src/ui/pages/user.rs:118
 msgid "Confirm Password"
-msgstr ""
+msgstr "确认密码"
 
 #: src/ui/pages/user.rs:125
 msgid "Log in automatically"
-msgstr ""
+msgstr "自动登录"
 
 #: src/ui/pages/user.rs:173
 msgid "Root password"
-msgstr ""
+msgstr "root 密码"
 
 #: src/ui/pages/user.rs:181
 msgid "Confirm root password"
-msgstr ""
+msgstr "确认 root 密码"
 
 #: src/ui/pages/welcome.rs:42
 msgid "Welcome!"
-msgstr ""
+msgstr "欢迎！"
 
 #: src/ui/pages/welcome.rs:47
 msgid "Choose a language"
-msgstr ""
+msgstr "选择语言"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{distribution name} Installer"
 #: src/ui/window.rs:171
 msgid "{} Installer"
-msgstr ""
+msgstr "{} 安装器"
 
 #: src/ui/window.rs:183
 msgid "Installing…"
-msgstr ""
+msgstr "正在安装……"
 
 #: src/ui/window.rs:188
 msgid "Installation Finished"
-msgstr ""
+msgstr "安装完成"
 
 #: src/ui/window.rs:193
 msgid "Installation Failed"
-msgstr ""
+msgstr "安装失败"
 
 #: src/ui/window.rs:303
 msgid "Finished!"
-msgstr ""
+msgstr "完成！"
 
 #: src/ui/window.rs:315
 msgid "Reboot"
-msgstr ""
+msgstr "重新启动"
 
 #: src/ui/window.rs:331
 msgid "No Internet"
-msgstr ""
+msgstr "无 Internet 连接"
 
 #: src/ui/window.rs:332
 msgid "Please connect to the Internet to continue"
-msgstr ""
+msgstr "请连接到 Internet 以继续"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "Try {distribution name} live"
 #: src/ui/window.rs:501
 msgid "Try {} live"
-msgstr ""
+msgstr "免安装试用 {}"
 
 #: config/icicle/advanced.yml.in:2
 msgid "Advanced Installation"
-msgstr ""
+msgstr "高级安装"
 
 #: config/icicle/advanced.yml.in:15
 msgid "Extra Package Managers"
-msgstr ""
+msgstr "附加包管理器"
 
 #: config/icicle/advanced.yml.in:19
 msgid "Enable Flatpak support"
-msgstr ""
+msgstr "启用 Flatpak 支持"
 
 #: config/icicle/advanced.yml.in:24
 msgid ""
 "Enable AppImage support by installing the \"appimage-run\" package. For "
 "AppImages to work, you must run them with the \"appimage-run\" command."
 msgstr ""
+"通过安装 \"appimage-run\" 包以启用 AppImage 支持，须用 \"appimage-run\" "
+"命令运行 AppImage 镜像。"
 
 #: config/icicle/advanced.yml.in:30
 msgid "Kernel"
-msgstr ""
+msgstr "内核"
 
 #: config/icicle/advanced.yml.in:34
 msgid "Install the latest LTS kernel"
-msgstr ""
+msgstr "安装最新 LTS 内核"
 
 #: config/icicle/advanced.yml.in:36
 msgid "Install the latest kernel"
-msgstr ""
+msgstr "安装最新内核"
 
 #: config/icicle/advanced.yml.in:41
 msgid "Install the libre kernel"
-msgstr ""
+msgstr "安装 Libre 内核"
 
 #: config/icicle/advanced.yml.in:46
 msgid "Install the Zen kernel"
-msgstr ""
+msgstr "安装 Zen 内核"
 
 #: config/icicle/basic.yml.in:2
 msgid "Basic Installation"
-msgstr ""
+msgstr "基础安装"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:3
 msgid "Configurable and Customizable"
-msgstr ""
+msgstr "可配置且可自定义"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:4
 msgid ""
 "Easily modify and manage your system configuration with the power of NixOS"
-msgstr ""
+msgstr "借助 NixOS 的力量轻而易举地修改并管理系统配置"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:6
 msgid "Nix Package Manager"
-msgstr ""
+msgstr "Nix 包管理器"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:7
 msgid "Keep your system stable with Nix's reliable and reproducible packages"
-msgstr ""
+msgstr "借助 Nix 的稳定性和可复现性使系统保持稳定"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:9
 msgid "Over 80,000 packages available"
-msgstr ""
+msgstr "多达 80,000 可用软件包"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:10
 msgid ""
 "Easily find and install all the packages you need on your SnowflakeOS system"
-msgstr ""
+msgstr "在 SnowflakeOS 系统上可以轻易找到并安装任何您需要的软件包"
