@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: dev@snowflakeos.org\n"
 "POT-Creation-Date: 2023-01-11 02:18-0500\n"
-"PO-Revision-Date: 2024-04-13 01:01+0000\n"
+"PO-Revision-Date: 2024-04-14 23:02+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/snowflakeos/"
 "icicle/tr/>\n"
@@ -20,23 +20,19 @@ msgstr ""
 "X-Generator: Weblate 5.5-dev\n"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:3
-#, fuzzy
 msgid "Install SnowflakeOS"
 msgstr "SnowflakeOS Kur"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:4
-#, fuzzy
 msgid "Install"
 msgstr "Kur"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.snowflakeos.Icicle.desktop.in.in:10
-#, fuzzy
 msgid "Installer;Icicle;"
-msgstr "kurucu;Icicle;"
+msgstr "Kurucu;Icicle;"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:6 src/main.rs:30
-#, fuzzy
 msgid "Icicle Installer"
 msgstr "Icicle Kurucu"
 
@@ -46,289 +42,234 @@ msgid "A graphical installer for NixOS based distributions."
 msgstr "NixOS temelli dağıtımlar için kurucu."
 
 #: data/org.snowflakeos.Icicle.policy.in.in:8
-#, fuzzy
 msgid "Give Icicle Installer root access"
 msgstr "Icicle kurucuya root erişimi verin"
 
 #: data/org.snowflakeos.Icicle.policy.in.in:9
-#, fuzzy
 msgid "Authentication is required to install operating system"
 msgstr "İşletim sistemini kurmak için kimlik doğrulama gerekli"
 
 #: src/ui/pages/error.rs:51
-#, fuzzy
 msgid "Installation Failed!"
 msgstr "Kurulum Başarısız Oldu!"
 
 #: src/ui/pages/error.rs:80
-#, fuzzy
 msgid "Upload Report"
 msgstr "Raporu Yükle"
 
 #: src/ui/pages/error.rs:98
-#, fuzzy
 msgid "Open Report"
 msgstr "Raporu Aç"
 
 #: src/ui/pages/keyboard.rs:52
-#, fuzzy
 msgid "Keyboard Layout"
 msgstr "Klavye Düzeni"
 
 #: src/ui/pages/keyboard.rs:60
-#, fuzzy
 msgid "Test the Keyboard Layout"
 msgstr "Klavye Düzenini Sına"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 #: src/ui/pages/welcome.rs:76
-#, fuzzy
 msgid "Show less"
 msgstr "Daha azını göster"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 #: src/ui/pages/welcome.rs:76
-#, fuzzy
 msgid "Show all"
 msgstr "Tümünü göster"
 
 #: src/ui/pages/list.rs:66
-#, fuzzy
 msgid "Clear"
 msgstr "Temizle"
 
 #: src/ui/pages/partitions.rs:80
-#, fuzzy
 msgid "Select a disk"
 msgstr "Disk seç"
 
 #: src/ui/pages/partitions.rs:85
-#, fuzzy
 msgid "Disk will be formatted and all data will be lost"
 msgstr "Disk biçimlendirilecek ve tüm veriler yitirilecek"
 
 #: src/ui/pages/partitions.rs:102
-#, fuzzy
 msgid "Advanced"
 msgstr "Gelişmiş"
 
 #: src/ui/pages/partitions.rs:117 src/ui/pages/partitions.rs:230
-#, fuzzy
 msgid "Refresh"
 msgstr "Yenile"
 
 #: src/ui/pages/partitions.rs:127
-#, fuzzy
 msgid "Select partitions"
 msgstr "Bölümleri seç"
 
 #: src/ui/pages/partitions.rs:172
-#, fuzzy
 msgid "Ready to install!"
 msgstr "Kuruluma hazır!"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:174
-#, fuzzy
 msgid "Missing <tt>/boot/efi</tt> partition"
 msgstr "<tt>/boot/efi</tt> bölümü eksik"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:176
-#, fuzzy
 msgid "Missing <tt>/</tt> partition"
 msgstr "<tt>/</tt> bölümü eksik"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:178 src/ui/pages/partitions.rs:182
-#, fuzzy
 msgid "Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions"
 msgstr "<tt>/</tt> ve <tt>/boot/efi</tt> bölümleri eksik"
 
 #: src/ui/pages/partitions.rs:198
-#, fuzzy
 msgid "Launch GParted"
 msgstr "GParted'ı başlat"
 
 #: src/ui/pages/partitions.rs:215
-#, fuzzy
 msgid "Basic"
 msgstr "Temel"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{/dev/sdX} (20 GB minimum needed)" indicating that the given disk is not large enough
 #: src/ui/pages/partitions.rs:548
-#, fuzzy
 msgid "{} (20 GB minimum needed)"
 msgstr "{} (en az 20 GB gerekli)"
 
 #: src/ui/pages/partitions.rs:612
-#, fuzzy
 msgid "Format"
 msgstr "Biçimlendir"
 
 #: src/ui/pages/partitions.rs:633 src/ui/pages/partitions.rs:652
-#, fuzzy
 msgid "Mount"
 msgstr "Bağla"
 
 #: src/ui/pages/partitions.rs:667 src/ui/pages/summary.rs:305
-#, fuzzy
 msgid "Do not mount"
 msgstr "Bağlama"
 
 #: src/ui/pages/partitions.rs:668
-#, fuzzy
 msgid "Leave as is"
 msgstr "Olduğu gibi bırak"
 
 #: src/ui/pages/summary.rs:58
-#, fuzzy
 msgid "Summary"
 msgstr "Özet"
 
 #: src/ui/pages/summary.rs:63
-#, fuzzy
 msgid "Language"
 msgstr "Dil"
 
 #: src/ui/pages/summary.rs:74
-#, fuzzy
 msgid "Keyboard"
 msgstr "Klavye"
 
 #: src/ui/pages/summary.rs:85 src/ui/pages/timezone.rs:52
-#, fuzzy
 msgid "Timezone"
 msgstr "Saat dilimi"
 
 #: src/ui/pages/summary.rs:97 src/ui/pages/summary.rs:115
 #: src/ui/pages/summary.rs:121
-#, fuzzy
 msgid "Partitions"
 msgstr "Bölümler"
 
 #: src/ui/pages/summary.rs:103
-#, fuzzy
 msgid "Full Disk"
 msgstr "Tüm Disk"
 
 #: src/ui/pages/summary.rs:106
-#, fuzzy
 msgid "Entire disk will be formatted"
 msgstr "Tüm disk biçimlendirilecek"
 
 #: src/ui/pages/summary.rs:131
-#, fuzzy
 msgid "User"
 msgstr "Kullanıcı"
 
 #: src/ui/pages/summary.rs:135 src/ui/pages/user.rs:70
-#, fuzzy
 msgid "Name"
 msgstr "Adı"
 
 #: src/ui/pages/summary.rs:153 src/ui/pages/user.rs:78
-#, fuzzy
 msgid "Username"
 msgstr "Kullanıcı adı"
 
 #: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:148
-#, fuzzy
 msgid "Hostname"
 msgstr "Makine Adı"
 
 #. Translators: Leave the ':' at the end of the string, it will read Mountpoint: {disk mount location}
 #: src/ui/pages/summary.rs:298
-#, fuzzy
 msgid "Mountpoint:"
 msgstr "Bağlama noktası:"
 
 #. Translators: Leave the ':' at the end of the string, it will read Format: {disk format}
 #: src/ui/pages/summary.rs:318
-#, fuzzy
 msgid "Format:"
 msgstr "Biçim:"
 
 #: src/ui/pages/summary.rs:325
-#, fuzzy
 msgid "Do not format"
 msgstr "Biçimlendirme"
 
 #: src/ui/pages/user.rs:62
-#, fuzzy
 msgid "Create a new user"
 msgstr "Yeni kullanıcı oluştur"
 
 #: src/ui/pages/user.rs:110
-#, fuzzy
 msgid "Password"
 msgstr "Parola"
 
 #: src/ui/pages/user.rs:118
-#, fuzzy
 msgid "Confirm Password"
 msgstr "Parolayı Onayla"
 
 #: src/ui/pages/user.rs:125
-#, fuzzy
 msgid "Log in automatically"
 msgstr "Kendiliğinden oturum aç"
 
 #: src/ui/pages/user.rs:173
-#, fuzzy
 msgid "Root password"
 msgstr "Root parolası"
 
 #: src/ui/pages/user.rs:181
-#, fuzzy
 msgid "Confirm root password"
 msgstr "Root parolasını doğrula"
 
 #: src/ui/pages/welcome.rs:42
-#, fuzzy
 msgid "Welcome!"
 msgstr "Hoş Geldiniz!"
 
 #: src/ui/pages/welcome.rs:47
-#, fuzzy
 msgid "Choose a language"
 msgstr "Dil seçiniz"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{distribution name} Installer"
 #: src/ui/window.rs:171
-#, fuzzy
 msgid "{} Installer"
 msgstr "{} Kurucu"
 
 #: src/ui/window.rs:183
-#, fuzzy
 msgid "Installing…"
 msgstr "Kuruluyor…"
 
 #: src/ui/window.rs:188
-#, fuzzy
 msgid "Installation Finished"
 msgstr "Kurulum Bitti"
 
 #: src/ui/window.rs:193
-#, fuzzy
 msgid "Installation Failed"
 msgstr "Kurulum Başarısız Oldu"
 
 #: src/ui/window.rs:303
-#, fuzzy
 msgid "Finished!"
 msgstr "Bitti!"
 
 #: src/ui/window.rs:315
-#, fuzzy
 msgid "Reboot"
 msgstr "Yeniden Başlat"
 
 #: src/ui/window.rs:331
-#, fuzzy
 msgid "No Internet"
 msgstr "İnternet Yok"
 
@@ -339,27 +280,22 @@ msgstr "Kuruluma devam etmek için internete bağlanın"
 #. Translators: Do NOT translate the '{}'
 #. The string reads "Try {distribution name} live"
 #: src/ui/window.rs:501
-#, fuzzy
 msgid "Try {} live"
 msgstr "{} Canlı Deneyin"
 
 #: config/icicle/advanced.yml.in:2
-#, fuzzy
 msgid "Advanced Installation"
 msgstr "Gelişmiş Kurulum"
 
 #: config/icicle/advanced.yml.in:15
-#, fuzzy
 msgid "Extra Package Managers"
 msgstr "Ek Paket Yöneticileri"
 
 #: config/icicle/advanced.yml.in:19
-#, fuzzy
 msgid "Enable Flatpak support"
 msgstr "Flatpak desteğini etkinleştir"
 
 #: config/icicle/advanced.yml.in:24
-#, fuzzy
 msgid ""
 "Enable AppImage support by installing the \"appimage-run\" package. For "
 "AppImages to work, you must run them with the \"appimage-run\" command."
@@ -369,64 +305,52 @@ msgstr ""
 "çalıştırılmaları gerekir."
 
 #: config/icicle/advanced.yml.in:30
-#, fuzzy
 msgid "Kernel"
 msgstr "Çekirdek"
 
 #: config/icicle/advanced.yml.in:34
-#, fuzzy
 msgid "Install the latest LTS kernel"
 msgstr "En son LTS çekirdeğini kur"
 
 #: config/icicle/advanced.yml.in:36
-#, fuzzy
 msgid "Install the latest kernel"
 msgstr "En son çekirdeği kur"
 
 #: config/icicle/advanced.yml.in:41
-#, fuzzy
 msgid "Install the libre kernel"
 msgstr "Libre çekirdeğini kur"
 
 #: config/icicle/advanced.yml.in:46
-#, fuzzy
 msgid "Install the Zen kernel"
 msgstr "Zen çekirdeğini kur"
 
 #: config/icicle/basic.yml.in:2
-#, fuzzy
 msgid "Basic Installation"
 msgstr "Temel Kurulum"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:3
-#, fuzzy
 msgid "Configurable and Customizable"
 msgstr "Yapılandır ve Özelleştir"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:4
-#, fuzzy
 msgid ""
 "Easily modify and manage your system configuration with the power of NixOS"
 msgstr "NixOS gücüyle sistem yapılandırmanızı kolayca değiştirip yönetin"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:6
-#, fuzzy
 msgid "Nix Package Manager"
 msgstr "Nix Paket Yöneticisi"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:7
-#, fuzzy
 msgid "Keep your system stable with Nix's reliable and reproducible packages"
 msgstr ""
 "Nix'in güvenilir ve tekrarlanabilir paketleriyle sisteminizi kararlı tutun"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:9
-#, fuzzy
 msgid "Over 80,000 packages available"
 msgstr "80.000'den fazla paket var"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:10
-#, fuzzy
 msgid ""
 "Easily find and install all the packages you need on your SnowflakeOS system"
 msgstr ""
