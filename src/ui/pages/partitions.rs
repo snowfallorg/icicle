@@ -549,9 +549,9 @@ impl FactoryComponent for WholeDisk {
             #[watch]
             // Translators: Do NOT translate the '{}'
             // The string reads "{/dev/sdX} (20 GB minimum needed)" indicating that the given disk is not large enough
-            set_subtitle: &if self.size > 21_474_836_480  { size::Size::from_bytes(self.size).to_string() } else { i18n_f("{} (20 GB minimum needed)", &[&size::Size::from_bytes(self.size).to_string()]) },
+            set_subtitle: &if self.size >= 21_474_836_480  { size::Size::from_bytes(self.size).to_string() } else { i18n_f("{} (20 GB minimum needed)", &[&size::Size::from_bytes(self.size).to_string()]) },
             set_activatable: true,
-            set_sensitive: self.size > 21_474_836_480, // 20GB
+            set_sensitive: self.size >= 21_474_836_480, // 20GB
             #[name(checkbtn)]
             add_suffix = &gtk::CheckButton {
                 set_group: Some(&self.group),
