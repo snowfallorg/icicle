@@ -8,8 +8,8 @@
   <description>
     <p>A graphical installer for NixOS based distributions.</p>
   </description>
-  <url type="homepage">https://github.com/snowflakelinux/icicle</url>
-  <url type="bugtracker">https://github.com/snowflakelinux/icicle/issues</url>
+  <url type="homepage">https://github.com/snowfallorg/icicle</url>
+  <url type="bugtracker">https://github.com/snowfallorg/icicle/issues</url>
   <developer_name translatable="no">Victor Fuentes</developer_name>
   <update_contact>vmfuentes64@gmail.com</update_contact>
   <translation type="gettext">@gettext-package@</translation>
