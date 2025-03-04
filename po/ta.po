@@ -6,344 +6,354 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: icicle\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@snowflakeos.org\n"
 "POT-Creation-Date: 2023-01-11 02:18-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-03-04 08:48+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/snowflakeos/icicle/"
+"ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:3
 msgid "Install SnowflakeOS"
-msgstr ""
+msgstr "ச்னோஃப்ளேகியோசை நிறுவவும்"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:4
 msgid "Install"
-msgstr ""
+msgstr "நிறுவவும்"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.snowflakeos.Icicle.desktop.in.in:10
 msgid "Installer;Icicle;"
-msgstr ""
+msgstr "நிறுவி; ஐசிகல்;"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:6 src/main.rs:30
 msgid "Icicle Installer"
-msgstr ""
+msgstr "ஐசிகல் நிறுவி"
 
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:7
 #: data/org.snowflakeos.Icicle.metainfo.xml.in.in:9
 msgid "A graphical installer for NixOS based distributions."
-msgstr ""
+msgstr "நிக்சோச் அடிப்படையிலான விநியோகங்களுக்கான வரைகலை நிறுவி."
 
 #: data/org.snowflakeos.Icicle.policy.in.in:8
 msgid "Give Icicle Installer root access"
-msgstr ""
+msgstr "ஐசிகல் நிறுவி ரூட் அணுகலை கொடுங்கள்"
 
 #: data/org.snowflakeos.Icicle.policy.in.in:9
 msgid "Authentication is required to install operating system"
-msgstr ""
+msgstr "இயக்க முறைமையை நிறுவ ஏற்பு தேவை"
 
 #: src/ui/pages/error.rs:51
 msgid "Installation Failed!"
-msgstr ""
+msgstr "நிறுவல் தோல்வியடைந்தது!"
 
 #: src/ui/pages/error.rs:80
 msgid "Upload Report"
-msgstr ""
+msgstr "அறிக்கையைப் பதிவேற்றவும்"
 
 #: src/ui/pages/error.rs:98
 msgid "Open Report"
-msgstr ""
+msgstr "திறந்த அறிக்கை"
 
 #: src/ui/pages/keyboard.rs:52
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "விசைப்பலகை தளவமைப்பு"
 
 #: src/ui/pages/keyboard.rs:60
 msgid "Test the Keyboard Layout"
-msgstr ""
+msgstr "விசைப்பலகை தளவமைப்பை சோதிக்கவும்"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 #: src/ui/pages/welcome.rs:76
 msgid "Show less"
-msgstr ""
+msgstr "குறைவாகக் காட்டு"
 
 #: src/ui/pages/keyboard.rs:85 src/ui/pages/timezone.rs:77
 #: src/ui/pages/welcome.rs:76
 msgid "Show all"
-msgstr ""
+msgstr "அனைத்தையும் காட்டு"
 
 #: src/ui/pages/list.rs:66
 msgid "Clear"
-msgstr ""
+msgstr "தெளிவான"
 
 #: src/ui/pages/partitions.rs:80
 msgid "Select a disk"
-msgstr ""
+msgstr "வட்டு தேர்ந்தெடுக்கவும்"
 
 #: src/ui/pages/partitions.rs:85
 msgid "Disk will be formatted and all data will be lost"
-msgstr ""
+msgstr "வட்டு வடிவமைக்கப்பட்டு எல்லா தரவுகளும் இழக்கப்படும்"
 
 #: src/ui/pages/partitions.rs:102
 msgid "Advanced"
-msgstr ""
+msgstr "மேம்பட்ட"
 
 #: src/ui/pages/partitions.rs:117 src/ui/pages/partitions.rs:230
 msgid "Refresh"
-msgstr ""
+msgstr "புதுப்பிப்பு"
 
 #: src/ui/pages/partitions.rs:127
 msgid "Select partitions"
-msgstr ""
+msgstr "பகிர்வுகளைத் தேர்ந்தெடுக்கவும்"
 
 #: src/ui/pages/partitions.rs:172
 msgid "Ready to install!"
-msgstr ""
+msgstr "நிறுவ தயாராக உள்ளது!"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:174
 msgid "Missing <tt>/boot/efi</tt> partition"
-msgstr ""
+msgstr "<tt>/boot/efi </tt> பகிர்வு காணவில்லை"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:176
 msgid "Missing <tt>/</tt> partition"
-msgstr ""
+msgstr "காணவில்லை <Tt>/</t> பகிர்வு"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:178 src/ui/pages/partitions.rs:182
 msgid "Missing <tt>/</tt> and <tt>/boot/efi</tt> partitions"
-msgstr ""
+msgstr "<tt>/</tt> மற்றும் <tt>/boot/efi </tt> பகிர்வுகளைக் காணவில்லை"
 
 #: src/ui/pages/partitions.rs:198
 msgid "Launch GParted"
-msgstr ""
+msgstr "Gparted ஐ தொடங்கவும்"
 
 #: src/ui/pages/partitions.rs:215
 msgid "Basic"
-msgstr ""
+msgstr "அடிப்படை"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{/dev/sdX} (20 GB minimum needed)" indicating that the given disk is not large enough
 #: src/ui/pages/partitions.rs:548
 msgid "{} (20 GB minimum needed)"
-msgstr ""
+msgstr "{} (20 சிபி குறைந்தபட்சம் தேவை)"
 
 #: src/ui/pages/partitions.rs:612
 msgid "Format"
-msgstr ""
+msgstr "வடிவம்"
 
 #: src/ui/pages/partitions.rs:633 src/ui/pages/partitions.rs:652
 msgid "Mount"
-msgstr ""
+msgstr "மவுண்ட்"
 
 #: src/ui/pages/partitions.rs:667 src/ui/pages/summary.rs:305
 msgid "Do not mount"
-msgstr ""
+msgstr "ஏற்ற வேண்டாம்"
 
 #: src/ui/pages/partitions.rs:668
 msgid "Leave as is"
-msgstr ""
+msgstr "விடுங்கள்"
 
 #: src/ui/pages/summary.rs:58
 msgid "Summary"
-msgstr ""
+msgstr "சுருக்கம்"
 
 #: src/ui/pages/summary.rs:63
 msgid "Language"
-msgstr ""
+msgstr "மொழி"
 
 #: src/ui/pages/summary.rs:74
 msgid "Keyboard"
-msgstr ""
+msgstr "விசைப்பலகை"
 
 #: src/ui/pages/summary.rs:85 src/ui/pages/timezone.rs:52
 msgid "Timezone"
-msgstr ""
+msgstr "நேர மண்டலம்"
 
 #: src/ui/pages/summary.rs:97 src/ui/pages/summary.rs:115
 #: src/ui/pages/summary.rs:121
 msgid "Partitions"
-msgstr ""
+msgstr "பகிர்வுகள்"
 
 #: src/ui/pages/summary.rs:103
 msgid "Full Disk"
-msgstr ""
+msgstr "முழு வட்டு"
 
 #: src/ui/pages/summary.rs:106
 msgid "Entire disk will be formatted"
-msgstr ""
+msgstr "முழு வட்டு வடிவமைக்கப்படும்"
 
 #: src/ui/pages/summary.rs:131
 msgid "User"
-msgstr ""
+msgstr "பயனர்"
 
 #: src/ui/pages/summary.rs:135 src/ui/pages/user.rs:70
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 #: src/ui/pages/summary.rs:153 src/ui/pages/user.rs:78
 msgid "Username"
-msgstr ""
+msgstr "பயனர்பெயர்"
 
 #: src/ui/pages/summary.rs:171 src/ui/pages/user.rs:148
 msgid "Hostname"
-msgstr ""
+msgstr "புரவலன்பெயர்"
 
 #. Translators: Leave the ':' at the end of the string, it will read Mountpoint: {disk mount location}
 #: src/ui/pages/summary.rs:298
 msgid "Mountpoint:"
-msgstr ""
+msgstr "மவுண்ட்பாயிண்ட்:"
 
 #. Translators: Leave the ':' at the end of the string, it will read Format: {disk format}
 #: src/ui/pages/summary.rs:318
 msgid "Format:"
-msgstr ""
+msgstr "வடிவம்:"
 
 #: src/ui/pages/summary.rs:325
 msgid "Do not format"
-msgstr ""
+msgstr "வடிவமைக்க வேண்டாம்"
 
 #: src/ui/pages/user.rs:62
 msgid "Create a new user"
-msgstr ""
+msgstr "புதிய பயனரை உருவாக்கவும்"
 
 #: src/ui/pages/user.rs:110
 msgid "Password"
-msgstr ""
+msgstr "கடவுச்சொல்"
 
 #: src/ui/pages/user.rs:118
 msgid "Confirm Password"
-msgstr ""
+msgstr "கடவுச்சொல்லை உறுதிப்படுத்தவும்"
 
 #: src/ui/pages/user.rs:125
 msgid "Log in automatically"
-msgstr ""
+msgstr "தானாக உள்நுழைக"
 
 #: src/ui/pages/user.rs:173
 msgid "Root password"
-msgstr ""
+msgstr "ரூட் கடவுச்சொல்"
 
 #: src/ui/pages/user.rs:181
 msgid "Confirm root password"
-msgstr ""
+msgstr "ரூட் கடவுச்சொல்லை உறுதிப்படுத்தவும்"
 
 #: src/ui/pages/welcome.rs:42
 msgid "Welcome!"
-msgstr ""
+msgstr "வரவேற்கிறோம்!"
 
 #: src/ui/pages/welcome.rs:47
 msgid "Choose a language"
-msgstr ""
+msgstr "ஒரு மொழியைத் தேர்வுசெய்க"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "{distribution name} Installer"
 #: src/ui/window.rs:171
 msgid "{} Installer"
-msgstr ""
+msgstr "{} நிறுவி"
 
 #: src/ui/window.rs:183
 msgid "Installing…"
-msgstr ""
+msgstr "நிறுவுதல்…"
 
 #: src/ui/window.rs:188
 msgid "Installation Finished"
-msgstr ""
+msgstr "நிறுவல் முடிந்தது"
 
 #: src/ui/window.rs:193
 msgid "Installation Failed"
-msgstr ""
+msgstr "நிறுவல் தோல்வியடைந்தது"
 
 #: src/ui/window.rs:303
 msgid "Finished!"
-msgstr ""
+msgstr "முடிந்தது!"
 
 #: src/ui/window.rs:315
 msgid "Reboot"
-msgstr ""
+msgstr "மறுதொடக்கம் செய்யுங்கள்"
 
 #: src/ui/window.rs:331
 msgid "No Internet"
-msgstr ""
+msgstr "இணையம் இல்லை"
 
 #: src/ui/window.rs:332
 msgid "Please connect to the Internet to continue"
-msgstr ""
+msgstr "தொடர இணையத்துடன் இணைக்கவும்"
 
 #. Translators: Do NOT translate the '{}'
 #. The string reads "Try {distribution name} live"
 #: src/ui/window.rs:501
 msgid "Try {} live"
-msgstr ""
+msgstr "{} வாழ முயற்சிக்கவும்"
 
 #: config/icicle/advanced.yml.in:2
 msgid "Advanced Installation"
-msgstr ""
+msgstr "மேம்பட்ட நிறுவல்"
 
 #: config/icicle/advanced.yml.in:15
 msgid "Extra Package Managers"
-msgstr ""
+msgstr "கூடுதல் தொகுப்பு மேலாளர்கள்"
 
 #: config/icicle/advanced.yml.in:19
 msgid "Enable Flatpak support"
-msgstr ""
+msgstr "பிளாட்பாக் ஆதரவை இயக்கவும்"
 
 #: config/icicle/advanced.yml.in:24
 msgid ""
 "Enable AppImage support by installing the \"appimage-run\" package. For "
 "AppImages to work, you must run them with the \"appimage-run\" command."
 msgstr ""
+"\"அபிமேச்-ரன்\" தொகுப்பை நிறுவுவதன் மூலம் சேர்க்கை ஆதரவை இயக்கவும். பயன்பாடுகள் வேலை செய்"
+"ய, நீங்கள் அவற்றை \"அபிமேச்-ரன்\" கட்டளையுடன் இயக்க வேண்டும்."
 
 #: config/icicle/advanced.yml.in:30
 msgid "Kernel"
-msgstr ""
+msgstr "கர்னல்"
 
 #: config/icicle/advanced.yml.in:34
 msgid "Install the latest LTS kernel"
-msgstr ""
+msgstr "அண்மைக் கால எல்.டி.எச் கர்னலை நிறுவவும்"
 
 #: config/icicle/advanced.yml.in:36
 msgid "Install the latest kernel"
-msgstr ""
+msgstr "அண்மைக் கால கர்னலை நிறுவவும்"
 
 #: config/icicle/advanced.yml.in:41
 msgid "Install the libre kernel"
-msgstr ""
+msgstr "லிப்ரே கர்னலை நிறுவவும்"
 
 #: config/icicle/advanced.yml.in:46
 msgid "Install the Zen kernel"
-msgstr ""
+msgstr "சென் கர்னலை நிறுவவும்"
 
 #: config/icicle/basic.yml.in:2
 msgid "Basic Installation"
-msgstr ""
+msgstr "அடிப்படை நிறுவல்"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:3
 msgid "Configurable and Customizable"
-msgstr ""
+msgstr "உள்ளமைக்கக்கூடிய மற்றும் தனிப்பயனாக்கக்கூடிய"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:4
 msgid ""
 "Easily modify and manage your system configuration with the power of NixOS"
 msgstr ""
+"நிக்சோசின் சக்தியுடன் உங்கள் கணினி உள்ளமைவை எளிதாக மாற்றவும் நிர்வகிக்கவும்"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:6
 msgid "Nix Package Manager"
-msgstr ""
+msgstr "நிக்ச் தொகுப்பு மேலாளர்"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:7
 msgid "Keep your system stable with Nix's reliable and reproducible packages"
 msgstr ""
+"நிக்சின் நம்பகமான மற்றும் இனப்பெருக்க தொகுப்புகளுடன் உங்கள் கணினியை நிலையானதாக "
+"வைத்திருங்கள்"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:9
 msgid "Over 80,000 packages available"
-msgstr ""
+msgstr "80,000 க்கும் மேற்பட்ட தொகுப்புகள் கிடைக்கின்றன"
 
 #: config/icicle/branding/snowflakeos/slides.yml.in:10
 msgid ""
 "Easily find and install all the packages you need on your SnowflakeOS system"
 msgstr ""
+"உங்கள் ச்னோஃப்ளேகியோச் கணினியில் உங்களுக்கு தேவையான அனைத்து தொகுப்புகளையும் எளிதாகக் "
+"கண்டுபிடித்து நிறுவவும்"
