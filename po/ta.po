@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: icicle\n"
 "Report-Msgid-Bugs-To: dev@snowflakeos.org\n"
 "POT-Creation-Date: 2023-01-11 02:18-0500\n"
-"PO-Revision-Date: 2025-03-04 08:48+0000\n"
+"PO-Revision-Date: 2025-04-21 02:02+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/snowflakeos/icicle/"
 "ta/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: data/org.snowflakeos.Icicle.desktop.in.in:3
 msgid "Install SnowflakeOS"
@@ -115,7 +115,7 @@ msgstr "<tt>/boot/efi </tt> பகிர்வு காணவில்லை"
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:176
 msgid "Missing <tt>/</tt> partition"
-msgstr "காணவில்லை <Tt>/</t> பகிர்வு"
+msgstr "காணவில்லை <tt>/</tt> பகிர்வு"
 
 #. Translators: Do NOT translate anything between the <tt> tags
 #: src/ui/pages/partitions.rs:178 src/ui/pages/partitions.rs:182
