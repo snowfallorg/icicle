@@ -26,7 +26,7 @@
 let
   convertyml = internal.convertyml;
 in
-stdenv.mkDerivation rec {
+stdenv.mkDerivation  {
   pname = "icicle";
   version = "0.0.2";
 
