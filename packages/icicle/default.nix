@@ -6,7 +6,7 @@
 , gettext
 , git
 , glib
-, gnome
+, adwaita-icon-theme
 , gnome-desktop
 , gtk4
 , internal
@@ -61,7 +61,7 @@ stdenv.mkDerivation rec {
     gdk-pixbuf
     glib
     gnome-desktop
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     gtk4
     libadwaita
     libgweather
