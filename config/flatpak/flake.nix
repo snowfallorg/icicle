@@ -2,14 +2,14 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-data = {
-      url = "github:snowflakelinux/nix-data";
+      url = "github:snowfallorg/nix-data";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     snowfall-lib = {
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    snowflakeos-modules.url = "github:snowflakelinux/snowflakeos-modules";
+    snowflakeos-modules.url = "github:snowfallorg/snowflakeos-modules";
   };
 
   outputs = inputs:
