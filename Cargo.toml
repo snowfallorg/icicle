@@ -5,11 +5,11 @@ edition = "2021"
 default-run = "icicle"
 
 [dependencies]
-relm4 = { version = "0.7.0-beta.2", features = ["libadwaita", "macros"]  }
-relm4-components = { package = "relm4-components", version = "0.7.0-beta.2"}
-adw = { package = "libadwaita", version = "0.5", features = ["v1_2", "gtk_v4_6"] }
-gtk = { package = "gtk4", version = "0.7", features = ["v4_6"] }
-glib = { package = "glib", version = "0.18", features = ["v2_68"] }
+relm4 = { version = "0.11", features = ["libadwaita", "macros"]  }
+relm4-components = { package = "relm4-components", version = "0.11"}
+adw = { package = "libadwaita", version = "0.9", features = ["v1_2", "gtk_v4_6"] }
+gtk = { package = "gtk4", version = "0.11", features = ["v4_6"] }
+glib = { package = "glib", version = "0.22", features = ["v2_68"] }
 tokio = { version = "1.32", features = ["full"] }
 tracker = "0.2"
 serde_json = "1.0"
@@ -27,7 +27,7 @@ libgweather = "4.3"
 
 size = "0.4"
 
-vte = { package = "vte4", git = "https://gitlab.gnome.org/vlinkz/vte4-rs", branch = "0.7" }
+vte4 = "0.10"
 
 distinst-disks = { git = "https://github.com/pop-os/distinst/" }
 
