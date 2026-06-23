@@ -1,32 +1,33 @@
-{ stdenv
-, appstream-glib
-, cargo
-, desktop-file-utils
-, gdk-pixbuf
-, gettext
-, git
-, glib
-, adwaita-icon-theme
-, gnome-desktop
-, gtk4
-, internal
-, libadwaita
-, libgweather
-, meson
-, ninja
-, openssl
-, parted
-, pkg-config
-, polkit
-, rustc
-, rustPlatform
-, vte-gtk4
-, wrapGAppsHook4
+{
+  stdenv,
+  appstream-glib,
+  cargo,
+  desktop-file-utils,
+  gdk-pixbuf,
+  gettext,
+  git,
+  glib,
+  adwaita-icon-theme,
+  gnome-desktop,
+  gtk4,
+  internal,
+  libadwaita,
+  libgweather,
+  meson,
+  ninja,
+  openssl,
+  parted,
+  pkg-config,
+  polkit,
+  rustc,
+  rustPlatform,
+  vte-gtk4,
+  wrapGAppsHook4,
 }:
 let
   convertyml = internal.convertyml;
 in
-stdenv.mkDerivation  {
+stdenv.mkDerivation {
   pname = "icicle";
   version = "0.0.2";
 
