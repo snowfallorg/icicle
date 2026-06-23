@@ -1,14 +1,22 @@
-{ options, config, lib, pkgs, ... }:
+{
+  options,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
   cfg = config.icicle;
-  icicle-autostart = pkgs.makeAutostartItem { name = "org.snowflakeos.Icicle"; package = pkgs.internal.icicle; };
+  icicle-autostart = pkgs.makeAutostartItem {
+    name = "org.snowflakeos.Icicle";
+    package = pkgs.internal.icicle;
+  };
 in
 {
   options.icicle = with types; {
-    enable =
-      mkEnableOption "Enable Icicle Installer";
+    enable = mkEnableOption "Enable Icicle Installer";
     config = mkOption {
       type = path;
       default = "${pkgs.internal.icicle}/etc/icicle";
