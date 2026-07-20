@@ -9,7 +9,10 @@
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    snowflakeos-modules.url = "github:snowfallorg/snowflakeos-modules";
+    snowflakeos-modules = {
+      url = "github:snowfallorg/snowflakeos-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
