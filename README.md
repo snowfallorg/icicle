@@ -5,8 +5,6 @@
 Icicle
 ===
 
-
-
 [![Built with Nix][builtwithnix badge]][builtwithnix]
 [![License: GPLv3][GPLv3 badge]][GPLv3]
 [![Chat on Matrix][matrix badge]][matrix]
@@ -15,12 +13,37 @@ Icicle
 
 A graphical installer for NixOS based distributions.
 
+## Development
+
+This application has Linux-only dependencies.
+
+```bash
+# download dependencies
+nix develop
+
+# with meson
+meson setup builddir --prefix=~/.local --reconfigure --buildtype=debug -Dprofile=development --reconfigure
+meson install -C builddir
+
+# Run
+# Avoid pkexec must be root error on devShell
+cd ..
+ ~/.local/bin/icicle
+
+# Or build with nix.
+nix build --show--trace
+
+# Optional. Generate translation words from /po/POTFILES.in if needed.
+cd ./po
+xgettext --directory=.. --files-from=POTFILES.in --from-code=UTF-8 -kgettext -o icicle.pot
+```
+
 <a href="https://hosted.weblate.org/engage/snowflakeos/">
 <img src="https://hosted.weblate.org/widgets/snowflakeos/-/icicle/multi-auto.svg" alt="Translation status"/>
 </a>
 
 <img src="data/screenshots/installing-light.png#gh-light-mode-only"/>
-<img src="data/screenshots/installing-dark.png#gh-dark-mode-only"/> 
+<img src="data/screenshots/installing-dark.png#gh-dark-mode-only"/>
 
 </div>
 
