@@ -1,40 +1,30 @@
 [package]
 name = "icicle"
 version = "0.0.2"
-edition = "2021"
+edition = "2024"
 default-run = "icicle"
 
 [dependencies]
-relm4 = { version = "0.11", features = ["libadwaita", "macros"]  }
+relm4 = { version = "0.11", features = ["libadwaita", "gnome_50", "macros"]  }
 relm4-components = { package = "relm4-components", version = "0.11"}
-adw = { package = "libadwaita", version = "0.9", features = ["v1_2", "gtk_v4_6"] }
-gtk = { package = "gtk4", version = "0.11", features = ["v4_6"] }
-glib = { package = "glib", version = "0.22", features = ["v2_68"] }
+vte = { package = "vte4", version = "0.10"}
+gettext-rs = { version = "0.7.7", features = ["gettext-system"] }
+gnome-desktop = { package = "gnome-desktop-xinux", version = "0.22" }
+libgweather = "4.8.0"
+
+anyhow = "1.0"
+regex = "1.13"
+reqwest = { version = "0.13", features = ["blocking"] }
 tokio = { version = "1.32", features = ["full"] }
 tracker = "0.2"
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 serde_yaml = "0.9"
-
-log = "0.4"
 simplelog = "0.12"
-
-anyhow = "1.0"
-
+size = "0.5"
+log = "0.4"
 isolang = "2.3.0"
-gnome-desktop = "0.4.2"
-libgweather = "4.3"
-
-size = "0.4"
-
-vte4 = "0.10"
-
 distinst-disks = { git = "https://github.com/pop-os/distinst/" }
-
-reqwest = { version = "0.11", features = ["blocking"] }
-
-gettext-rs = { version = "0.7", features = ["gettext-system"] }
-regex = "1.9"
 
 [workspace]
 members = [".", "icicle-helper"]
