@@ -12,6 +12,7 @@
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       alias.packages.default = "icicle";
+      alias.shells.default = "icicle";
       src = ./.;
       outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-tree; };
     };
