@@ -30,7 +30,7 @@ prefix = get_option('prefix')
 bindir = prefix / get_option('bindir')
 libexecdir = prefix / get_option('libexecdir')
 localedir = prefix / get_option('localedir')
-sysconfdir = '/' / get_option('sysconfdir')
+sysconfdir = prefix / get_option('sysconfdir')
 pkgconfdir = prefix / get_option('sysconfdir')
 
 datadir = prefix / get_option('datadir')
