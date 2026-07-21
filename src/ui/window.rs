@@ -34,6 +34,7 @@ use gettextrs::gettext;
 use log::{debug, error, info, trace, warn};
 use relm4::*;
 use std::{collections::HashMap, convert::identity, process::Command};
+use relm4::{gtk::{self, glib}};
 
 #[tracker::track]
 pub struct AppModel {
@@ -149,7 +150,7 @@ impl Component for AppModel {
                 if model.page == StackPage::Install {
                     let _ = quitdialog.send(QuitDialogMsg::Show);
                     glib::Propagation::Stop
-                } else {            
+                } else {
                     relm4::main_application().quit();
                     glib::Propagation::Proceed
                 }
@@ -346,7 +347,7 @@ impl Component for AppModel {
 
     fn init(
         _application: Self::Init,
-        root: &Self::Root,
+        root: Self::Root,
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
         let config = parse_config().expect("Failed to parse config");

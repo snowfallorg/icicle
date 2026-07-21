@@ -3,6 +3,8 @@ use adw::prelude::*;
 use gettextrs::gettext;
 use log::{debug, trace};
 use relm4::*;
+use relm4::{gtk::{self, glib}};
+
 
 #[tracker::track]
 pub struct UserModel {
@@ -191,7 +193,7 @@ impl SimpleComponent for UserModel {
 
     fn init(
         _parent_window: Self::Init,
-        root: &Self::Root,
+        root: Self::Root,
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
         let model = UserModel {

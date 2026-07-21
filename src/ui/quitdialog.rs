@@ -2,6 +2,7 @@ use super::window::AppMsg;
 use adw::prelude::*;
 use gettextrs::gettext;
 use relm4::*;
+use relm4::{gtk::{self, glib}};
 
 #[tracker::track]
 pub struct QuitDialogModel {
@@ -49,7 +50,7 @@ impl SimpleComponent for QuitDialogModel {
 
     fn init(
         init: Self::Init,
-        root: &Self::Root,
+        root: Self::Root,
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
         let model = QuitDialogModel {
