@@ -1,6 +1,6 @@
 use anyhow::{Context, Result};
-use gtk::glib::GString;
 use std::collections::HashMap;
+use relm4::{gtk::{self, glib::{self, GString}}};
 
 pub fn get_languages() -> HashMap<String, HashMap<String, String>> {
     let locale_codes = r#"

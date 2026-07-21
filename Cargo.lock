@@ -140,25 +140,6 @@ checksum = "72b3254f16251a8381aa12e40e3c4d2f0199f8c6508fbecb9d91f575e0fbb8c6"
 
 [[package]]
 name = "bindgen"
-version = "0.59.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2bd2a9a458e8f4304c52c43ebb0cfbd520289f8379a52e329a38afda99bf8eb8"
-dependencies = [
- "bitflags 1.3.2",
- "cexpr",
- "clang-sys",
- "lazy_static",
- "lazycell",
- "peeking_take_while",
- "proc-macro2",
- "quote",
- "regex",
- "rustc-hash 1.1.0",
- "shlex 1.3.0",
-]
-
-[[package]]
-name = "bindgen"
 version = "0.65.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cfdf7b466f9a4903edc73f95d6d2bcd5baf8ae620638762244d3f60143643cc5"
@@ -178,6 +159,26 @@ dependencies = [
  "shlex 1.3.0",
  "syn 2.0.119",
  "which",
+]
+
+[[package]]
+name = "bindgen"
+version = "0.72.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "993776b509cfb49c750f11b8f07a46fa23e0a1386ffc01fb1e7d343efc387895"
+dependencies = [
+ "bitflags 2.13.1",
+ "cexpr",
+ "clang-sys",
+ "itertools 0.13.0",
+ "log",
+ "prettyplease",
+ "proc-macro2",
+ "quote",
+ "regex",
+ "rustc-hash 2.1.3",
+ "shlex 1.3.0",
+ "syn 2.0.119",
 ]
 
 [[package]]
@@ -443,7 +444,7 @@ dependencies = [
 [[package]]
 name = "disk-types"
 version = "0.1.5"
-source = "git+https://github.com/pop-os/distinst/#16037d2aa56b5d81d458ed1a892e626eeb0c0ce8"
+source = "git+https://git.oss.uzinfocom.uz/xinux/distinst#90fa97d8e8fccefd9fdbcbc7f70455e7f6649762"
 dependencies = [
  "err-derive 0.3.1",
  "libparted",
@@ -468,12 +469,12 @@ dependencies = [
 [[package]]
 name = "distinst-bootloader"
 version = "0.1.0"
-source = "git+https://github.com/pop-os/distinst/#16037d2aa56b5d81d458ed1a892e626eeb0c0ce8"
+source = "git+https://git.oss.uzinfocom.uz/xinux/distinst#90fa97d8e8fccefd9fdbcbc7f70455e7f6649762"
 
 [[package]]
 name = "distinst-disk-ops"
 version = "0.1.0"
-source = "git+https://github.com/pop-os/distinst/#16037d2aa56b5d81d458ed1a892e626eeb0c0ce8"
+source = "git+https://git.oss.uzinfocom.uz/xinux/distinst#90fa97d8e8fccefd9fdbcbc7f70455e7f6649762"
 dependencies = [
  "derive-new",
  "disk-types",
@@ -482,7 +483,7 @@ dependencies = [
  "libparted",
  "log",
  "rayon",
- "smart-default",
+ "smart-default 0.6.0",
  "sys-mount",
  "tempdir",
 ]
@@ -490,7 +491,7 @@ dependencies = [
 [[package]]
 name = "distinst-disks"
 version = "0.1.0"
-source = "git+https://github.com/pop-os/distinst/#16037d2aa56b5d81d458ed1a892e626eeb0c0ce8"
+source = "git+https://git.oss.uzinfocom.uz/xinux/distinst#90fa97d8e8fccefd9fdbcbc7f70455e7f6649762"
 dependencies = [
  "bitflags 1.3.2",
  "derive-new",
@@ -503,7 +504,7 @@ dependencies = [
  "failure",
  "failure_derive",
  "fstab-generate",
- "itertools",
+ "itertools 0.10.5",
  "libc",
  "libparted",
  "log",
@@ -520,14 +521,14 @@ dependencies = [
 [[package]]
 name = "distinst-external-commands"
 version = "0.1.0"
-source = "git+https://github.com/pop-os/distinst/#16037d2aa56b5d81d458ed1a892e626eeb0c0ce8"
+source = "git+https://git.oss.uzinfocom.uz/xinux/distinst#90fa97d8e8fccefd9fdbcbc7f70455e7f6649762"
 dependencies = [
  "disk-types",
  "distinst-utils",
  "log",
  "proc-mounts",
  "rand 0.7.3",
- "smart-default",
+ "smart-default 0.6.0",
  "sys-mount",
  "tempdir",
 ]
@@ -535,7 +536,7 @@ dependencies = [
 [[package]]
 name = "distinst-utils"
 version = "0.1.0"
-source = "git+https://github.com/pop-os/distinst/#16037d2aa56b5d81d458ed1a892e626eeb0c0ce8"
+source = "git+https://git.oss.uzinfocom.uz/xinux/distinst#90fa97d8e8fccefd9fdbcbc7f70455e7f6649762"
 dependencies = [
  "sedregex",
 ]
@@ -606,33 +607,12 @@ dependencies = [
 
 [[package]]
 name = "errno"
-version = "0.2.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f639046355ee4f37944e44f60642c6f3a7efa3cf6b78c78a0d989a8ce6c396a1"
-dependencies = [
- "errno-dragonfly",
- "libc",
- "winapi",
-]
-
-[[package]]
-name = "errno"
 version = "0.3.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "39cab71617ae0d63f51a36d69f866391735b51691dbda63cf6f96d042b63efeb"
 dependencies = [
  "libc",
  "windows-sys 0.61.2",
-]
-
-[[package]]
-name = "errno-dragonfly"
-version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aa68f1b12764fab894d2755d2518754e71b4fd80ecfb822714a1206c2aab39bf"
-dependencies = [
- "cc",
- "libc",
 ]
 
 [[package]]
@@ -727,7 +707,7 @@ checksum = "42703706b716c37f96a77aea830392ad231f44c9e9a67872fa5548707e11b11c"
 [[package]]
 name = "fstab-generate"
 version = "0.1.2"
-source = "git+https://github.com/pop-os/distinst/#16037d2aa56b5d81d458ed1a892e626eeb0c0ce8"
+source = "git+https://git.oss.uzinfocom.uz/xinux/distinst#90fa97d8e8fccefd9fdbcbc7f70455e7f6649762"
 dependencies = [
  "disk-types",
  "partition-identity",
@@ -1384,7 +1364,7 @@ dependencies = [
  "libparted",
  "serde",
  "serde_json",
- "users",
+ "uzers",
 ]
 
 [[package]]
@@ -1532,6 +1512,15 @@ name = "itertools"
 version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b0fd2260e829bddf4cb6ea802289de2f86d6a7a690192fbe91b3f46e0f2c8473"
+dependencies = [
+ "either",
+]
+
+[[package]]
+name = "itertools"
+version = "0.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "413ee7dfc52ee1a4949ceeb7dbc8a33f2d6c088194d9f922fb8318faf1f01186"
 dependencies = [
  "either",
 ]
@@ -1742,13 +1731,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0ceec5bc11778974d1bcb055b18002eba7f4b3518b6a0081b3af5f21666da9ad"
 
 [[package]]
-name = "loopdev"
-version = "0.4.0"
+name = "loopdev-3"
+version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5bfa0855b04611e38acaff718542e9e809cddfc16535d39f9d9c694ab19f7388"
+checksum = "ff3f91f417dba260dff8932ea5ebc1eeaf8c74842555da5eb0ac7ef41176ce2b"
 dependencies = [
- "bindgen 0.59.2",
- "errno 0.2.8",
+ "bindgen 0.72.1",
+ "errno",
  "libc",
 ]
 
@@ -1904,7 +1893,7 @@ checksum = "7c87def4c32ab89d880effc9e097653c8da5d6ef28e6b539d313baaacfbafcbe"
 [[package]]
 name = "os-detect"
 version = "0.2.2"
-source = "git+https://github.com/pop-os/distinst/#16037d2aa56b5d81d458ed1a892e626eeb0c0ce8"
+source = "git+https://git.oss.uzinfocom.uz/xinux/distinst#90fa97d8e8fccefd9fdbcbc7f70455e7f6649762"
 dependencies = [
  "log",
  "os-release",
@@ -2482,7 +2471,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fdb5bc1ae2baa591800df16c9ca78619bf65c0488b41b96ccec5d11220d8c154"
 dependencies = [
  "bitflags 2.13.1",
- "errno 0.3.14",
+ "errno",
  "libc",
  "linux-raw-sys",
  "windows-sys 0.59.0",
@@ -2720,7 +2709,7 @@ version = "1.4.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c4db69cba1110affc0e9f7bcd48bbf87b3f4fc7c61fc9155afd4c469eb3d6c1b"
 dependencies = [
- "errno 0.3.14",
+ "errno",
  "libc",
 ]
 
@@ -2784,6 +2773,17 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
+]
+
+[[package]]
+name = "smart-default"
+version = "0.7.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0eb01866308440fc64d6c44d9e86c5cc17adfe33c4d6eed55da9145044d0ffc1"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.119",
 ]
 
 [[package]]
@@ -2899,14 +2899,14 @@ dependencies = [
 
 [[package]]
 name = "sys-mount"
-version = "1.5.1"
+version = "3.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5c1af10c09a6d1f65753e52772a4621e00da8b1d772d0f24595b60ccd36d6b51"
+checksum = "d361f5431256ea04c657c0dce767ad95e24fb054d99f0b8a9275cb1c9ea14bfb"
 dependencies = [
- "bitflags 1.3.2",
+ "bitflags 2.13.1",
  "libc",
- "loopdev",
- "smart-default",
+ "loopdev-3",
+ "smart-default 0.7.1",
  "thiserror 1.0.69",
  "tracing",
 ]
@@ -3329,16 +3329,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "users"
-version = "0.11.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "24cc0f6d6f267b73e5a2cadf007ba8f9bc39c6a6f9666f8cf25ea809a153b032"
-dependencies = [
- "libc",
- "log",
-]
-
-[[package]]
 name = "utf8_iter"
 version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3349,6 +3339,16 @@ name = "utf8parse"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "06abde3611657adf66d383f00b093d7faecc7fa57071cce2578660c9f1010821"
+
+[[package]]
+name = "uzers"
+version = "0.12.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0b8275fb1afee25b4111d2dc8b5c505dbbc4afd0b990cb96deb2d88bff8be18d"
+dependencies = [
+ "libc",
+ "log",
+]
 
 [[package]]
 name = "version-compare"

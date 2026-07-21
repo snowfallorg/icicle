@@ -24,7 +24,7 @@ simplelog = "0.12"
 size = "0.5"
 log = "0.4"
 isolang = "2.3.0"
-distinst-disks = { git = "https://github.com/pop-os/distinst/" }
+distinst-disks = { git = "https://git.oss.uzinfocom.uz/xinux/distinst" }
 
 [workspace]
 members = [".", "icicle-helper"]

@@ -1,11 +1,11 @@
 use crate::ui::window::AppMsg;
 use adw::prelude::*;
 use gettextrs::gettext;
-use glib::TimeZone;
 use gnome_desktop::{self, WallClockExt};
 use log::{trace, debug};
 use relm4::*;
 use std::{collections::HashMap, process::Command};
+use relm4::{gtk::{self, glib::{self, TimeZone}}};
 
 #[tracker::track]
 #[derive(Debug)]
@@ -88,7 +88,7 @@ impl SimpleComponent for TimeZoneModel {
 
     fn init(
         _parent_window: Self::Init,
-        root: &Self::Root,
+        root: Self::Root,
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
         let mut locvec: Vec<libgweather::Location> = vec![];
@@ -126,7 +126,7 @@ impl SimpleComponent for TimeZoneModel {
             selected = Some("America/New_York".to_string());
         }
         debug!("Selected timezone: {:?}", selected);
-        
+
         for tz in y.get(2..).unwrap() {
             if let (Some(country), Some(region)) = (
                 tz.identifier().split('/').next(),
