@@ -96,7 +96,7 @@ impl SimpleComponent for KeyboardModel {
 
     fn init(
         _parent_window: Self::Init,
-        root: &Self::Root,
+        root: Self::Root,
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
         println!("Keyboard init");

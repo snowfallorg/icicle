@@ -79,7 +79,7 @@ impl SimpleComponent for ListModel {
 
     fn init(
         init: Self::Init,
-        root: &Self::Root,
+        root: Self::Root,
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
         let mut choices = vec![];

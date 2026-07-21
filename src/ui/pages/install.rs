@@ -100,7 +100,7 @@ impl SimpleComponent for InstallModel {
 
     fn init(
         branding: Self::Init,
-        root: &Self::Root,
+        root: Self::Root,
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
         let mut model = InstallModel {
